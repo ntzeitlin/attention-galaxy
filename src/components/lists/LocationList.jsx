@@ -29,6 +29,12 @@ export const LocationList = ({ currentUser }) => {
         getLocationsByUserId(userId).then((data) => setLocationArray(data));
     };
 
+    // HANDLE CLICK FUNCTION
+    // CREATE NEW LOCATION IN DATABASE
+    // THEN TAKE YOU TO /LOCATIONS/edit/:locationId
+    // PREFILL FORM
+    // ON SAVE, TAKE YOU TO LOCATION DETAIL PAGE
+
     return (
         <Container>
             <Button
