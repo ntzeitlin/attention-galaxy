@@ -5,7 +5,7 @@
 import { useState } from "react";
 import { useEffect } from "react";
 import { getLocationsByUserId } from "../../services/locationService";
-import { Card, Container, Flex, Section, Text } from "@radix-ui/themes";
+import { Card, Container, Flex, Grid, Section, Text } from "@radix-ui/themes";
 import { Link } from "react-router-dom";
 
 export const LocationList = ({ currentUser }) => {
@@ -22,7 +22,7 @@ export const LocationList = ({ currentUser }) => {
     return (
         <Container>
             <Section>
-                <Flex direction="row" gap="4" wrap="wrap">
+                <Grid columns="3" gap="4">
                     {locationArray.map((locationObject) => {
                         return (
                             <Card key={`location-card-${locationObject.id}`}>
@@ -42,7 +42,7 @@ export const LocationList = ({ currentUser }) => {
                             </Card>
                         );
                     })}
-                </Flex>
+                </Grid>
             </Section>
         </Container>
     );
