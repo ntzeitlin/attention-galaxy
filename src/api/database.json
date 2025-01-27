@@ -4,18 +4,23 @@
       "id": 1,
       "userName": "john_doe",
       "fullName": "John Doe",
-      "emailAddress": "john@example.com"
+      "email": "john@example.com"
     },
     {
       "id": 2,
       "userName": "jane_smith",
       "fullName": "Jane Smith",
-      "emailAddress": "jane@example.com"
+      "email": "jane@example.com"
     },
     {
       "email": "test@test.com",
       "fullName": "Test User",
       "id": 3
+    },
+    {
+      "email": "testTwo@testTwo.com",
+      "fullName": "Test User Two",
+      "id": 4
     }
   ],
   "Locations": [
@@ -203,4 +208,3 @@
     }
   ]
 }
-
