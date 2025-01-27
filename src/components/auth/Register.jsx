@@ -62,7 +62,6 @@ export const Register = (props) => {
                             onChange={updateUser}
                             type="text"
                             id="fullName"
-                            className="auth-form-input"
                             placeholder="Enter your name"
                             required
                             autoFocus
@@ -75,7 +74,6 @@ export const Register = (props) => {
                             onChange={updateUser}
                             type="email"
                             id="email"
-                            className="auth-form-input"
                             placeholder="Email address"
                             required
                         />
@@ -87,7 +85,6 @@ export const Register = (props) => {
                             onChange={updateUser}
                             type="number"
                             id="cohort"
-                            className="auth-form-input"
                             placeholder="Cohort #"
                             required
                         />

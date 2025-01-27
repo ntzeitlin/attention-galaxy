@@ -1,0 +1,10 @@
+{
+  "users": [
+    {
+      "email": "test@test.com",
+      "fullName": "Test User",
+      "cohort": 23,
+      "id": 1
+    }
+  ]
+}
