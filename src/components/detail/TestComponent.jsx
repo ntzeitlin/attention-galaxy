@@ -1,12 +1,15 @@
 import { Button, Card, Container, Section } from "@radix-ui/themes";
 
-export const TestComponent = () => {
+export const TestComponent = ({ currentLocation }) => {
     return (
         <>
             <Container>
                 <Section>
                     <Card size="2">
-                        <>Test Component</>
+                        <div>
+                            Test Component for{" "}
+                            <strong>{currentLocation}</strong>
+                        </div>
                         <Button>test button</Button>
                     </Card>
                 </Section>

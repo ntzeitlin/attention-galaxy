@@ -1,10 +1,206 @@
 {
-  "users": [
+  "Users": [
+    {
+      "id": 1,
+      "userName": "john_doe",
+      "fullName": "John Doe",
+      "emailAddress": "john@example.com"
+    },
+    {
+      "id": 2,
+      "userName": "jane_smith",
+      "fullName": "Jane Smith",
+      "emailAddress": "jane@example.com"
+    },
     {
       "email": "test@test.com",
       "fullName": "Test User",
-      "cohort": 0,
-      "id": 1
+      "id": 3
+    }
+  ],
+  "Locations": [
+    {
+      "id": 1,
+      "name": "Main Office",
+      "address": "123 Main St, Springfield",
+      "description": "Corporate headquarters",
+      "gpscoords": "37.7749,-122.4194",
+      "userId": 1
+    },
+    {
+      "id": 2,
+      "name": "Warehouse",
+      "address": "456 Industrial Rd, Springfield",
+      "description": "Storage and distribution",
+      "gpscoords": "37.7750,-122.4183",
+      "userId": 1
+    },
+    {
+      "id": 3,
+      "name": "Field Station",
+      "address": "789 Rural Ave, Springfield",
+      "description": "Research facility",
+      "gpscoords": "37.7751,-122.4172",
+      "userId": 2
+    }
+  ],
+  "Projects": [
+    {
+      "id": 1,
+      "name": "Website Redesign",
+      "startdate": "2025-01-01",
+      "enddate": "2025-03-01",
+      "ageSinceTouch": 5
+    },
+    {
+      "id": 2,
+      "name": "Inventory System Overhaul",
+      "startdate": "2025-01-10",
+      "enddate": "2025-06-10",
+      "ageSinceTouch": 2
+    },
+    {
+      "id": 3,
+      "name": "Field Survey",
+      "startdate": "2025-01-15",
+      "enddate": "2025-04-15",
+      "ageSinceTouch": 10
+    },
+    {
+      "id": 4,
+      "name": "Resource Cataloging",
+      "startdate": "2025-01-20",
+      "enddate": "2025-05-20",
+      "ageSinceTouch": 8
+    }
+  ],
+  "Tasks": [
+    {
+      "id": 1,
+      "taskName": "Design Homepage",
+      "dateCreated": "2025-01-05",
+      "dateCompleted": null,
+      "projectId": 1,
+      "locationId": 1
+    },
+    {
+      "id": 2,
+      "taskName": "Audit Inventory",
+      "dateCreated": "2025-01-12",
+      "dateCompleted": null,
+      "projectId": 2,
+      "locationId": 2
+    },
+    {
+      "id": 3,
+      "taskName": "Field Data Collection",
+      "dateCreated": "2025-01-17",
+      "dateCompleted": null,
+      "projectId": 3,
+      "locationId": 3
+    },
+    {
+      "id": 4,
+      "taskName": "Catalog Rare Items",
+      "dateCreated": "2025-01-22",
+      "dateCompleted": null,
+      "projectId": 4,
+      "locationId": 3
+    }
+  ],
+  "TaskItems": [
+    {
+      "id": 1,
+      "taskId": 1,
+      "itemId": 1
+    },
+    {
+      "id": 2,
+      "taskId": 2,
+      "itemId": 2
+    }
+  ],
+  "Items": [
+    {
+      "id": 1,
+      "name": "Office Chair",
+      "description": "Ergonomic desk chair",
+      "quantity": 10,
+      "isObject": true,
+      "resourceLink": null,
+      "locationId": 1,
+      "userId": 1
+    },
+    {
+      "id": 2,
+      "name": "Warehouse Safety Manual",
+      "description": "Guidelines for warehouse safety",
+      "quantity": 1,
+      "isObject": false,
+      "resourceLink": "https://example.com/safety-manual",
+      "locationId": 2,
+      "userId": 1
+    }
+  ],
+  "locationLocations": [
+    {
+      "id": 1,
+      "parentLocation": 1,
+      "childLocation": 2
+    },
+    {
+      "id": 2,
+      "parentLocation": 2,
+      "childLocation": 3
+    }
+  ],
+  "ProjectLocations": [
+    {
+      "id": 1,
+      "locationId": 1,
+      "projectId": 1
+    },
+    {
+      "id": 2,
+      "locationId": 2,
+      "projectId": 2
+    },
+    {
+      "id": 3,
+      "locationId": 3,
+      "projectId": 3
+    },
+    {
+      "id": 4,
+      "locationId": 3,
+      "projectId": 4
+    }
+  ],
+  "UserProjects": [
+    {
+      "id": 1,
+      "projectId": 1,
+      "userId": 1,
+      "isOwner": true
+    },
+    {
+      "id": 2,
+      "projectId": 2,
+      "userId": 1,
+      "isOwner": true
+    },
+    {
+      "id": 3,
+      "projectId": 3,
+      "userId": 2,
+      "isOwner": true
+    },
+    {
+      "id": 4,
+      "projectId": 4,
+      "userId": 2,
+      "isOwner": true
     }
   ]
 }
+

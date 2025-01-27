@@ -18,7 +18,7 @@ export const NavBar = () => {
                     <Link to="/projects">Projects</Link>
                 </TabNav.Link>
                 <TabNav.Link asChild active={pathname === "/inventory"}>
-                    <Link to="/inventories">Inventory</Link>
+                    <Link to="/inventory">Inventory</Link>
                 </TabNav.Link>
                 <TabNav.Link asChild active={pathname === "/profile"}>
                     <Link to="/profile">Profile</Link>
