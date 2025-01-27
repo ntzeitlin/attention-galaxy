@@ -35,6 +35,24 @@ export const ApplicationViews = () => {
                     element={<LocationList currentUser={currentUser} />}
                 ></Route>
                 <Route
+                    path="locations/new"
+                    element={
+                        <TestComponent
+                            currentLocation={`New Location View for user #${currentUser.id}`}
+                        />
+                    }
+                />
+                <Route path="location">
+                    <Route
+                        path=":locationId"
+                        element={
+                            <TestComponent
+                                currentLocation={`Location Detail for user #${currentUser.id}`}
+                            />
+                        }
+                    />
+                </Route>
+                <Route
                     path="projects"
                     element={
                         <TestComponent

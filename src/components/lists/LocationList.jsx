@@ -5,11 +5,21 @@
 import { useState } from "react";
 import { useEffect } from "react";
 import { getLocationsByUserId } from "../../services/locationService";
-import { Card, Container, Flex, Grid, Section, Text } from "@radix-ui/themes";
-import { Link } from "react-router-dom";
+import {
+    Button,
+    Card,
+    Container,
+    Flex,
+    Grid,
+    Section,
+    Text,
+} from "@radix-ui/themes";
+import { Link, useNavigate } from "react-router-dom";
 
 export const LocationList = ({ currentUser }) => {
     const [locationArray, setLocationArray] = useState([]);
+
+    const navigate = useNavigate();
 
     useEffect(() => {
         fetchAndSetLocations(currentUser.id);
@@ -21,6 +31,15 @@ export const LocationList = ({ currentUser }) => {
 
     return (
         <Container>
+            <Button
+                mt="5"
+                mb="-6"
+                onClick={() => {
+                    navigate("/locations/new");
+                }}
+            >
+                Add Location
+            </Button>
             <Section>
                 <Grid columns="3" gap="4">
                     {locationArray.map((locationObject) => {
