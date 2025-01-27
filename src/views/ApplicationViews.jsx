@@ -3,6 +3,7 @@ import { TestComponent } from "../components/detail/TestComponent";
 import { NavBar } from "../components/nav/NavBar";
 import { Footer } from "../components/nav/Footer";
 import { useEffect, useState } from "react";
+import { LocationList } from "../components/lists/LocationList";
 
 export const ApplicationViews = () => {
     const [currentUser, setCurrentUser] = useState({});
@@ -31,11 +32,7 @@ export const ApplicationViews = () => {
                 />
                 <Route
                     path="locations"
-                    element={
-                        <TestComponent
-                            currentLocation={`Locations for user #${currentUser.id}`}
-                        />
-                    }
+                    element={<LocationList currentUser={currentUser} />}
                 ></Route>
                 <Route
                     path="projects"
