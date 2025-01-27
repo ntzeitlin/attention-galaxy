@@ -1,5 +1,4 @@
 import { Button, Card, Container, Section } from "@radix-ui/themes";
-import { Header } from "@radix-ui/themes/components/table";
 
 export const TestComponent = () => {
     return (
@@ -7,7 +6,7 @@ export const TestComponent = () => {
             <Container>
                 <Section>
                     <Card size="2">
-                        <Header>Test Component</Header>
+                        <>Test Component</>
                         <Button>test button</Button>
                     </Card>
                 </Section>
