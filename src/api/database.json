@@ -3,7 +3,7 @@
     {
       "email": "test@test.com",
       "fullName": "Test User",
-      "cohort": 23,
+      "cohort": 0,
       "id": 1
     }
   ]

@@ -81,17 +81,6 @@ export const Register = (props) => {
                 </fieldset>
                 <fieldset className="auth-fieldset">
                     <div>
-                        <input
-                            onChange={updateUser}
-                            type="number"
-                            id="cohort"
-                            placeholder="Cohort #"
-                            required
-                        />
-                    </div>
-                </fieldset>
-                <fieldset className="auth-fieldset">
-                    <div>
                         <button type="submit">Register</button>
                     </div>
                 </fieldset>
