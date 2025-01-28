@@ -138,38 +138,6 @@
       "startdate": "2025-04-01",
       "enddate": "2025-07-01",
       "ageSinceTouch": 3
-    },
-    {
-      "name": "Creating a New Project",
-      "statedate": "",
-      "enddate": "end date",
-      "ageSinceTouch": 0,
-      "id": 8,
-      "startdate": "start date",
-      "description": "changed description"
-    },
-    {
-      "name": "",
-      "startdate": "",
-      "enddate": "",
-      "ageSinceTouch": 0,
-      "id": 9
-    },
-    {
-      "name": "New Project",
-      "startdate": "kdsjflj",
-      "enddate": "dlksjfsldk",
-      "ageSinceTouch": 0,
-      "id": 10,
-      "description": "lkdjfslksd"
-    },
-    {
-      "name": "here is a new project",
-      "startdate": "lksdjflk",
-      "enddate": "sldkjfsl ",
-      "ageSinceTouch": 0,
-      "id": 11,
-      "description": "lkjsdfkj"
     }
   ],
   "tasks": [
@@ -287,21 +255,6 @@
       "id": 7,
       "locationId": 1,
       "projectId": 7
-    },
-    {
-      "locationId": 1,
-      "projectId": 8,
-      "id": 8
-    },
-    {
-      "locationId": 1,
-      "projectId": 10,
-      "id": 9
-    },
-    {
-      "locationId": null,
-      "projectId": 11,
-      "id": 10
     }
   ],
   "userprojects": [
@@ -328,24 +281,6 @@
       "projectId": 4,
       "userId": 2,
       "isOwner": true
-    },
-    {
-      "projectId": 8,
-      "userId": 1,
-      "isOwner": true,
-      "id": 5
-    },
-    {
-      "projectId": 10,
-      "userId": 1,
-      "isOwner": true,
-      "id": 6
-    },
-    {
-      "projectId": 11,
-      "userId": 1,
-      "isOwner": true,
-      "id": 7
     }
   ]
 }
