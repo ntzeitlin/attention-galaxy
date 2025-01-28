@@ -6,6 +6,7 @@ import { useEffect, useState } from "react";
 import { LocationList } from "../components/lists/LocationList";
 import { NewLocation } from "../components/forms/NewLocation";
 import { LocationDetail } from "../components/detail/LocationDetail";
+import { ProjectList } from "../components/lists/ProjectsList";
 
 export const ApplicationViews = () => {
     const [currentUser, setCurrentUser] = useState({});
@@ -53,11 +54,7 @@ export const ApplicationViews = () => {
                 </Route>
                 <Route
                     path="projects"
-                    element={
-                        <TestComponent
-                            currentLocation={`Projects for user #${currentUser.id}`}
-                        />
-                    }
+                    element={<ProjectList currentUser={currentUser} />}
                 ></Route>
                 <Route
                     path="inventory"
