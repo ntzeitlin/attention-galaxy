@@ -18,8 +18,19 @@ import { getLocationInfoByProjectId } from "../../services/locationService";
 export const ProjectDetail = ({ currentUser }) => {
     const navigate = useNavigate();
     const { projectId } = useParams();
-    const [projectData, setProjectData] = useState({});
-    const [locationData, setLocationData] = useState("");
+    const [projectData, setProjectData] = useState({
+        name: "",
+        startdate: "",
+        enddate: "",
+        ageSinceTouch: 0,
+    });
+    const [locationData, setLocationData] = useState({
+        name: "",
+        address: "",
+        description: "",
+        gpsrecords: "",
+        userId: currentUser.id,
+    });
 
     useEffect(() => {
         getProjectInfoByProjectId(projectId).then((data) =>
