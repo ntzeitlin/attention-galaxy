@@ -14,6 +14,12 @@ export const getLocationByLocationId = async (locationId) => {
     return data
 }
 
+export const getProjectsByLocationId = async (locationId) => {
+    const response = await fetch(`http://localhost:8088/projectlocations?locationId=${locationId}&_expand=project`)
+    const data = await response.json()
+    return data 
+}
+
 
 
 // SETTERS

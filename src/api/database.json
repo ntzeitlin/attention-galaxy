@@ -1,5 +1,5 @@
 {
-  "Users": [
+  "users": [
     {
       "id": 1,
       "userName": "john_doe",
@@ -23,7 +23,7 @@
       "id": 4
     }
   ],
-  "Locations": [
+  "locations": [
     {
       "id": 1,
       "name": "Main Office",
@@ -89,7 +89,7 @@
       "id": 8
     }
   ],
-  "Projects": [
+  "projects": [
     {
       "id": 1,
       "name": "Website Redesign",
@@ -117,9 +117,30 @@
       "startdate": "2025-01-20",
       "enddate": "2025-05-20",
       "ageSinceTouch": 8
+    },
+    {
+      "id": 5,
+      "name": "Employee Onboarding Program",
+      "startdate": "2025-02-01",
+      "enddate": "2025-04-01",
+      "ageSinceTouch": 15
+    },
+    {
+      "id": 6,
+      "name": "Office Renovation",
+      "startdate": "2025-03-01",
+      "enddate": "2025-06-01",
+      "ageSinceTouch": 7
+    },
+    {
+      "id": 7,
+      "name": "IT Infrastructure Upgrade",
+      "startdate": "2025-04-01",
+      "enddate": "2025-07-01",
+      "ageSinceTouch": 3
     }
   ],
-  "Tasks": [
+  "tasks": [
     {
       "id": 1,
       "taskName": "Design Homepage",
@@ -153,7 +174,7 @@
       "locationId": 3
     }
   ],
-  "TaskItems": [
+  "taskitems": [
     {
       "id": 1,
       "taskId": 1,
@@ -165,7 +186,7 @@
       "itemId": 2
     }
   ],
-  "Items": [
+  "items": [
     {
       "id": 1,
       "name": "Office Chair",
@@ -187,7 +208,7 @@
       "userId": 1
     }
   ],
-  "locationLocations": [
+  "locationlocations": [
     {
       "id": 1,
       "parentLocation": 1,
@@ -199,7 +220,7 @@
       "childLocation": 3
     }
   ],
-  "ProjectLocations": [
+  "projectlocations": [
     {
       "id": 1,
       "locationId": 1,
@@ -219,9 +240,24 @@
       "id": 4,
       "locationId": 3,
       "projectId": 4
+    },
+    {
+      "id": 5,
+      "locationId": 1,
+      "projectId": 5
+    },
+    {
+      "id": 6,
+      "locationId": 1,
+      "projectId": 6
+    },
+    {
+      "id": 7,
+      "locationId": 1,
+      "projectId": 7
     }
   ],
-  "UserProjects": [
+  "userprojects": [
     {
       "id": 1,
       "projectId": 1,
