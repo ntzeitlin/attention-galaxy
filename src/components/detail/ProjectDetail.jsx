@@ -9,14 +9,17 @@ import {
 } from "@radix-ui/themes";
 import { useEffect, useState } from "react";
 import { useLocation, useNavigate, useParams } from "react-router-dom";
-import { getProjectInfoByProjectId } from "../../services/projectService";
+import {
+    getProjectInfoByLocationId,
+    getProjectInfoByProjectId,
+} from "../../services/projectService";
+import { getLocationInfoByProjectId } from "../../services/locationService";
 
 export const ProjectDetail = ({ currentUser }) => {
     const navigate = useNavigate();
     const { projectId } = useParams();
-    const { state } = useLocation();
     const [projectData, setProjectData] = useState({});
-    const [locationId, setLocationId] = useState("");
+    const [locationData, setLocationData] = useState("");
 
     useEffect(() => {
         getProjectInfoByProjectId(projectId).then((data) =>
@@ -25,8 +28,10 @@ export const ProjectDetail = ({ currentUser }) => {
     }, [currentUser]);
 
     useEffect(() => {
-        setLocationId(state.locationId);
-    }, [state]);
+        getLocationInfoByProjectId(projectId).then((data) =>
+            setLocationData(data[0])
+        );
+    }, [projectId]);
 
     //WILL HAVE A TASK SECTION
 
@@ -35,6 +40,10 @@ export const ProjectDetail = ({ currentUser }) => {
             <Heading align="center" mt="4">
                 Project Details
             </Heading>
+            <Heading size="4" align="center" mt="2" mb="-3">
+                {locationData.location?.name}{" "}
+            </Heading>
+
             <Section>
                 <Flex direction="column">
                     <TextField.Root
@@ -69,7 +78,6 @@ export const ProjectDetail = ({ currentUser }) => {
                             onClick={() => {
                                 navigate(`edit`, {
                                     state: {
-                                        locationId: locationId,
                                         edit: true,
                                     },
                                 });

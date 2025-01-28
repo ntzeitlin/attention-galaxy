@@ -16,13 +16,17 @@ import {
     TextArea,
     TextField,
 } from "@radix-ui/themes";
-import { getLocationByLocationId } from "../../services/locationService";
+import {
+    getLocationByLocationId,
+    getLocationInfoByProjectId,
+} from "../../services/locationService";
 
 export const NewProject = ({ currentUser }) => {
     const { projectId } = useParams();
-    const { state } = useLocation();
     const navigate = useNavigate();
+    const { state } = useLocation();
 
+    const [locationData, setLocationData] = useState({});
     const [locationName, setLocationName] = useState("");
 
     const [projectData, setProjectData] = useState({
@@ -51,12 +55,31 @@ export const NewProject = ({ currentUser }) => {
         );
     }, []);
 
+    // why is this not running?
+    useEffect(() => {
+        getLocationInfoByProjectId(projectData.id).then((data) =>
+            setLocationData(data[0])
+        );
+    }, [projectId]);
+
+    // getLocationInfoByProjectId(projectId).then((data) =>
+    //     // setLocationData(data[0])
+    //     console.log(data)
+    // );
+
+    // useEffect(() => {
+    //     getLocationByLocationId(locationData.locationId).then((data) =>
+    //         setLocationName(data.name)
+    //     );
+    // }, [locationData]);
+
     useEffect(() => {
         const copyProjectLocationData = { ...projectLocationData };
+        // LOCATION ID IS NOT PROPERLY GETTING PASSED IN
         copyProjectLocationData.locationId = parseInt(state.locationId);
         copyProjectLocationData.projectId = parseInt(projectId);
         setProjectLocationData(copyProjectLocationData);
-    }, [state, projectId]);
+    }, [projectId]);
 
     useEffect(() => {
         const copyUserProjectData = { ...userProjectsData };
@@ -65,18 +88,12 @@ export const NewProject = ({ currentUser }) => {
         setUserProjectsData(copyUserProjectData);
     }, [currentUser, projectId]);
 
-    useEffect(() => {
-        getLocationByLocationId(state.locationId).then((data) =>
-            setLocationName(data.name)
-        );
-    }, [state]);
-
     const handleSaveProject = () => {
         // update project info
         updateProjectByProjectId(projectId, projectData);
 
         // see if I am editing or starting a new project...
-        if (state.edit !== true) {
+        if (state?.edit !== true) {
             // create new projectlocatio
             createProjectLocation(projectLocationData);
 
@@ -84,9 +101,7 @@ export const NewProject = ({ currentUser }) => {
             createUserProjects(userProjectsData);
         }
 
-        navigate(`/project/${projectId}`, {
-            state: { locationId: state.locationId },
-        });
+        navigate(`/project/${projectId}`);
     };
 
     return (

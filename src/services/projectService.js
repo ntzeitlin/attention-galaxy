@@ -11,10 +11,11 @@ export const getProjectInfoByLocationId = async (locationId) => {
 
 }
 
+
 export const createNewProject = async () => {
     const projectSubmissionObject = {
         name: "",
-        statedate: "",
+        startdate: "",
         enddate: "",
         ageSinceTouch: 0
     }

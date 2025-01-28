@@ -2,14 +2,9 @@ import { Card } from "@radix-ui/themes";
 import { Link, useParams } from "react-router-dom";
 
 export const ProjectSummaryCard = ({ projectObject }) => {
-    const { locationId } = useParams();
-
     return (
         <Card m="2">
-            <Link
-                to={`/project/${projectObject.project?.id}`}
-                state={locationId}
-            >
+            <Link to={`/project/${projectObject.project?.id}`}>
                 {projectObject.project?.name}
             </Link>
         </Card>
