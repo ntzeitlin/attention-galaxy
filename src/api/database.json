@@ -79,14 +79,6 @@
       "description": "Facility for customer interactions and support.",
       "gpscoords": "37.7747,-122.4190",
       "userId": 1
-    },
-    {
-      "name": "Test Location Name",
-      "address": "Test Address",
-      "description": "Test Description",
-      "gpscoords": "Test GPS",
-      "userId": 3,
-      "id": 8
     }
   ],
   "projects": [

@@ -57,9 +57,7 @@ export const ProjectList = ({ currentUser }) => {
                                         size="1"
                                         color="green"
                                         onClick={() => {
-                                            handleNewProject(
-                                                locationObject.locationId
-                                            );
+                                            handleNewProject(locationObject.id);
                                         }}
                                     >
                                         Add Project
