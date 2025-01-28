@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { getProjectsByLocationId } from "../../services/locationService";
 import { Card } from "@radix-ui/themes";
+import { ProjectSummaryCard } from "./ProjectSummaryCard";
 
 export const ProjectNameCard = ({ locationId }) => {
     const [projectList, setProjectList] = useState([]);
@@ -13,9 +14,10 @@ export const ProjectNameCard = ({ locationId }) => {
 
     return projectList.map((projectLocation) => {
         return (
-            <Card m="2" key={projectLocation.projectId}>
-                {projectLocation.project?.name}
-            </Card>
+            <ProjectSummaryCard
+                key={`project-summary-card-${projectLocation.id}`}
+                projectObject={projectLocation}
+            />
         );
     });
 };
