@@ -51,6 +51,14 @@ export const ApplicationViews = () => {
                             />
                         }
                     />
+                    <Route
+                        path=":locationId/edit"
+                        element={
+                            <TestComponent
+                                currentLocation={`Location Edit Detail for user #${currentUser.id}`}
+                            />
+                        }
+                    />
                 </Route>
                 <Route
                     path="projects"

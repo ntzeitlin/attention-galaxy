@@ -79,6 +79,14 @@
       "description": "Facility for customer interactions and support.",
       "gpscoords": "37.7747,-122.4190",
       "userId": 1
+    },
+    {
+      "name": "",
+      "address": "",
+      "description": "",
+      "gpscoords": "",
+      "userId": 1,
+      "id": 8
     }
   ],
   "Projects": [
