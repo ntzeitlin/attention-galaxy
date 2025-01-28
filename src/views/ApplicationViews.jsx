@@ -5,6 +5,7 @@ import { Footer } from "../components/nav/Footer";
 import { useEffect, useState } from "react";
 import { LocationList } from "../components/lists/LocationList";
 import { NewLocation } from "../components/forms/NewLocation";
+import { LocationDetail } from "../components/detail/LocationDetail";
 
 export const ApplicationViews = () => {
     const [currentUser, setCurrentUser] = useState({});
@@ -46,11 +47,7 @@ export const ApplicationViews = () => {
                 <Route path="location">
                     <Route
                         path=":locationId"
-                        element={
-                            <TestComponent
-                                currentLocation={`Location Detail for user #${currentUser.id}`}
-                            />
-                        }
+                        element={<LocationDetail currentUser={currentUser} />}
                     />
                     <Route path=":locationId/edit" element={<NewLocation />} />
                 </Route>

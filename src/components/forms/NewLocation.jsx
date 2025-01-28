@@ -36,7 +36,9 @@ export const NewLocation = () => {
     }, []);
 
     const handleSaveLocation = () => {
-        updateLocationByLocationId(locationId, locationData);
+        updateLocationByLocationId(locationId, locationData).then(
+            navigate(`/location/${locationId}`)
+        );
     };
 
     const handleDeleteLocation = () => {
