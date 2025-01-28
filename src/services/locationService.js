@@ -1,8 +1,23 @@
+
+// GETTERS
+
 export const getLocationsByUserId = async (userId) => {
     const response = await fetch(`http://localhost:8088/locations?userId=${userId}`)
     const data = await response.json()
     return data
 } 
+
+export const getLocationByLocationId = async (locationId) => {
+    const response = await fetch(`http://localhost:8088/locations/${locationId}`)
+    const data = await response.json()
+
+    return data
+}
+
+
+
+// SETTERS
+
 
 export const createNewLocationByUserId = async (userId) => {
     const newLocationObject = {
@@ -21,4 +36,25 @@ export const createNewLocationByUserId = async (userId) => {
     })
     const data = await response.json()
     return data
+}
+
+export const updateLocationByLocationId = async (locationId, submissionObject) => {
+    const response = await fetch(`http://localhost:8088/locations/${locationId}`, {
+        method: "PUT",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(submissionObject)
+    })
+    const data = await response.json()
+    return data
+}
+
+export const deleteLocationByLocationId = async (locationId) => {
+    const response = await fetch(`http://localhost:8088/locations/${locationId}`, {
+        method: "DELETE",
+        headers: {
+            "Content-Type": "application/json"
+        }
+    })
 }

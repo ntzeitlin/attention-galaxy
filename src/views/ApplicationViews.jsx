@@ -4,6 +4,7 @@ import { NavBar } from "../components/nav/NavBar";
 import { Footer } from "../components/nav/Footer";
 import { useEffect, useState } from "react";
 import { LocationList } from "../components/lists/LocationList";
+import { NewLocation } from "../components/forms/NewLocation";
 
 export const ApplicationViews = () => {
     const [currentUser, setCurrentUser] = useState({});
@@ -51,14 +52,7 @@ export const ApplicationViews = () => {
                             />
                         }
                     />
-                    <Route
-                        path=":locationId/edit"
-                        element={
-                            <TestComponent
-                                currentLocation={`Location Edit Detail for user #${currentUser.id}`}
-                            />
-                        }
-                    />
+                    <Route path=":locationId/edit" element={<NewLocation />} />
                 </Route>
                 <Route
                     path="projects"
