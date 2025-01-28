@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { getProjectsByLocationId } from "../../services/locationService";
-import { Card } from "@radix-ui/themes";
+
 import { ProjectSummaryCard } from "./ProjectSummaryCard";
 
 export const ProjectNameCard = ({ locationId }) => {

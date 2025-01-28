@@ -1,3 +1,5 @@
+import { useEffect, useState } from "react";
+import { getLocationsByUserId } from "../../services/locationService";
 import {
     Button,
     Card,
@@ -8,12 +10,10 @@ import {
     Section,
     Text,
 } from "@radix-ui/themes";
-import { useEffect, useState } from "react";
-import { getLocationsByUserId } from "../../services/locationService";
 import { Link } from "react-router-dom";
-import { ProjectNameCard } from "../card/ProjectNameList";
+import { ItemList } from "../card/ItemList";
 
-export const ProjectList = ({ currentUser }) => {
+export const InventoryList = ({ currentUser }) => {
     const [locationArray, setLocationArray] = useState([]);
 
     useEffect(() => {
@@ -25,7 +25,7 @@ export const ProjectList = ({ currentUser }) => {
     return (
         <Container>
             <Heading align="center" mt="8" mb="-5">
-                Projects
+                Inventory
             </Heading>
             <Section>
                 <Grid columns="3" gap="2">
@@ -43,12 +43,13 @@ export const ProjectList = ({ currentUser }) => {
                                             {locationObject.name}
                                         </Link>
                                     </Text>
-                                    <Button m="2" size="1" color="green">
-                                        Add Project
+                                    <Button m="2" size="1" color="purple">
+                                        Add Item
                                     </Button>
                                 </Flex>
-                                <ProjectNameCard
+                                <ItemList
                                     locationId={locationObject.id}
+                                    currentUser={currentUser}
                                 />
                             </Card>
                         );

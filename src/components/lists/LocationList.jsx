@@ -9,11 +9,13 @@ import {
     getLocationsByUserId,
 } from "../../services/locationService";
 import {
+    Box,
     Button,
     Card,
     Container,
     Flex,
     Grid,
+    Heading,
     Section,
     Text,
 } from "@radix-ui/themes";
@@ -40,15 +42,21 @@ export const LocationList = ({ currentUser }) => {
 
     return (
         <Container>
-            <Button
-                mt="5"
-                mb="-6"
-                onClick={() => {
-                    handleAddLocation();
-                }}
-            >
-                Add Location
-            </Button>
+            <Heading align="center" mt="8" mb="-5">
+                Locations
+            </Heading>
+            <Box align="center">
+                <Button
+                    size="1"
+                    mt="7"
+                    mb="-6"
+                    onClick={() => {
+                        handleAddLocation();
+                    }}
+                >
+                    Add Location
+                </Button>
+            </Box>
             <Section>
                 <Grid columns="3" gap="4">
                     {locationArray.map((locationObject) => {
