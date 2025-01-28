@@ -14,6 +14,7 @@ import {
 } from "../../services/locationService";
 import { useParams } from "react-router-dom";
 import { LocationInfoCard } from "../card/LocationInfo";
+import { ProjectSummaryCard } from "../card/ProjectSummaryCard";
 
 export const LocationDetail = ({ currentUser }) => {
     const { locationId } = useParams();
@@ -59,12 +60,10 @@ export const LocationDetail = ({ currentUser }) => {
                         <Flex direction="column">
                             {locationProjects.map((projectObject) => {
                                 return (
-                                    <Card
-                                        m="2"
+                                    <ProjectSummaryCard
                                         key={`location-project-${projectObject.project?.id}`}
-                                    >
-                                        {projectObject.project?.name}
-                                    </Card>
+                                        projectObject={projectObject}
+                                    />
                                 );
                             })}
                         </Flex>
