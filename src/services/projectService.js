@@ -67,3 +67,12 @@ export const createUserProjects = async (submissionObject) => {
     const data = response.json()
     return data
 }
+
+export const deleteProjectByProjectId = async (projectId) => {
+    const response = await fetch(`http://localhost:8088/projects/${projectId}`, {
+        method: "DELETE",
+        headers: {
+            "Content-Type": "application/json"
+        }
+    })
+}

@@ -3,6 +3,7 @@ import { useLocation, useNavigate, useParams } from "react-router-dom";
 import {
     createProjectLocation,
     createUserProjects,
+    deleteProjectByProjectId,
     getProjectInfoByProjectId,
     updateProjectByProjectId,
 } from "../../services/projectService";
@@ -16,18 +17,11 @@ import {
     TextArea,
     TextField,
 } from "@radix-ui/themes";
-import {
-    getLocationByLocationId,
-    getLocationInfoByProjectId,
-} from "../../services/locationService";
 
 export const NewProject = ({ currentUser }) => {
     const { projectId } = useParams();
     const navigate = useNavigate();
     const { state } = useLocation();
-
-    const [locationData, setLocationData] = useState({});
-    const [locationName, setLocationName] = useState("");
 
     const [projectData, setProjectData] = useState({
         id: "",
@@ -55,28 +49,9 @@ export const NewProject = ({ currentUser }) => {
         );
     }, []);
 
-    // why is this not running?
-    useEffect(() => {
-        getLocationInfoByProjectId(projectData.id).then((data) =>
-            setLocationData(data[0])
-        );
-    }, [projectId]);
-
-    // getLocationInfoByProjectId(projectId).then((data) =>
-    //     // setLocationData(data[0])
-    //     console.log(data)
-    // );
-
-    // useEffect(() => {
-    //     getLocationByLocationId(locationData.locationId).then((data) =>
-    //         setLocationName(data.name)
-    //     );
-    // }, [locationData]);
-
     useEffect(() => {
         const copyProjectLocationData = { ...projectLocationData };
-        // LOCATION ID IS NOT PROPERLY GETTING PASSED IN
-        copyProjectLocationData.locationId = parseInt(state.locationId);
+        copyProjectLocationData.locationId = parseInt(state?.locationId);
         copyProjectLocationData.projectId = parseInt(projectId);
         setProjectLocationData(copyProjectLocationData);
     }, [projectId]);
@@ -104,14 +79,15 @@ export const NewProject = ({ currentUser }) => {
         navigate(`/project/${projectId}`);
     };
 
+    const handleDeleteProject = () => {
+        deleteProjectByProjectId(projectId).then(navigate("/projects"));
+    };
+
     return (
         <Container width="60%" m="5">
             <Card>
                 <Heading align="center" mt="4">
                     Edit Project
-                </Heading>
-                <Heading size="4" align="center" mt="2" mb="-3">
-                    {locationName ? locationName : ""}
                 </Heading>
 
                 <Section>
@@ -178,7 +154,7 @@ export const NewProject = ({ currentUser }) => {
                             m="2"
                             color="red"
                             onClick={() => {
-                                window.alert("BUILD DELET");
+                                handleDeleteProject();
                             }}
                         >
                             Delete Project
