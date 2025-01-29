@@ -12,7 +12,11 @@ import { useEffect, useState } from "react";
 import { getLocationsByUserId } from "../../services/locationService";
 import { Link, useNavigate } from "react-router-dom";
 import { ProjectNameCard } from "../card/ProjectNameList";
-import { createNewProject } from "../../services/projectService";
+import {
+    createNewProject,
+    createProjectLocation,
+    createUserProjects,
+} from "../../services/projectService";
 
 export const ProjectList = ({ currentUser }) => {
     const navigate = useNavigate();
@@ -26,9 +30,25 @@ export const ProjectList = ({ currentUser }) => {
     }, [currentUser]);
 
     const handleNewProject = (locationId) => {
-        createNewProject().then((data) =>
-            navigate(`/project/${data.id}/edit`, { state: { locationId } })
-        );
+        let updatedProjectId = null;
+        createNewProject()
+            .then((data) => {
+                updatedProjectId = parseInt(data.id);
+                createProjectLocation({
+                    locationId: parseInt(locationId),
+                    projectId: updatedProjectId,
+                });
+                createUserProjects({
+                    userId: parseInt(currentUser.id),
+                    projectId: updatedProjectId,
+                    isOwner: true,
+                });
+            })
+            .then(() => {
+                navigate(`/project/${updatedProjectId}/edit`, {
+                    state: { locationId },
+                });
+            });
     };
 
     return (
