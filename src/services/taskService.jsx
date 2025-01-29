@@ -37,3 +37,12 @@ export const updateTaskByTaskId = async (taskId, submissionObject) => {
     const data = response.json();
     return data;
 };
+
+export const deleteTaskByTaskId = async (taskId) => {
+    const response = await fetch(`http://localhost:8088/tasks/${taskId}`, {
+        method: "DELETE",
+        headers: {
+            "Content-Type": "application/json",
+        },
+    });
+};

@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import {
+    deleteTaskByTaskId,
     getTaskByTaskId,
     updateTaskByTaskId,
 } from "../../services/taskService";
@@ -44,6 +45,12 @@ export const NewTask = () => {
         };
 
         updateTaskByTaskId(taskId, submissionObject).then(
+            navigate(`/project/${taskData.projectId}`)
+        );
+    };
+
+    const handleDeleteTask = () => {
+        deleteTaskByTaskId(taskId).then(
             navigate(`/project/${taskData.projectId}`)
         );
     };
@@ -113,7 +120,13 @@ export const NewTask = () => {
                         >
                             Save Task
                         </Button>
-                        <Button m="2" color="red" onClick={() => {}}>
+                        <Button
+                            m="2"
+                            color="red"
+                            onClick={() => {
+                                handleDeleteTask();
+                            }}
+                        >
                             Delete Task
                         </Button>
                     </Flex>
