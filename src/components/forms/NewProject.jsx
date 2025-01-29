@@ -1,11 +1,13 @@
 import { useEffect, useState } from "react";
 import { useLocation, useNavigate, useParams } from "react-router-dom";
 import {
-    createProjectLocation,
-    createUserProjects,
     deleteProjectByProjectId,
     getProjectInfoByProjectId,
+    getProjectLocationByProjectId,
+    getUserProjectByProjectId,
     updateProjectByProjectId,
+    updateProjectLocationById,
+    updateUserProjectsById,
 } from "../../services/projectService";
 import {
     Button,
@@ -14,14 +16,21 @@ import {
     Flex,
     Heading,
     Section,
+    Select,
     TextArea,
     TextField,
 } from "@radix-ui/themes";
+import { getLocationsByUserId } from "../../services/locationService";
 
 export const NewProject = ({ currentUser }) => {
     const { projectId } = useParams();
-    const navigate = useNavigate();
     const { state } = useLocation();
+    const navigate = useNavigate();
+
+    const [userLocationsArray, setUserLocationsArray] = useState([]);
+    const [currentProjectLocation, setCurrentProjectLocation] = useState(
+        state.locationId
+    );
 
     const [projectData, setProjectData] = useState({
         id: "",
@@ -47,14 +56,23 @@ export const NewProject = ({ currentUser }) => {
         getProjectInfoByProjectId(projectId).then((data) =>
             setProjectData(data)
         );
-    }, []);
+
+        getProjectLocationByProjectId(projectId).then((data) => {
+            setProjectLocationData(data[0]);
+            setCurrentProjectLocation(data[0]?.locationId);
+        });
+
+        getUserProjectByProjectId(projectId).then((data) =>
+            setUserProjectsData(data[0])
+        );
+    }, [projectId]);
 
     useEffect(() => {
         const copyProjectLocationData = { ...projectLocationData };
-        copyProjectLocationData.locationId = parseInt(state?.locationId);
+        copyProjectLocationData.locationId = parseInt(currentProjectLocation);
         copyProjectLocationData.projectId = parseInt(projectId);
         setProjectLocationData(copyProjectLocationData);
-    }, [projectId]);
+    }, [projectId, currentProjectLocation]);
 
     useEffect(() => {
         const copyUserProjectData = { ...userProjectsData };
@@ -63,24 +81,29 @@ export const NewProject = ({ currentUser }) => {
         setUserProjectsData(copyUserProjectData);
     }, [currentUser, projectId]);
 
+    useEffect(() => {
+        getLocationsByUserId(currentUser.id).then((data) =>
+            setUserLocationsArray(data)
+        );
+    }, [currentUser]);
+
+    useEffect(() => {}, []);
+
     const handleSaveProject = () => {
         // update project info
         updateProjectByProjectId(projectId, projectData);
-
-        // see if I am editing or starting a new project...
-        if (state?.edit !== true) {
-            // create new projectlocatio
-            createProjectLocation(projectLocationData);
-
-            // create new userprojects
-            createUserProjects(userProjectsData);
-        }
+        updateProjectLocationById(projectLocationData.id, projectLocationData);
+        updateUserProjectsById(projectId, userProjectsData);
 
         navigate(`/project/${projectId}`);
     };
 
     const handleDeleteProject = () => {
         deleteProjectByProjectId(projectId).then(navigate("/projects"));
+    };
+
+    const handleSelectLocation = (event) => {
+        setCurrentProjectLocation(event);
     };
 
     return (
@@ -91,8 +114,28 @@ export const NewProject = ({ currentUser }) => {
                 </Heading>
 
                 <Section>
-                    {/* ADD LOCATION DROPDOWN MENU HERE FOR CHANGING THE PROJECT LOCATION */}
                     <Flex direction="column">
+                        <Select.Root
+                            m="2"
+                            value={currentProjectLocation}
+                            onValueChange={(event) => {
+                                handleSelectLocation(event);
+                            }}
+                        >
+                            <Select.Trigger placeholder="Pick a location" />
+                            <Select.Content>
+                                {userLocationsArray.map((locationObject) => {
+                                    return (
+                                        <Select.Item
+                                            key={`location-item-${locationObject.id}`}
+                                            value={locationObject.id}
+                                        >
+                                            {locationObject.name}
+                                        </Select.Item>
+                                    );
+                                })}
+                            </Select.Content>
+                        </Select.Root>
                         <TextField.Root
                             m="2"
                             size="2"
