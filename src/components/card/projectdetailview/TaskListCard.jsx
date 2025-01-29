@@ -1,4 +1,4 @@
-import { Button, Card, Heading } from "@radix-ui/themes";
+import { Button, Card, Flex, Heading } from "@radix-ui/themes";
 import { useEffect, useState } from "react";
 import {
     createNewTask,
@@ -34,13 +34,15 @@ export const TaskListCard = ({ projectId, locationData }) => {
     };
 
     return (
-        <Card m="4">
-            <Heading size="4" mt="5">
-                Tasks:
+        <Card>
+            <Flex direction="column">
+                <Heading mt="4" align="center">
+                    Tasks
+                </Heading>
                 <Button
-                    mt="-1"
-                    ml="9"
-                    size="2"
+                    mt=""
+                    ml="2"
+                    size="1"
                     color="green"
                     onClick={() => {
                         handleNewTask();
@@ -48,7 +50,7 @@ export const TaskListCard = ({ projectId, locationData }) => {
                 >
                     Add Task
                 </Button>
-            </Heading>
+            </Flex>
             {taskArray.map((taskObject) => {
                 return (
                     <TaskOverviewCard

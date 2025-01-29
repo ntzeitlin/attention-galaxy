@@ -1,4 +1,11 @@
-import { Container, Flex } from "@radix-ui/themes";
+import {
+    Button,
+    Card,
+    Container,
+    Flex,
+    Heading,
+    Section,
+} from "@radix-ui/themes";
 import { useEffect, useState } from "react";
 import {
     getLocationByLocationId,
@@ -44,6 +51,24 @@ export const LocationDetail = ({ currentUser }) => {
                     locationProjects={locationProjects}
                     currentUser={currentUser}
                 />
+                <Card>
+                    <Flex direction="column">
+                        <Heading align="center" mt="4">
+                            Inventory
+                        </Heading>
+                        <Button size="1" mt="1" ml="3" onClick={() => {}}>
+                            Add Inventory
+                        </Button>
+                    </Flex>
+                    <Section>
+                        <Flex direction="column">
+                            <Card m="2">Inventory Item Name...</Card>
+                            <Card m="2">Inventory Item Name...</Card>
+                            <Card m="2">Inventory Item Name...</Card>
+                            <Card m="2">Inventory Item Name...</Card>
+                        </Flex>
+                    </Section>
+                </Card>
             </Flex>
         </Container>
     );

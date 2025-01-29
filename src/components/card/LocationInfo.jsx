@@ -14,10 +14,26 @@ export const LocationInfoCard = ({ locationData, currentUser }) => {
 
     return (
         <Card>
-            <Heading align="center" mt="4">
-                Location Details
-            </Heading>
-            <Section>
+            <Flex direction="column">
+                <Heading align="center" mt="4">
+                    Location
+                </Heading>
+                {currentUser.id === locationData.userId ? (
+                    <Button
+                        m="1"
+                        ml="2"
+                        size="1"
+                        onClick={() => {
+                            navigate(`edit`);
+                        }}
+                    >
+                        Edit
+                    </Button>
+                ) : (
+                    ""
+                )}
+            </Flex>
+            <Section mt="-6">
                 <Flex direction="column">
                     <TextField.Root
                         m="2"
@@ -44,19 +60,6 @@ export const LocationInfoCard = ({ locationData, currentUser }) => {
                         <TextField.Slot></TextField.Slot>
                     </TextField.Root>
                     <TextArea m="2" value={locationData.description} disabled />
-                    {currentUser.id === locationData.userId ? (
-                        <Button
-                            m="2"
-                            color="grass"
-                            onClick={() => {
-                                navigate(`edit`);
-                            }}
-                        >
-                            Edit Location
-                        </Button>
-                    ) : (
-                        ""
-                    )}
                 </Flex>
             </Section>
         </Card>

@@ -87,7 +87,8 @@
       "name": "Website Redesign",
       "startdate": "2025-01-01",
       "enddate": "2025-03-01",
-      "ageSinceTouch": 5
+      "ageSinceTouch": 5,
+      "description": "here is a description... weird."
     },
     {
       "id": 2,
@@ -115,7 +116,8 @@
       "name": "Employee Onboarding Program",
       "startdate": "2025-02-01",
       "enddate": "2025-04-01",
-      "ageSinceTouch": 15
+      "ageSinceTouch": 15,
+      "description": "here is a description"
     },
     {
       "id": 6,
@@ -129,17 +131,42 @@
       "name": "IT Infrastructure Upgrade",
       "startdate": "2025-04-01",
       "enddate": "2025-07-01",
-      "ageSinceTouch": 3
+      "ageSinceTouch": 3,
+      "description": "editing another descripton again"
+    },
+    {
+      "name": "Design Lab Project",
+      "startdate": "Tomorrow",
+      "enddate": "",
+      "ageSinceTouch": 0,
+      "id": 8,
+      "description": "lkdjflksdjflsdk"
+    },
+    {
+      "name": "",
+      "startdate": "",
+      "enddate": "",
+      "ageSinceTouch": 0,
+      "id": 9
+    },
+    {
+      "name": "Project Name",
+      "startdate": "kjsdlfj",
+      "enddate": "lskdjflk",
+      "ageSinceTouch": 0,
+      "id": 10,
+      "description": "lkjdsflkjsd"
     }
   ],
   "tasks": [
     {
-      "id": 1,
       "taskName": "Design Homepage",
       "dateCreated": "2025-01-05",
       "dateCompleted": null,
       "projectId": 1,
-      "locationId": 1
+      "locationId": 1,
+      "description": "adding a description",
+      "id": 1
     },
     {
       "id": 2,
@@ -198,12 +225,30 @@
       "locationId": 1
     },
     {
-      "id": 9,
-      "taskName": "Final Deployment",
-      "dateCreated": "2025-01-20",
+      "id": 10,
+      "taskName": "New Task for Employee Onboarding Program",
+      "dateCreated": "2025-01-29T21:07:35.449Z",
       "dateCompleted": null,
-      "projectId": 1,
+      "projectId": "5",
       "locationId": 1
+    },
+    {
+      "taskName": "New Task",
+      "dateCreated": "2025-01-29T21:54:15.860Z",
+      "dateCompleted": null,
+      "projectId": "7",
+      "locationId": 1,
+      "description": "sdlkjfkljsdalkfjdsalkfjas ",
+      "id": 11
+    },
+    {
+      "taskName": "Here is a new Task",
+      "dateCreated": "2025-01-29T21:55:38.914Z",
+      "dateCompleted": null,
+      "projectId": "10",
+      "locationId": 1,
+      "description": "FOr main Office",
+      "id": 12
     }
   ],
   "taskitems": [
@@ -287,6 +332,21 @@
       "id": 7,
       "locationId": 1,
       "projectId": 7
+    },
+    {
+      "locationId": 6,
+      "projectId": 8,
+      "id": 8
+    },
+    {
+      "locationId": 2,
+      "projectId": 9,
+      "id": 9
+    },
+    {
+      "locationId": 1,
+      "projectId": 10,
+      "id": 10
     }
   ],
   "userprojects": [
@@ -313,6 +373,30 @@
       "projectId": 4,
       "userId": 2,
       "isOwner": true
+    },
+    {
+      "userId": 1,
+      "projectId": 8,
+      "isOwner": true,
+      "id": 5
+    },
+    {
+      "userId": 1,
+      "projectId": 9,
+      "isOwner": true,
+      "id": 6
+    },
+    {
+      "userId": 1,
+      "projectId": 7,
+      "isOwner": true,
+      "id": 7
+    },
+    {
+      "userId": 1,
+      "projectId": 10,
+      "isOwner": true,
+      "id": 8
     }
   ]
 }

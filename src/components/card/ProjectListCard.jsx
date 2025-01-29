@@ -36,8 +36,10 @@ export const ProjectListCard = ({ locationProjects, currentUser }) => {
 
     return (
         <Card>
-            <Heading align="center" mt="4">
-                Projects
+            <Flex direction="column">
+                <Heading align="center" mt="4">
+                    Projects
+                </Heading>
                 <Button
                     size="1"
                     mt="1"
@@ -48,7 +50,7 @@ export const ProjectListCard = ({ locationProjects, currentUser }) => {
                 >
                     Add Project
                 </Button>
-            </Heading>
+            </Flex>
 
             <Section>
                 <Flex direction="column">

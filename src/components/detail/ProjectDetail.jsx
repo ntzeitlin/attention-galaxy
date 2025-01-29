@@ -55,22 +55,33 @@ export const ProjectDetail = ({ currentUser }) => {
     */
 
     return (
-        <Container>
-            <Heading align="center" mt="4">
-                Project Details
-            </Heading>
-            <Flex direction="row" justify="between">
+        <Container width="80%" m="5">
+            {/* <Heading align="center">Project Details</Heading> */}
+            <Flex gap="3" justify="center">
                 <ProjectOverviewCard
                     currentUser={currentUser}
                     locationData={locationData}
                     projectData={projectData}
                 />
-
                 <TaskListCard
                     projectId={projectId}
                     locationData={locationData}
                 />
-                <Card m="4">INVENTORY</Card>
+                <Card>
+                    <Flex direction="column">
+                        <Heading align="center" mt="4">
+                            Inventory
+                        </Heading>
+                        <Button
+                            size="1"
+                            mt="1"
+                            color="green"
+                            onClick={() => {}}
+                        >
+                            Add Inventory
+                        </Button>
+                    </Flex>
+                </Card>
             </Flex>
         </Container>
     );

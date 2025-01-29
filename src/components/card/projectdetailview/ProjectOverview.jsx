@@ -4,6 +4,7 @@ import {
     Flex,
     Heading,
     Section,
+    Text,
     TextArea,
     TextField,
 } from "@radix-ui/themes";
@@ -17,54 +18,40 @@ export const ProjectOverviewCard = ({
     const navigate = useNavigate();
 
     return (
-        <Card m="4">
-            <Section>
-                <Heading size="4" align="center" mt="-7" mb="3">
-                    Location: {locationData.location?.name}{" "}
+        <Card>
+            <Flex direction="column">
+                <Heading align="center" mt="4">
+                    Project Details
                 </Heading>
+                {currentUser.id ? (
+                    <Button
+                        m="1"
+                        size="1"
+                        color="grass"
+                        onClick={() => {
+                            navigate(`edit`, {
+                                state: {
+                                    edit: true,
+                                },
+                            });
+                        }}
+                    >
+                        Edit
+                    </Button>
+                ) : (
+                    ""
+                )}
+            </Flex>
+            <Section mt="-6">
                 <Flex direction="column">
-                    <TextField.Root
-                        m="2"
-                        size="2"
-                        value={projectData.name}
-                        disabled
-                    >
-                        <TextField.Slot></TextField.Slot>
-                    </TextField.Root>
-                    <TextField.Root
-                        m="2"
-                        size="2"
-                        value={projectData.startdate}
-                        disabled
-                    >
-                        <TextField.Slot></TextField.Slot>
-                    </TextField.Root>
-                    <TextField.Root
-                        m="2"
-                        size="2"
-                        value={projectData.enddate}
-                        disabled
-                    >
-                        <TextField.Slot></TextField.Slot>
-                    </TextField.Root>
-                    <TextArea m="2" value={projectData.description} disabled />
-                    {currentUser.id ? (
-                        <Button
-                            m="2"
-                            color="grass"
-                            onClick={() => {
-                                navigate(`edit`, {
-                                    state: {
-                                        edit: true,
-                                    },
-                                });
-                            }}
-                        >
-                            Edit Project
-                        </Button>
-                    ) : (
-                        ""
-                    )}
+                    <Heading size="5">{projectData.name}</Heading>
+                    <Text as="span" size="2">
+                        Start: {projectData.startdate}
+                    </Text>
+                    <Text as="span" size="2">
+                        End: {projectData.enddate}
+                    </Text>
+                    <Text size="3">Description: {projectData.description}</Text>
                 </Flex>
             </Section>
         </Card>
