@@ -66,7 +66,10 @@ export const ProjectDetail = ({ currentUser }) => {
                     projectData={projectData}
                 />
 
-                <TaskListCard projectId={projectId} />
+                <TaskListCard
+                    projectId={projectId}
+                    locationData={locationData}
+                />
                 <Card m="4">INVENTORY</Card>
             </Flex>
         </Container>

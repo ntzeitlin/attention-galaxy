@@ -1,8 +1,14 @@
+/* eslint-disable react/prop-types */
 import { Card, Checkbox } from "@radix-ui/themes";
 import { useEffect, useState } from "react";
 import { updateTaskByTaskId } from "../../../services/taskService";
+import { Link } from "react-router-dom";
 
-export const TaskOverviewCard = ({ taskObject, fetchAndSetTasks }) => {
+export const TaskOverviewCard = ({
+    taskObject,
+    fetchAndSetTasks,
+    projectId,
+}) => {
     const [isComplete, setIsComplete] = useState(false);
     const [cardColor, setCardColor] = useState("white");
 
@@ -47,7 +53,9 @@ export const TaskOverviewCard = ({ taskObject, fetchAndSetTasks }) => {
                     handleCheck();
                 }}
             />
-            {taskObject.taskName}
+            <Link to={`/task/${taskObject.id}/edit`}>
+                {taskObject.taskName}
+            </Link>
         </Card>
     );
 };
