@@ -20,7 +20,7 @@ export const ProjectOverviewCard = ({
         <Card m="4">
             <Section>
                 <Heading size="4" align="center" mt="-7" mb="3">
-                    {locationData.location?.name}{" "}
+                    Location: {locationData.location?.name}{" "}
                 </Heading>
                 <Flex direction="column">
                     <TextField.Root
