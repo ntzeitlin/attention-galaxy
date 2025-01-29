@@ -1,21 +1,31 @@
-import { Card } from "@radix-ui/themes";
+import { Card, Heading } from "@radix-ui/themes";
 import { useEffect, useState } from "react";
 import { getTasksByProjectId } from "../../../services/taskService";
+import { TaskOverviewCard } from "../tasks/TaskOverviewCard";
 
 export const TaskListCard = ({ projectId }) => {
     const [taskArray, setTaskArray] = useState([]);
 
     useEffect(() => {
-        getTasksByProjectId(projectId).then((data) => setTaskArray(data));
+        fetchAndSetTasks();
     }, []);
+
+    const fetchAndSetTasks = () => {
+        getTasksByProjectId(projectId).then((data) => setTaskArray(data));
+    };
 
     return (
         <Card m="4">
-            {taskArray.map((taskobject) => {
+            <Heading size="4" mt="5">
+                Tasks:
+            </Heading>
+            {taskArray.map((taskObject) => {
                 return (
-                    <Card key={`task-card-${taskobject.id}`}>
-                        {taskobject.taskName}
-                    </Card>
+                    <TaskOverviewCard
+                        key={`task-card-${taskObject.id}`}
+                        taskObject={taskObject}
+                        fetchAndSetTasks={fetchAndSetTasks}
+                    />
                 );
             })}
         </Card>
