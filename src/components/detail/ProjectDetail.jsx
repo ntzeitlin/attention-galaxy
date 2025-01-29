@@ -13,6 +13,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import { getProjectInfoByProjectId } from "../../services/projectService";
 import { getLocationInfoByProjectId } from "../../services/locationService";
 import { ProjectOverviewCard } from "../card/projectdetailview/ProjectOverview";
+import { TaskListCard } from "../card/projectdetailview/TaskListCard";
 
 export const ProjectDetail = ({ currentUser }) => {
     const navigate = useNavigate();
@@ -65,8 +66,8 @@ export const ProjectDetail = ({ currentUser }) => {
                     projectData={projectData}
                 />
 
-                <Card m="4">TASK CARD</Card>
-                <Card m="4">INVENTORY CARD</Card>
+                <TaskListCard projectId={projectId} />
+                <Card m="4">INVENTORY</Card>
             </Flex>
         </Container>
     );
