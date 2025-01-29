@@ -70,7 +70,7 @@ export const ProjectDetail = ({ currentUser }) => {
                 <Card>
                     <Flex direction="column">
                         <Heading align="center" mt="4">
-                            Inventory
+                            Mise en Place
                         </Heading>
                         <Button
                             size="1"
@@ -78,7 +78,7 @@ export const ProjectDetail = ({ currentUser }) => {
                             color="green"
                             onClick={() => {}}
                         >
-                            Add Inventory
+                            Add Item
                         </Button>
                     </Flex>
                 </Card>
