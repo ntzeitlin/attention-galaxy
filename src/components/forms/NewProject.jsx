@@ -91,6 +91,7 @@ export const NewProject = ({ currentUser }) => {
                 </Heading>
 
                 <Section>
+                    {/* ADD LOCATION DROPDOWN MENU HERE FOR CHANGING THE PROJECT LOCATION */}
                     <Flex direction="column">
                         <TextField.Root
                             m="2"
