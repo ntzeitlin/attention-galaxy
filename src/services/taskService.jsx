@@ -7,7 +7,9 @@ export const getTasksByProjectId = async (projectId) => {
 };
 
 export const getTaskByTaskId = async (taskId) => {
-    const response = await fetch(`http://localhost:8088/tasks/${taskId}`);
+    const response = await fetch(
+        `http://localhost:8088/tasks/${taskId}?_expand=project&_expand=location`
+    );
     const data = response.json();
     return data;
 };
