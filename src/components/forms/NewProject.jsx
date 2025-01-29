@@ -93,7 +93,7 @@ export const NewProject = ({ currentUser }) => {
         // update project info
         updateProjectByProjectId(projectId, projectData);
         updateProjectLocationById(projectLocationData.id, projectLocationData);
-        updateUserProjectsById(projectId, userProjectsData);
+        updateUserProjectsById(userProjectsData.id, userProjectsData);
 
         navigate(`/project/${projectId}`);
     };

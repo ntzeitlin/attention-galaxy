@@ -13,9 +13,10 @@ export const ProjectListCard = ({ locationProjects, currentUser }) => {
     const navigate = useNavigate();
 
     const handleNewProject = () => {
+        let updatedProjectId = null;
         createNewProject()
             .then((data) => {
-                const updatedProjectId = parseInt(data.id);
+                updatedProjectId = parseInt(data.id);
                 createProjectLocation({
                     locationId: parseInt(locationId),
                     projectId: updatedProjectId,
@@ -26,7 +27,7 @@ export const ProjectListCard = ({ locationProjects, currentUser }) => {
                     isOwner: true,
                 });
             })
-            .then((updatedProjectId) => {
+            .then(() => {
                 navigate(`/project/${updatedProjectId}/edit`, {
                     state: { locationId },
                 });
