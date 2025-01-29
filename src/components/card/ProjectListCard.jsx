@@ -6,39 +6,31 @@ import {
     createProjectLocation,
     createUserProjects,
 } from "../../services/projectService";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 export const ProjectListCard = ({ locationProjects, currentUser }) => {
     const { locationId } = useParams();
     const navigate = useNavigate();
 
-    const [projectLocationData, setProjectLocationData] = useState({
-        locationId: parseInt(locationId),
-        projectId: "",
-    });
-
-    const [userProjectsData, setUserProjectsData] = useState({
-        projectId: "",
-        userId: parseInt(currentUser.id),
-        isOwner: true,
-    });
-
     const handleNewProject = () => {
-        createNewProject().then((data) => {
-            const copyProjectLocationData = { ...projectLocationData };
-            copyProjectLocationData.projectId = data.id;
-            setProjectLocationData(copyProjectLocationData);
-            createProjectLocation(projectLocationData);
-
-            const copyUserProjectData = { ...userProjectsData };
-            copyUserProjectData.projectId = data.id;
-            setUserProjectsData(copyUserProjectData);
-            createUserProjects(userProjectsData).then(
-                navigate(`/project/${data.id}/edit`, {
+        createNewProject()
+            .then((data) => {
+                const updatedProjectId = parseInt(data.id);
+                createProjectLocation({
+                    locationId: parseInt(locationId),
+                    projectId: updatedProjectId,
+                });
+                createUserProjects({
+                    userId: parseInt(currentUser.id),
+                    projectId: updatedProjectId,
+                    isOwner: true,
+                });
+            })
+            .then((updatedProjectId) => {
+                navigate(`/project/${updatedProjectId}/edit`, {
                     state: { locationId },
-                })
-            );
-        });
+                });
+            });
     };
 
     return (
