@@ -1,6 +1,9 @@
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
-import { getTaskByTaskId } from "../../services/taskService";
+import { useNavigate, useParams } from "react-router-dom";
+import {
+    getTaskByTaskId,
+    updateTaskByTaskId,
+} from "../../services/taskService";
 import {
     Button,
     Card,
@@ -14,6 +17,7 @@ import {
 
 export const NewTask = () => {
     const { taskId } = useParams();
+    const navigate = useNavigate();
 
     const [taskData, setTaskData] = useState({
         id: "",
@@ -28,6 +32,21 @@ export const NewTask = () => {
     useEffect(() => {
         getTaskByTaskId(taskId).then((data) => setTaskData(data));
     }, [taskId]);
+
+    const handleSaveTask = () => {
+        const submissionObject = {
+            taskName: taskData.taskName,
+            dateCreated: taskData.dateCreated,
+            dateCompleted: taskData.dateCompleted,
+            projectId: taskData.projectId,
+            locationId: taskData.locationId,
+            description: taskData.description,
+        };
+
+        updateTaskByTaskId(taskId, submissionObject).then(
+            navigate(`/project/${taskData.projectId}`)
+        );
+    };
 
     return (
         <Container width="60%" m="5">
@@ -86,7 +105,12 @@ export const NewTask = () => {
                                 setTaskData(taskDataCopy);
                             }}
                         />
-                        <Button m="2" onClick={() => {}}>
+                        <Button
+                            m="2"
+                            onClick={() => {
+                                handleSaveTask();
+                            }}
+                        >
                             Save Task
                         </Button>
                         <Button m="2" color="red" onClick={() => {}}>
