@@ -6,7 +6,7 @@ import { getProjectInfoByProjectId } from "../../services/projectService";
 import { getLocationInfoByProjectId } from "../../services/locationService";
 import { ProjectOverviewCard } from "../card/projectdetailview/ProjectOverview";
 import { TaskListCard } from "../card/projectdetailview/TaskListCard";
-import { MiseEnPlaceListCard } from "../card/inventory/MiseEnPlaceList";
+import { MiseEnPlaceListCard } from "../card/tasks/MiseEnPlaceList";
 
 export const ProjectDetail = ({ currentUser }) => {
     const { projectId } = useParams();

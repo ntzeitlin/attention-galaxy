@@ -11,7 +11,7 @@ import {
     Text,
 } from "@radix-ui/themes";
 import { Link } from "react-router-dom";
-import { ItemList } from "../card/ItemList";
+import { ItemList } from "../card/inventory/ItemList";
 
 export const InventoryList = ({ currentUser }) => {
     const [locationArray, setLocationArray] = useState([]);

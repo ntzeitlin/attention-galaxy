@@ -1,6 +1,6 @@
 import { useParams } from "react-router-dom";
 
-import { Button, Card, Container, Flex, Heading } from "@radix-ui/themes";
+import { Container, Flex } from "@radix-ui/themes";
 import { EditTaskCard } from "./EditTaskCard";
 import { TaskItemListCard } from "../card/tasks/TaskItemList";
 
