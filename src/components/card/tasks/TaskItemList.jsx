@@ -5,7 +5,7 @@ import {
     createNewItem,
     createNewTaskItem,
 } from "../../../services/inventoryService";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 export const TaskItemListCard = ({ taskId, currentUser, locationId }) => {
     const [taskItemsArray, setTaskItemsArray] = useState([]);
@@ -60,7 +60,9 @@ export const TaskItemListCard = ({ taskId, currentUser, locationId }) => {
                     {taskItemsArray.map((itemObject) => {
                         return (
                             <Card m="2" key={itemObject.id}>
-                                {itemObject.item?.name}
+                                <Link to={`/item/${itemObject.id}/edit`}>
+                                    {itemObject.item?.name}
+                                </Link>
                             </Card>
                         );
                     })}
