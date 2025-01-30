@@ -21,11 +21,11 @@ export const NewTask = ({ currentUser }) => {
         <Container width="60%" m="5">
             <Flex gap="4" justify="center">
                 <EditTaskCard taskId={taskId} />
-                <TaskItemListCard
+                {/* <TaskItemListCard
                     taskId={taskId}
                     locationId={projectLocationData.locationId}
                     currentUser={currentUser}
-                />
+                /> */}
             </Flex>
         </Container>
     );

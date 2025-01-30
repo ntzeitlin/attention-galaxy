@@ -42,12 +42,12 @@ export const NewItem = () => {
 
     const handleSaveItem = () => {
         updateItemByItemId(itemId, itemData).then(
-            navigate(`/task/${taskData.id}/edit`)
+            navigate(`/task/${taskData.id}`)
         );
     };
 
     const handleDeleteItem = () => {
-        deleteItemByItemId(itemId).then(navigate(`/task/${taskData.id}/edit`));
+        deleteItemByItemId(itemId).then(navigate(`/task/${taskData.id}`));
     };
 
     return (
