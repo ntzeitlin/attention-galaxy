@@ -6,6 +6,7 @@ import { getProjectInfoByProjectId } from "../../services/projectService";
 import { getLocationInfoByProjectId } from "../../services/locationService";
 import { ProjectOverviewCard } from "../card/projectdetailview/ProjectOverview";
 import { TaskListCard } from "../card/projectdetailview/TaskListCard";
+import { MiseEnPlaceListCard } from "../card/inventory/MiseEnPlaceList";
 
 export const ProjectDetail = ({ currentUser }) => {
     const { projectId } = useParams();
@@ -52,22 +53,12 @@ export const ProjectDetail = ({ currentUser }) => {
                 <TaskListCard
                     projectId={projectId}
                     locationData={locationData}
+                    currentUser={currentUser}
                 />
-                <Card>
-                    <Flex direction="column">
-                        <Heading align="center" mt="4">
-                            Mise en Place
-                        </Heading>
-                        <Button
-                            size="1"
-                            mt="1"
-                            color="green"
-                            onClick={() => {}}
-                        >
-                            Add Item
-                        </Button>
-                    </Flex>
-                </Card>
+                <MiseEnPlaceListCard
+                    currentUser={currentUser}
+                    projectId={projectId}
+                />
             </Flex>
         </Container>
     );

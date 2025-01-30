@@ -6,14 +6,22 @@ import {
 } from "../../../services/taskService";
 import { TaskOverviewCard } from "../tasks/TaskOverviewCard";
 import { useNavigate } from "react-router-dom";
+import { getUserProjectByProjectId } from "../../../services/projectService";
 
-export const TaskListCard = ({ projectId, locationData }) => {
+export const TaskListCard = ({ projectId, locationData, currentUser }) => {
     const [taskArray, setTaskArray] = useState([]);
     const navigate = useNavigate();
+    const [userProjectData, setUserProjectData] = useState({});
 
     useEffect(() => {
         fetchAndSetTasks();
     }, []);
+
+    useEffect(() => {
+        getUserProjectByProjectId(projectId).then((data) =>
+            setUserProjectData(data[0])
+        );
+    }, [projectId]);
 
     const fetchAndSetTasks = () => {
         getTasksByProjectId(projectId).then((data) => setTaskArray(data));
@@ -39,17 +47,21 @@ export const TaskListCard = ({ projectId, locationData }) => {
                 <Heading mt="4" align="center">
                     Tasks
                 </Heading>
-                <Button
-                    mt=""
-                    ml="2"
-                    size="1"
-                    color="green"
-                    onClick={() => {
-                        handleNewTask();
-                    }}
-                >
-                    Add Task
-                </Button>
+                {currentUser.id === userProjectData?.userId ? (
+                    <Button
+                        mt=""
+                        ml="2"
+                        size="1"
+                        color="green"
+                        onClick={() => {
+                            handleNewTask();
+                        }}
+                    >
+                        Add Task
+                    </Button>
+                ) : (
+                    ""
+                )}
             </Flex>
             {taskArray.map((taskObject) => {
                 return (

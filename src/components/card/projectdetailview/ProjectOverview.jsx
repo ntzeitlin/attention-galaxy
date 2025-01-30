@@ -19,7 +19,7 @@ export const ProjectOverviewCard = ({ projectData, currentUser }) => {
                 <Heading align="center" mt="4">
                     Project Details
                 </Heading>
-                {currentUser.id === userProjectData.userId &&
+                {currentUser.id === userProjectData?.userId &&
                 userProjectData.isOwner ? (
                     <Button
                         m="1"
