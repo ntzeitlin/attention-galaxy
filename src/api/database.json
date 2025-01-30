@@ -215,12 +215,12 @@
       "locationId": 1
     },
     {
+      "id": 2,
       "taskName": "Audit Inventory",
       "dateCreated": "2025-01-12",
       "dateCompleted": null,
       "projectId": 2,
-      "locationId": 2,
-      "id": 2
+      "locationId": 2
     },
     {
       "id": 3,
