@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import {
+    deleteItemByItemId,
     getItemDataByItemId,
     updateItemByItemId,
 } from "../../services/inventoryService";
@@ -43,6 +44,10 @@ export const NewItem = () => {
         updateItemByItemId(itemId, itemData).then(
             navigate(`/task/${taskData.id}/edit`)
         );
+    };
+
+    const handleDeleteItem = () => {
+        deleteItemByItemId(itemId).then(navigate(`/task/${taskData.id}/edit`));
     };
 
     return (
@@ -130,7 +135,13 @@ export const NewItem = () => {
                         >
                             Save Item
                         </Button>
-                        <Button m="2" color="red" onClick={() => {}}>
+                        <Button
+                            m="2"
+                            color="red"
+                            onClick={() => {
+                                handleDeleteItem();
+                            }}
+                        >
                             Delete Item
                         </Button>
                     </Flex>

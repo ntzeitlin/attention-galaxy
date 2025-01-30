@@ -51,3 +51,12 @@ export const updateItemByItemId = async (itemId, submissionObject) => {
     const data = response.json()
     return data
 }
+
+export const deleteItemByItemId = async (itemId) => {
+    const response = await fetch(`http://localhost:8088/items/${itemId}`, {
+        method: "DELETE",
+        headers: {
+            "Content-Type": "application/json"
+        }
+    })
+}

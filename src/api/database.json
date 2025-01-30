@@ -390,16 +390,6 @@
       "taskId": 5,
       "itemId": 14,
       "id": 14
-    },
-    {
-      "taskId": 5,
-      "itemId": 15,
-      "id": 15
-    },
-    {
-      "taskId": 5,
-      "itemId": 16,
-      "id": 16
     }
   ],
   "items": [
@@ -542,26 +532,6 @@
       "locationId": 1,
       "userId": 1,
       "id": 14
-    },
-    {
-      "name": "new item name",
-      "description": "",
-      "quantity": 0,
-      "isObject": false,
-      "resourceLink": null,
-      "locationId": 1,
-      "userId": 1,
-      "id": 15
-    },
-    {
-      "name": "Default New Item",
-      "description": "",
-      "quantity": 0,
-      "isObject": false,
-      "resourceLink": null,
-      "locationId": 1,
-      "userId": 1,
-      "id": 16
     }
   ],
   "locationlocations": [
