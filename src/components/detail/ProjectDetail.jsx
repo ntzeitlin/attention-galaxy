@@ -36,11 +36,6 @@ export const ProjectDetail = ({ currentUser }) => {
         );
     }, [projectId]);
 
-    //WILL HAVE A TASK SECTION
-
-    /*
-     */
-
     return (
         <Container width="80%" m="5">
             {/* <Heading align="center">Project Details</Heading> */}

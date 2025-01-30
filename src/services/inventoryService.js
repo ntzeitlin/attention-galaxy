@@ -9,3 +9,27 @@ export const getItemTaskInfoByItemId = async (itemId) => {
     const data = response.json()
     return data
 }
+
+export const createNewItem = async (submissionObject) => {
+    const response = await fetch('http://localhost:8088/items', {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(submissionObject)
+    })
+    const data = response.json()
+    return data
+}
+
+export const createNewTaskItem = async (submissionObject) => {
+    const response = await fetch('http://localhost:8088/taskitems', {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(submissionObject)
+    })
+    const data = response.json()
+    return data
+} 

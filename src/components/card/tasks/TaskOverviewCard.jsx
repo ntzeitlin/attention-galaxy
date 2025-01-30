@@ -53,7 +53,7 @@ export const TaskOverviewCard = ({
                     handleCheck();
                 }}
             />
-            <Link to={`/task/${taskObject.id}/edit`}>
+            <Link to={`/task/${taskObject.id}/edit`} state={projectId}>
                 {taskObject.taskName}
             </Link>
         </Card>

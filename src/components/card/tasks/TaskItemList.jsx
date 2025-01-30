@@ -1,13 +1,37 @@
 import { Button, Card, Flex, Heading, Section } from "@radix-ui/themes";
 import { useEffect, useState } from "react";
 import { getTaskItemsByTaskId } from "../../../services/taskService";
+import {
+    createNewItem,
+    createNewTaskItem,
+} from "../../../services/inventoryService";
 
-export const TaskItemListCard = ({ taskId }) => {
+export const TaskItemListCard = ({ taskId, currentUser, locationId }) => {
     const [taskItemsArray, setTaskItemsArray] = useState([]);
 
     useEffect(() => {
         getTaskItemsByTaskId(taskId).then((data) => setTaskItemsArray(data));
     }, [taskId]);
+
+    const handleNewTaskItem = () => {
+        // create new item for database
+        const newItemObject = {
+            name: "Default New Item",
+            description: "",
+            quantity: 0,
+            isObject: false,
+            resourceLink: null,
+            locationId: locationId,
+            userId: currentUser.id,
+        };
+
+        createNewItem(newItemObject).then((data) => {
+            createNewTaskItem({
+                taskId: parseInt(taskId),
+                itemId: data.id,
+            });
+        });
+    };
 
     return (
         <Card>
@@ -21,7 +45,7 @@ export const TaskItemListCard = ({ taskId }) => {
                     size="1"
                     color="green"
                     onClick={() => {
-                        window.alert("You thought that would do anything?");
+                        handleNewTaskItem();
                     }}
                 >
                     Add Item

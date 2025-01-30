@@ -1,5 +1,5 @@
 import { Outlet, Route, Routes } from "react-router-dom";
-import { TestComponent } from "../components/detail/TestComponent";
+import { TestComponent } from "../components/TestComponent";
 import { NavBar } from "../components/nav/NavBar";
 import { Footer } from "../components/nav/Footer";
 import { useEffect, useState } from "react";
