@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
 import { getProjectsByLocationId } from "../../services/locationService";
 
-import { ProjectSummaryCard } from "./ProjectSummaryCard";
+import { ProjectNameCard } from "./ProjectNameCard";
 
-export const ProjectNameCard = ({ locationId }) => {
+export const ProjectNameList = ({ locationId }) => {
     const [projectList, setProjectList] = useState([]);
 
     useEffect(() => {
@@ -14,7 +14,7 @@ export const ProjectNameCard = ({ locationId }) => {
 
     return projectList.map((projectLocation) => {
         return (
-            <ProjectSummaryCard
+            <ProjectNameCard
                 key={`project-summary-card-${projectLocation.id}`}
                 projectObject={projectLocation}
             />

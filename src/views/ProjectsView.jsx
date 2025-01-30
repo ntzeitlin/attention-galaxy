@@ -1,22 +1,13 @@
-import {
-    Button,
-    Card,
-    Container,
-    Flex,
-    Grid,
-    Heading,
-    Section,
-    Text,
-} from "@radix-ui/themes";
+import { Container, Heading, Section } from "@radix-ui/themes";
 import { useEffect, useState } from "react";
 import { getLocationsByUserId } from "../services/locationService";
-import { Link, useNavigate } from "react-router-dom";
-import { ProjectNameCard } from "../components/card/ProjectNameList";
+import { useNavigate } from "react-router-dom";
 import {
     createNewProject,
     createProjectLocation,
     createUserProjects,
 } from "../services/projectService";
+import { ProjectLocationList } from "../components/projectsview/ProjectLocationList";
 
 export const ProjectListView = ({ currentUser }) => {
     const navigate = useNavigate();
@@ -57,39 +48,10 @@ export const ProjectListView = ({ currentUser }) => {
                 Location Projects
             </Heading>
             <Section>
-                <Grid columns="3" gap="2">
-                    {locationArray.map((locationObject) => {
-                        return (
-                            <Card
-                                m="4"
-                                key={`location-card2-${locationObject.id}`}
-                            >
-                                <Flex direction="column">
-                                    <Text weight="bold">
-                                        <Link
-                                            to={`/location/${locationObject.id}`}
-                                        >
-                                            {locationObject.name}
-                                        </Link>
-                                    </Text>
-                                    <Button
-                                        m="2"
-                                        size="1"
-                                        color="green"
-                                        onClick={() => {
-                                            handleNewProject(locationObject.id);
-                                        }}
-                                    >
-                                        Add Project
-                                    </Button>
-                                </Flex>
-                                <ProjectNameCard
-                                    locationId={locationObject.id}
-                                />
-                            </Card>
-                        );
-                    })}
-                </Grid>
+                <ProjectLocationList
+                    locationArray={locationArray}
+                    handleNewProject={handleNewProject}
+                />
             </Section>
         </Container>
     );

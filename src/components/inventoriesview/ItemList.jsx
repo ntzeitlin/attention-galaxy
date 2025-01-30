@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { getInventoryItemsByLocationAndUserId } from "../../../services/inventoryService";
+import { getInventoryItemsByLocationAndUserId } from "../../services/inventoryService";
 import { ItemNameCard } from "./ItemName";
 
 export const InventoryItemList = ({ locationId, currentUser }) => {

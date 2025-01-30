@@ -10,7 +10,7 @@ import {
 } from "../services/locationService";
 import { Box, Button, Container, Heading, Section } from "@radix-ui/themes";
 import { useNavigate } from "react-router-dom";
-import { LocationList } from "../components/lists/LocationList";
+import { LocationList } from "../components/locationsview/LocationList";
 
 export const LocationListView = ({ currentUser }) => {
     const [locationArray, setLocationArray] = useState([]);

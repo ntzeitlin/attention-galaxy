@@ -3,7 +3,7 @@ import { getLocationsByUserId } from "../services/locationService";
 import { Container, Heading, Section } from "@radix-ui/themes";
 import { useNavigate } from "react-router-dom";
 import { createNewItem, createNewTaskItem } from "../services/inventoryService";
-import { LocationInventoryList } from "../components/card/inventoriesview/LocationInventoryList";
+import { LocationInventoryList } from "../components/inventoriesview/LocationInventoryList";
 
 export const InventoryListView = ({ currentUser }) => {
     const [locationArray, setLocationArray] = useState([]);

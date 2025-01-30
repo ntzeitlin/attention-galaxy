@@ -14,6 +14,7 @@ import { NewItem } from "../components/forms/NewItem";
 import { LocationListView } from "./LocationsView";
 import { HomeView } from "./HomeView";
 import { ProfileView } from "./ProfileView";
+import { ManageTask } from "../components/card/manage/ManageTask";
 
 export const ApplicationViews = () => {
     const [currentUser, setCurrentUser] = useState({});
@@ -67,7 +68,10 @@ export const ApplicationViews = () => {
                 </Route>
 
                 <Route path="task">
-                    <Route path=":taskId" element={<>TaskDetailView</>} />
+                    <Route
+                        path=":taskId"
+                        element={<ManageTask currentUser={currentUser} />}
+                    />
                     <Route
                         path=":taskId/edit"
                         element={<NewTask currentUser={currentUser} />}

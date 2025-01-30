@@ -146,12 +146,12 @@
       "locationId": 1
     },
     {
-      "id": 2,
       "taskName": "Audit Inventory",
       "dateCreated": "2025-01-12",
       "dateCompleted": null,
       "projectId": 2,
-      "locationId": 2
+      "locationId": 2,
+      "id": 2
     },
     {
       "id": 3,
@@ -202,12 +202,20 @@
       "locationId": 1
     },
     {
-      "taskName": "Default Task Name",
+      "taskName": "Different Task Name",
       "dateCreated": "2025-01-30T20:17:05.925Z",
       "dateCompleted": null,
       "projectId": "2",
       "locationId": 2,
       "id": 9
+    },
+    {
+      "taskName": "Default Task Name",
+      "dateCreated": "2025-01-30T21:23:50.900Z",
+      "dateCompleted": null,
+      "projectId": "2",
+      "locationId": 2,
+      "id": 10
     }
   ],
   "taskitems": [
@@ -240,6 +248,11 @@
       "id": 6,
       "taskId": 2,
       "itemId": 6
+    },
+    {
+      "taskId": 9,
+      "itemId": 7,
+      "id": 7
     }
   ],
   "items": [
@@ -302,6 +315,16 @@
       "resourceLink": null,
       "locationId": 2,
       "userId": 1
+    },
+    {
+      "name": "Default New Item",
+      "description": "",
+      "quantity": 0,
+      "isObject": false,
+      "resourceLink": null,
+      "locationId": 2,
+      "userId": 1,
+      "id": 7
     }
   ],
   "locationlocations": [
@@ -389,6 +412,6 @@
       "projectId": 7,
       "userId": 1,
       "isOwner": true
-    }    
+    }
   ]
 }

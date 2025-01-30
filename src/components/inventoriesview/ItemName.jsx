@@ -1,6 +1,6 @@
 import { Card, Strong } from "@radix-ui/themes";
 import { useEffect, useState } from "react";
-import { getItemTaskInfoByItemId } from "../../../services/inventoryService";
+import { getItemTaskInfoByItemId } from "../../services/inventoryService";
 
 export const ItemNameCard = ({ itemObject }) => {
     const [itemTaskData, setItemTaskData] = useState({});
