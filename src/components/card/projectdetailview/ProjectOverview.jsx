@@ -1,20 +1,7 @@
-import {
-    Button,
-    Card,
-    Flex,
-    Heading,
-    Section,
-    Text,
-    TextArea,
-    TextField,
-} from "@radix-ui/themes";
+import { Button, Card, Flex, Heading, Section, Text } from "@radix-ui/themes";
 import { useNavigate } from "react-router-dom";
 
-export const ProjectOverviewCard = ({
-    locationData,
-    projectData,
-    currentUser,
-}) => {
+export const ProjectOverviewCard = ({ projectData, currentUser }) => {
     const navigate = useNavigate();
 
     return (

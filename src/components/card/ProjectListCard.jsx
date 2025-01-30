@@ -8,7 +8,11 @@ import {
 } from "../../services/projectService";
 import { useEffect, useState } from "react";
 
-export const ProjectListCard = ({ locationProjects, currentUser }) => {
+export const ProjectListCard = ({
+    locationProjects,
+    locationData,
+    currentUser,
+}) => {
     const { locationId } = useParams();
     const navigate = useNavigate();
 
@@ -40,16 +44,20 @@ export const ProjectListCard = ({ locationProjects, currentUser }) => {
                 <Heading align="center" mt="4">
                     Projects
                 </Heading>
-                <Button
-                    size="1"
-                    mt="1"
-                    ml="3"
-                    onClick={() => {
-                        handleNewProject();
-                    }}
-                >
-                    Add Project
-                </Button>
+                {currentUser.id === locationData.userId ? (
+                    <Button
+                        size="1"
+                        mt="1"
+                        ml="3"
+                        onClick={() => {
+                            handleNewProject();
+                        }}
+                    >
+                        Add Project
+                    </Button>
+                ) : (
+                    ""
+                )}
             </Flex>
 
             <Section>

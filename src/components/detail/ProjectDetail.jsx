@@ -1,22 +1,12 @@
-import {
-    Button,
-    Card,
-    Container,
-    Flex,
-    Heading,
-    Section,
-    TextArea,
-    TextField,
-} from "@radix-ui/themes";
+import { Button, Card, Container, Flex, Heading } from "@radix-ui/themes";
 import { useEffect, useState } from "react";
-import { useNavigate, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { getProjectInfoByProjectId } from "../../services/projectService";
 import { getLocationInfoByProjectId } from "../../services/locationService";
 import { ProjectOverviewCard } from "../card/projectdetailview/ProjectOverview";
 import { TaskListCard } from "../card/projectdetailview/TaskListCard";
 
 export const ProjectDetail = ({ currentUser }) => {
-    const navigate = useNavigate();
     const { projectId } = useParams();
     const [projectData, setProjectData] = useState({
         name: "",

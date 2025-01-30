@@ -26,7 +26,7 @@
   "locations": [
     {
       "id": 1,
-      "name": "Main Office",
+      "name": "Main  Second Office",
       "address": "123 Main St, Springfield dlkjfakldsjf",
       "description": "Corporate headquarters",
       "gpscoords": "37.7749,-122.4194",
@@ -79,6 +79,22 @@
       "description": "Facility for customer interactions and support.",
       "gpscoords": "37.7747,-122.4190",
       "userId": 1
+    },
+    {
+      "name": "Test Location",
+      "address": "Test Address",
+      "description": "location description\n",
+      "gpscoords": "coodinates",
+      "userId": 3,
+      "id": 8
+    },
+    {
+      "name": "New location",
+      "address": "lkdjsflkj",
+      "description": "lkjdflksjd",
+      "gpscoords": "lksdjflkj",
+      "userId": 3,
+      "id": 9
     }
   ],
   "projects": [
@@ -135,38 +151,38 @@
       "description": "editing another descripton again"
     },
     {
-      "name": "Design Lab Project",
-      "startdate": "Tomorrow",
-      "enddate": "",
+      "name": "SUPER NICE",
+      "startdate": "kljsdlkfj",
+      "enddate": "lksdjflk",
       "ageSinceTouch": 0,
       "id": 8,
-      "description": "lkdjflksdjflsdk"
+      "description": "slkdjflksd"
     },
     {
-      "name": "",
-      "startdate": "",
-      "enddate": "",
+      "name": "New2 porject jaldkfj",
+      "startdate": "lkjsdfk",
+      "enddate": "lkjsdkfj",
       "ageSinceTouch": 0,
-      "id": 9
+      "id": 9,
+      "description": "Change to test location"
     },
     {
-      "name": "Project Name",
-      "startdate": "kjsdlfj",
-      "enddate": "lskdjflk",
+      "name": "new conference room project",
+      "startdate": "start date",
+      "enddate": "end date ",
       "ageSinceTouch": 0,
       "id": 10,
-      "description": "lkjdsflkjsd"
+      "description": "kjdfslkjdfs"
     }
   ],
   "tasks": [
     {
+      "id": 1,
       "taskName": "Design Homepage",
       "dateCreated": "2025-01-05",
-      "dateCompleted": null,
+      "dateCompleted": "2025-01-30T15:31:01.836Z",
       "projectId": 1,
-      "locationId": 1,
-      "description": "adding a description",
-      "id": 1
+      "locationId": 1
     },
     {
       "id": 2,
@@ -196,7 +212,7 @@
       "id": 5,
       "taskName": "Create Wireframes",
       "dateCreated": "2025-01-07",
-      "dateCompleted": null,
+      "dateCompleted": "2025-01-30T15:31:02.506Z",
       "projectId": 1,
       "locationId": 1
     },
@@ -204,7 +220,7 @@
       "id": 6,
       "taskName": "Develop Landing Page",
       "dateCreated": "2025-01-10",
-      "dateCompleted": null,
+      "dateCompleted": "2025-01-30T15:31:02.965Z",
       "projectId": 1,
       "locationId": 1
     },
@@ -225,30 +241,20 @@
       "locationId": 1
     },
     {
+      "id": 9,
+      "taskName": "Here is a task",
+      "dateCreated": "2025-01-30T15:25:54.088Z",
+      "dateCompleted": null,
+      "projectId": "8",
+      "locationId": 8
+    },
+    {
       "id": 10,
-      "taskName": "New Task for Employee Onboarding Program",
-      "dateCreated": "2025-01-29T21:07:35.449Z",
-      "dateCompleted": null,
-      "projectId": "5",
-      "locationId": 1
-    },
-    {
       "taskName": "New Task",
-      "dateCreated": "2025-01-29T21:54:15.860Z",
-      "dateCompleted": null,
-      "projectId": "7",
-      "locationId": 1,
-      "description": "sdlkjfkljsdalkfjdsalkfjas ",
-      "id": 11
-    },
-    {
-      "taskName": "Here is a new Task",
-      "dateCreated": "2025-01-29T21:55:38.914Z",
+      "dateCreated": "2025-01-30T15:56:22.825Z",
       "dateCompleted": null,
       "projectId": "10",
-      "locationId": 1,
-      "description": "FOr main Office",
-      "id": 12
+      "locationId": 4
     }
   ],
   "taskitems": [
@@ -320,7 +326,7 @@
     },
     {
       "id": 5,
-      "locationId": 1,
+      "locationId": 4,
       "projectId": 5
     },
     {
@@ -334,17 +340,17 @@
       "projectId": 7
     },
     {
-      "locationId": 6,
+      "locationId": 8,
       "projectId": 8,
       "id": 8
     },
     {
-      "locationId": 2,
+      "locationId": 8,
       "projectId": 9,
       "id": 9
     },
     {
-      "locationId": 1,
+      "locationId": 4,
       "projectId": 10,
       "id": 10
     }
@@ -382,21 +388,27 @@
     },
     {
       "userId": 1,
-      "projectId": 9,
-      "isOwner": true,
-      "id": 6
-    },
-    {
-      "userId": 1,
       "projectId": 7,
       "isOwner": true,
       "id": 7
     },
     {
+      "userId": 3,
+      "projectId": 8,
+      "isOwner": true,
+      "id": 8
+    },
+    {
+      "userId": 3,
+      "projectId": 9,
+      "isOwner": true,
+      "id": 9
+    },
+    {
       "userId": 1,
       "projectId": 10,
       "isOwner": true,
-      "id": 8
+      "id": 10
     }
   ]
 }

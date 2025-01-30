@@ -26,7 +26,7 @@ export const getUserProjectByProjectId = async (projectId) => {
 
 export const createNewProject = async () => {
     const projectSubmissionObject = {
-        name: "",
+        name: "Default Project Name",
         startdate: "",
         enddate: "",
         ageSinceTouch: 0

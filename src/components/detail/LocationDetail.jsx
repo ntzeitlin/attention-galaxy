@@ -50,19 +50,24 @@ export const LocationDetail = ({ currentUser }) => {
                 <ProjectListCard
                     locationProjects={locationProjects}
                     currentUser={currentUser}
+                    locationData={locationData}
                 />
                 <Card>
                     <Flex direction="column">
                         <Heading align="center" mt="4">
                             Inventory
                         </Heading>
-                        <Button size="1" mt="1" ml="3" onClick={() => {}}>
-                            Add Inventory
-                        </Button>
+                        {currentUser.id === locationData.userId ? (
+                            <Button size="1" mt="1" ml="3" onClick={() => {}}>
+                                Add Inventory
+                            </Button>
+                        ) : (
+                            ""
+                        )}
                     </Flex>
                     <Section>
                         <Flex direction="column">
-                            <Card m="2">Inventory Item Name...</Card>
+                            <Card m="2">Placeholder Item Name...</Card>
                             <Card m="2">Inventory Item Name...</Card>
                             <Card m="2">Inventory Item Name...</Card>
                             <Card m="2">Inventory Item Name...</Card>
