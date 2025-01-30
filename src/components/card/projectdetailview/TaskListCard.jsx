@@ -29,7 +29,7 @@ export const TaskListCard = ({ projectId, locationData, currentUser }) => {
 
     const handleNewTask = () => {
         const submissionObject = {
-            taskName: "",
+            taskName: "Default Task Name",
             dateCreated: new Date(),
             dateCompleted: null,
             projectId: projectId,
