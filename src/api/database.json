@@ -310,6 +310,14 @@
       "locationId": 2,
       "description": "task description",
       "id": 12
+    },
+    {
+      "taskName": "Default Task Name",
+      "dateCreated": "2025-01-30T19:00:39.739Z",
+      "dateCompleted": null,
+      "projectId": "7",
+      "locationId": 1,
+      "id": 13
     }
   ],
   "taskitems": [
@@ -342,6 +350,56 @@
       "id": 6,
       "taskId": 2,
       "itemId": 6
+    },
+    {
+      "taskId": 1,
+      "itemId": 7,
+      "id": 7
+    },
+    {
+      "taskId": 1,
+      "itemId": 8,
+      "id": 8
+    },
+    {
+      "taskId": 13,
+      "itemId": 9,
+      "id": 9
+    },
+    {
+      "taskId": 13,
+      "itemId": 10,
+      "id": 10
+    },
+    {
+      "taskId": 13,
+      "itemId": 11,
+      "id": 11
+    },
+    {
+      "taskId": 13,
+      "itemId": 12,
+      "id": 12
+    },
+    {
+      "taskId": 5,
+      "itemId": 13,
+      "id": 13
+    },
+    {
+      "taskId": 5,
+      "itemId": 14,
+      "id": 14
+    },
+    {
+      "taskId": 5,
+      "itemId": 15,
+      "id": 15
+    },
+    {
+      "taskId": 5,
+      "itemId": 16,
+      "id": 16
     }
   ],
   "items": [
@@ -404,6 +462,106 @@
       "resourceLink": null,
       "locationId": 2,
       "userId": 1
+    },
+    {
+      "name": "Default New Item",
+      "description": "",
+      "quantity": 0,
+      "isObject": false,
+      "resourceLink": null,
+      "locationId": 1,
+      "userId": 1,
+      "id": 7
+    },
+    {
+      "name": "Default New Item",
+      "description": "",
+      "quantity": 0,
+      "isObject": false,
+      "resourceLink": null,
+      "locationId": 1,
+      "userId": 1,
+      "id": 8
+    },
+    {
+      "name": "Default New Item",
+      "description": "",
+      "quantity": 0,
+      "isObject": false,
+      "resourceLink": null,
+      "locationId": 1,
+      "userId": 1,
+      "id": 9
+    },
+    {
+      "name": "Default New Item",
+      "description": "",
+      "quantity": 0,
+      "isObject": false,
+      "resourceLink": null,
+      "locationId": 1,
+      "userId": 1,
+      "id": 10
+    },
+    {
+      "name": "Default New Item",
+      "description": "",
+      "quantity": 0,
+      "isObject": false,
+      "resourceLink": null,
+      "locationId": 1,
+      "userId": 1,
+      "id": 11
+    },
+    {
+      "name": "Default New Item",
+      "description": "",
+      "quantity": 0,
+      "isObject": true,
+      "resourceLink": null,
+      "locationId": 1,
+      "userId": 1,
+      "id": 12
+    },
+    {
+      "name": "Default New Item",
+      "description": "",
+      "quantity": 0,
+      "isObject": false,
+      "resourceLink": null,
+      "locationId": 1,
+      "userId": 1,
+      "id": 13
+    },
+    {
+      "name": "Default New Item",
+      "description": "",
+      "quantity": 0,
+      "isObject": false,
+      "resourceLink": null,
+      "locationId": 1,
+      "userId": 1,
+      "id": 14
+    },
+    {
+      "name": "new item name",
+      "description": "",
+      "quantity": 0,
+      "isObject": false,
+      "resourceLink": null,
+      "locationId": 1,
+      "userId": 1,
+      "id": 15
+    },
+    {
+      "name": "Default New Item",
+      "description": "",
+      "quantity": 0,
+      "isObject": false,
+      "resourceLink": null,
+      "locationId": 1,
+      "userId": 1,
+      "id": 16
     }
   ],
   "locationlocations": [

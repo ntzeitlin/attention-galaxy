@@ -5,9 +5,12 @@ import {
     createNewItem,
     createNewTaskItem,
 } from "../../../services/inventoryService";
+import { useNavigate } from "react-router-dom";
 
 export const TaskItemListCard = ({ taskId, currentUser, locationId }) => {
     const [taskItemsArray, setTaskItemsArray] = useState([]);
+
+    const navigate = useNavigate();
 
     useEffect(() => {
         getTaskItemsByTaskId(taskId).then((data) => setTaskItemsArray(data));
@@ -30,6 +33,7 @@ export const TaskItemListCard = ({ taskId, currentUser, locationId }) => {
                 taskId: parseInt(taskId),
                 itemId: data.id,
             });
+            navigate(`/item/${data.id}/edit`);
         });
     };
 

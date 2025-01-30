@@ -11,6 +11,7 @@ import { InventoryList } from "../components/lists/InventoryList";
 import { NewProject } from "../components/forms/NewProject";
 import { ProjectDetail } from "../components/detail/ProjectDetail";
 import { NewTask } from "../components/forms/NewTask";
+import { NewItem } from "../components/forms/NewItem";
 
 export const ApplicationViews = () => {
     const [currentUser, setCurrentUser] = useState({});
@@ -71,6 +72,14 @@ export const ApplicationViews = () => {
                     <Route
                         path=":taskId/edit"
                         element={<NewTask currentUser={currentUser} />}
+                    />
+                </Route>
+
+                <Route path="item">
+                    <Route path=":itemId" element={<></>} />
+                    <Route
+                        path=":itemId/edit"
+                        element={<NewItem currentUser={currentUser} />}
                     />
                 </Route>
 
