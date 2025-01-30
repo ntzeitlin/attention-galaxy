@@ -14,6 +14,14 @@ export const getTaskByTaskId = async (taskId) => {
     return data;
 };
 
+export const getTaskItemsByTaskId = async (taskId) => {
+    const response = await fetch(
+        `http://localhost:8088/taskitems?taskId=${taskId}&_expand=item`
+    );
+    const data = response.json();
+    return data;
+};
+
 export const createNewTask = async (submissionObject) => {
     const response = await fetch("http://localhost:8088/tasks", {
         method: "POST",

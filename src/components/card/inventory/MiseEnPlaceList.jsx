@@ -17,13 +17,14 @@ export const MiseEnPlaceListCard = ({ currentUser, projectId }) => {
                 <Heading align="center" mt="4">
                     Mise en Place
                 </Heading>
-                {currentUser.id === userProjectData?.userId ? (
+                {/* Not sure if I need a button here. Mise en Place should be generated from tasks */}
+                {/* {currentUser.id === userProjectData?.userId ? (
                     <Button size="1" mt="1" color="green" onClick={() => {}}>
                         Add Item
                     </Button>
                 ) : (
                     ""
-                )}
+                )} */}
             </Flex>
         </Card>
     );

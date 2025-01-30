@@ -305,6 +305,26 @@
       "id": 2,
       "taskId": 2,
       "itemId": 2
+    },
+    {
+      "id": 3,
+      "taskId": 2,
+      "itemId": 3
+    },
+    {
+      "id": 4,
+      "taskId": 2,
+      "itemId": 4
+    },
+    {
+      "id": 5,
+      "taskId": 2,
+      "itemId": 5
+    },
+    {
+      "id": 6,
+      "taskId": 2,
+      "itemId": 6
     }
   ],
   "items": [
@@ -325,6 +345,46 @@
       "quantity": 1,
       "isObject": false,
       "resourceLink": "https://example.com/safety-manual",
+      "locationId": 2,
+      "userId": 1
+    },
+    {
+      "id": 3,
+      "name": "Barcode Scanner",
+      "description": "Handheld scanner for inventory management.",
+      "quantity": 3,
+      "isObject": true,
+      "resourceLink": null,
+      "locationId": 2,
+      "userId": 1
+    },
+    {
+      "id": 4,
+      "name": "Stock Report Template",
+      "description": "Spreadsheet template for inventory auditing.",
+      "quantity": 1,
+      "isObject": false,
+      "resourceLink": "https://example.com/stock-report-template",
+      "locationId": 2,
+      "userId": 1
+    },
+    {
+      "id": 5,
+      "name": "Warehouse Inventory List",
+      "description": "Complete list of stored items with stock levels.",
+      "quantity": 1,
+      "isObject": false,
+      "resourceLink": "https://example.com/warehouse-inventory",
+      "locationId": 2,
+      "userId": 1
+    },
+    {
+      "id": 6,
+      "name": "Pallet Jack",
+      "description": "Equipment for moving large stacks of inventory.",
+      "quantity": 2,
+      "isObject": true,
+      "resourceLink": null,
       "locationId": 2,
       "userId": 1
     }
