@@ -10,17 +10,43 @@ import {
     Section,
     Text,
 } from "@radix-ui/themes";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { ItemList } from "../card/inventory/ItemList";
+import {
+    createNewItem,
+    createNewTaskItem,
+} from "../../services/inventoryService";
 
 export const InventoryList = ({ currentUser }) => {
     const [locationArray, setLocationArray] = useState([]);
+    const navigate = useNavigate();
 
     useEffect(() => {
         getLocationsByUserId(currentUser.id).then((data) =>
             setLocationArray(data)
         );
     }, [currentUser]);
+
+    const handleNewLocationItem = (locationId) => {
+        // create new item for database
+        const newItemObject = {
+            name: "Default New Item",
+            description: "",
+            quantity: 0,
+            isObject: false,
+            resourceLink: null,
+            locationId: locationId,
+            userId: currentUser.id,
+        };
+
+        createNewItem(newItemObject).then((data) => {
+            createNewTaskItem({
+                taskId: 0,
+                itemId: data.id,
+            });
+            navigate(`/item/${data.id}/edit`);
+        });
+    };
 
     return (
         <Container>
@@ -43,7 +69,14 @@ export const InventoryList = ({ currentUser }) => {
                                             {locationObject.name}
                                         </Link>
                                     </Text>
-                                    <Button m="2" size="1" color="purple">
+                                    <Button
+                                        m="2"
+                                        size="1"
+                                        color="purple"
+                                        onClick={() => {
+                                            window.alert("Work on Add Item");
+                                        }}
+                                    >
                                         Add Item
                                     </Button>
                                 </Flex>
