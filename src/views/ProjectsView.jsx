@@ -54,7 +54,7 @@ export const ProjectListView = ({ currentUser }) => {
     return (
         <Container>
             <Heading align="center" mt="8" mb="-5">
-                Projects
+                Location Projects
             </Heading>
             <Section>
                 <Grid columns="3" gap="2">

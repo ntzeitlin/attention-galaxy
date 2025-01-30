@@ -1,11 +1,4 @@
-import {
-    Button,
-    Card,
-    Container,
-    Flex,
-    Heading,
-    Section,
-} from "@radix-ui/themes";
+import { Container, Flex } from "@radix-ui/themes";
 import { useEffect, useState } from "react";
 import {
     getLocationByLocationId,

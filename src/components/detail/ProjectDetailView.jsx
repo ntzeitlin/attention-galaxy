@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { getProjectInfoByProjectId } from "../../services/projectService";
 import { getLocationInfoByProjectId } from "../../services/locationService";
-import { ProjectOverviewCard } from "../card/projectdetailview/ProjectOverview";
+import { ProjectDetailCard } from "../card/projectdetailview/ProjectDetailCard";
 import { TaskListCard } from "../card/projectdetailview/TaskListCard";
 import { MiseEnPlaceListCard } from "../card/tasks/MiseEnPlaceList";
 
@@ -40,7 +40,7 @@ export const ProjectDetail = ({ currentUser }) => {
         <Container width="80%" m="5">
             {/* <Heading align="center">Project Details</Heading> */}
             <Flex gap="3" justify="center">
-                <ProjectOverviewCard
+                <ProjectDetailCard
                     currentUser={currentUser}
                     locationData={locationData}
                     projectData={projectData}

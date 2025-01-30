@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { getInventoryItemsByLocationAndUserId } from "../../../services/inventoryService";
 import { ItemNameCard } from "./ItemName";
 
-export const ItemList = ({ locationId, currentUser }) => {
+export const InventoryItemList = ({ locationId, currentUser }) => {
     const [itemArray, setItemArray] = useState([]);
 
     useEffect(() => {

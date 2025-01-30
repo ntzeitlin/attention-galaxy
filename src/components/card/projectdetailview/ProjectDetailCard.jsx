@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { getUserProjectByProjectId } from "../../../services/projectService";
 
-export const ProjectOverviewCard = ({ projectData, currentUser }) => {
+export const ProjectDetailCard = ({ projectData, currentUser }) => {
     const navigate = useNavigate();
     const [userProjectData, setUserProjectData] = useState({});
 
