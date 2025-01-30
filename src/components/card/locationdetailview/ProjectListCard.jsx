@@ -1,11 +1,11 @@
 import { Button, Card, Flex, Heading, Section } from "@radix-ui/themes";
-import { ProjectSummaryCard } from "./ProjectSummaryCard";
+import { ProjectSummaryCard } from "../ProjectSummaryCard";
 import { useNavigate, useParams } from "react-router-dom";
 import {
     createNewProject,
     createProjectLocation,
     createUserProjects,
-} from "../../services/projectService";
+} from "../../../services/projectService";
 import { useEffect, useState } from "react";
 
 export const ProjectListCard = ({

@@ -12,8 +12,9 @@ import {
     getProjectsByLocationId,
 } from "../../services/locationService";
 import { useParams } from "react-router-dom";
-import { LocationInfoCard } from "../card/LocationInfo";
-import { ProjectListCard } from "../card/ProjectListCard";
+import { LocationInfoCard } from "../card/locationdetailview/LocationInfo";
+import { ProjectListCard } from "../card/locationdetailview/ProjectListCard";
+import { LocationInventoryListCard } from "../card/locationdetailview/LocationInventoryList";
 
 export const LocationDetail = ({ currentUser }) => {
     const { locationId } = useParams();
@@ -52,28 +53,10 @@ export const LocationDetail = ({ currentUser }) => {
                     currentUser={currentUser}
                     locationData={locationData}
                 />
-                <Card>
-                    <Flex direction="column">
-                        <Heading align="center" mt="4">
-                            Inventory
-                        </Heading>
-                        {currentUser.id === locationData.userId ? (
-                            <Button size="1" mt="1" ml="3" onClick={() => {}}>
-                                Add Inventory
-                            </Button>
-                        ) : (
-                            ""
-                        )}
-                    </Flex>
-                    <Section>
-                        <Flex direction="column">
-                            <Card m="2">Placeholder Item Name...</Card>
-                            <Card m="2">Inventory Item Name...</Card>
-                            <Card m="2">Inventory Item Name...</Card>
-                            <Card m="2">Inventory Item Name...</Card>
-                        </Flex>
-                    </Section>
-                </Card>
+                <LocationInventoryListCard
+                    currentUser={currentUser}
+                    locationData={locationData}
+                />
             </Flex>
         </Container>
     );

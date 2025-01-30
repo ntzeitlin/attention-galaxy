@@ -1,3 +1,5 @@
+import { useEffect, useState } from "react";
+import { getLocationsByUserId } from "../services/locationService";
 import {
     Button,
     Card,
@@ -8,20 +10,13 @@ import {
     Section,
     Text,
 } from "@radix-ui/themes";
-import { useEffect, useState } from "react";
-import { getLocationsByUserId } from "../../services/locationService";
 import { Link, useNavigate } from "react-router-dom";
-import { ProjectNameCard } from "../card/ProjectNameList";
-import {
-    createNewProject,
-    createProjectLocation,
-    createUserProjects,
-} from "../../services/projectService";
+import { ItemList } from "../components/card/inventory/ItemList";
+import { createNewItem, createNewTaskItem } from "../services/inventoryService";
 
-export const ProjectList = ({ currentUser }) => {
-    const navigate = useNavigate();
-
+export const InventoryListView = ({ currentUser }) => {
     const [locationArray, setLocationArray] = useState([]);
+    const navigate = useNavigate();
 
     useEffect(() => {
         getLocationsByUserId(currentUser.id).then((data) =>
@@ -29,32 +24,31 @@ export const ProjectList = ({ currentUser }) => {
         );
     }, [currentUser]);
 
-    const handleNewProject = (locationId) => {
-        let updatedProjectId = null;
-        createNewProject()
-            .then((data) => {
-                updatedProjectId = parseInt(data.id);
-                createProjectLocation({
-                    locationId: parseInt(locationId),
-                    projectId: updatedProjectId,
-                });
-                createUserProjects({
-                    userId: parseInt(currentUser.id),
-                    projectId: updatedProjectId,
-                    isOwner: true,
-                });
-            })
-            .then(() => {
-                navigate(`/project/${updatedProjectId}/edit`, {
-                    state: { locationId },
-                });
+    const handleNewLocationItem = (locationId) => {
+        // create new item for database
+        const newItemObject = {
+            name: "Default New Item",
+            description: "",
+            quantity: 0,
+            isObject: false,
+            resourceLink: null,
+            locationId: locationId,
+            userId: currentUser.id,
+        };
+
+        createNewItem(newItemObject).then((data) => {
+            createNewTaskItem({
+                taskId: 0,
+                itemId: data.id,
             });
+            navigate(`/item/${data.id}/edit`);
+        });
     };
 
     return (
         <Container>
             <Heading align="center" mt="8" mb="-5">
-                Projects
+                Inventory
             </Heading>
             <Section>
                 <Grid columns="3" gap="2">
@@ -75,16 +69,17 @@ export const ProjectList = ({ currentUser }) => {
                                     <Button
                                         m="2"
                                         size="1"
-                                        color="green"
+                                        color="purple"
                                         onClick={() => {
-                                            handleNewProject(locationObject.id);
+                                            window.alert("Work on Add Item");
                                         }}
                                     >
-                                        Add Project
+                                        Add Item
                                     </Button>
                                 </Flex>
-                                <ProjectNameCard
+                                <ItemList
                                     locationId={locationObject.id}
+                                    currentUser={currentUser}
                                 />
                             </Card>
                         );
