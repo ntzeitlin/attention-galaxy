@@ -1,8 +1,17 @@
 import { Button, Card, Flex, Heading, Section, Text } from "@radix-ui/themes";
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { getUserProjectByProjectId } from "../../../services/projectService";
 
 export const ProjectOverviewCard = ({ projectData, currentUser }) => {
     const navigate = useNavigate();
+    const [userProjectData, setUserProjectData] = useState({});
+
+    useEffect(() => {
+        getUserProjectByProjectId(projectData.id).then((data) =>
+            setUserProjectData(data[0])
+        );
+    }, [projectData]);
 
     return (
         <Card>
@@ -10,7 +19,8 @@ export const ProjectOverviewCard = ({ projectData, currentUser }) => {
                 <Heading align="center" mt="4">
                     Project Details
                 </Heading>
-                {currentUser.id ? (
+                {currentUser.id === userProjectData.userId &&
+                userProjectData.isOwner ? (
                     <Button
                         m="1"
                         size="1"

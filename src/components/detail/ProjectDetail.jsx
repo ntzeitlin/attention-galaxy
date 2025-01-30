@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import { Button, Card, Container, Flex, Heading } from "@radix-ui/themes";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
@@ -36,13 +37,8 @@ export const ProjectDetail = ({ currentUser }) => {
 
     //WILL HAVE A TASK SECTION
 
-    // FOR JANUARY 29:
     /*
-    - START TASK GENERATION FOR PROJECT
-    - NEW CARD IN THIS VIEW WITH TASKS LISTED OUT FOR THE CURRENT PROJECT
-    - ADD TASK BUTTON AND FUNCTIONALITY
-    - CLICK ON TASK INFO
-    */
+     */
 
     return (
         <Container width="80%" m="5">
