@@ -3,9 +3,11 @@ import { CheckboxCards, Flex, Text } from "@radix-ui/themes";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { updateTaskItemByTaskItemId } from "../../../services/taskService";
+import { getLocationByLocationId } from "../../../services/locationService";
 
 export const TaskItemCard = ({ itemObject, fetchAndSetTaskItems }) => {
     const [taskItemData, setTaskItemData] = useState({});
+    const [locationInfo, setLocationInfo] = useState({});
     const [onHand, setOnHand] = useState();
 
     useEffect(() => {
@@ -15,6 +17,12 @@ export const TaskItemCard = ({ itemObject, fetchAndSetTaskItems }) => {
     useEffect(() => {
         taskItemData.onHand ? setOnHand(true) : setOnHand(false);
     }, [taskItemData]);
+
+    useEffect(() => {
+        getLocationByLocationId(taskItemData.item?.locationId).then((data) =>
+            setLocationInfo(data)
+        );
+    }, [taskItemData.item]);
 
     const handleCheckItem = () => {
         const submissionObject = {
@@ -44,6 +52,7 @@ export const TaskItemCard = ({ itemObject, fetchAndSetTaskItems }) => {
                     <Flex direction="column" width="100%">
                         <Text weight="bold">{itemObject.item?.name}</Text>
                         <Text>{onHand ? "on hand" : "need to pick up"}</Text>
+                        <Text>Located: {locationInfo.name}</Text>
                     </Flex>
                 </CheckboxCards.Item>
             </Flex>
