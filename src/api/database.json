@@ -243,13 +243,13 @@
     {
       "taskId": 1,
       "itemId": 7,
-      "onHand": true,
+      "onHand": false,
       "id": 7
     },
     {
       "taskId": 1,
       "itemId": 8,
-      "onHand": true,
+      "onHand": false,
       "id": 8
     },
     {
@@ -279,7 +279,7 @@
       "quantity": 10,
       "isObject": true,
       "resourceLink": null,
-      "locationId": 2,
+      "locationId": 1,
       "userId": 1
     },
     {
@@ -329,7 +329,7 @@
       "quantity": 2,
       "isObject": true,
       "resourceLink": null,
-      "locationId": 2,
+      "locationId": 1,
       "userId": 1
     },
     {
@@ -378,7 +378,7 @@
       "quantity": 2,
       "isObject": false,
       "resourceLink": null,
-      "locationId": 5,
+      "locationId": 1,
       "userId": 1,
       "id": 11
     }

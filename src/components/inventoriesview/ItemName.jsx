@@ -2,15 +2,28 @@ import { Card, Strong, Text } from "@radix-ui/themes";
 import { useEffect, useState } from "react";
 import { getItemTaskInfoByItemId } from "../../services/inventoryService";
 import { Link } from "react-router-dom";
+import { getProjectInfoByProjectId } from "../../services/projectService";
 
 export const ItemNameCard = ({ itemObject }) => {
     const [itemTaskData, setItemTaskData] = useState({});
+    const [projectData, setProjectData] = useState({
+        id: "",
+        name: "",
+    });
 
     useEffect(() => {
         getItemTaskInfoByItemId(itemObject.id).then((data) =>
             setItemTaskData(data[0])
         );
     }, [itemObject]);
+
+    useEffect(() => {
+        if (itemTaskData.task?.projectId) {
+            getProjectInfoByProjectId(itemTaskData.task?.projectId).then(
+                (data) => setProjectData(data)
+            );
+        }
+    }, [itemTaskData]);
 
     return (
         <Card
@@ -33,7 +46,8 @@ export const ItemNameCard = ({ itemObject }) => {
                     <Strong>Item:</Strong> {itemObject.name}{" "}
                 </Text>
             </Link>
-            Task: {itemTaskData.task?.taskName}
+            <Text as="div">Task: {itemTaskData.task?.taskName}</Text>
+            <Text as="div">Project: {projectData?.name || "Loading..."}</Text>
         </Card>
     );
 };
