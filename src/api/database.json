@@ -234,6 +234,14 @@
       "projectId": "6",
       "locationId": 1,
       "id": 12
+    },
+    {
+      "taskName": "Default Task Name",
+      "dateCreated": "2025-01-31T17:40:16.168Z",
+      "dateCompleted": null,
+      "projectId": 2,
+      "locationId": 2,
+      "id": 13
     }
   ],
   "taskitems": [
@@ -251,7 +259,7 @@
     {
       "taskId": 2,
       "itemId": 3,
-      "onHand": true,
+      "onHand": false,
       "id": 3
     },
     {
@@ -263,7 +271,7 @@
     {
       "taskId": 2,
       "itemId": 5,
-      "onHand": true,
+      "onHand": false,
       "id": 5
     },
     {
@@ -293,8 +301,20 @@
     {
       "taskId": 10,
       "itemId": 10,
-      "onHand": true,
+      "onHand": false,
       "id": 10
+    },
+    {
+      "taskId": 13,
+      "itemId": 11,
+      "onHand": false,
+      "id": 11
+    },
+    {
+      "taskId": 13,
+      "itemId": 12,
+      "onHand": false,
+      "id": 12
     }
   ],
   "items": [
@@ -397,6 +417,26 @@
       "locationId": 2,
       "userId": 1,
       "id": 10
+    },
+    {
+      "name": "Warehouse Item 1",
+      "description": "",
+      "quantity": 0,
+      "isObject": false,
+      "resourceLink": null,
+      "locationId": 2,
+      "userId": 1,
+      "id": 11
+    },
+    {
+      "name": "Warehouse Item 2",
+      "description": "",
+      "quantity": 0,
+      "isObject": false,
+      "resourceLink": null,
+      "locationId": 2,
+      "userId": 1,
+      "id": 12
     }
   ],
   "locationlocations": [
