@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { getItemTaskInfoByItemId } from "../../services/inventoryService";
 import { Link } from "react-router-dom";
 import { getProjectInfoByProjectId } from "../../services/projectService";
+import { getLocationByLocationId } from "../../services/locationService";
 
 export const ItemNameCard = ({ itemObject }) => {
     const [itemTaskData, setItemTaskData] = useState({});
@@ -10,6 +11,7 @@ export const ItemNameCard = ({ itemObject }) => {
         id: "",
         name: "",
     });
+    const [taskLocationData, setTaskLocationData] = useState({});
 
     useEffect(() => {
         getItemTaskInfoByItemId(itemObject.id).then((data) =>
@@ -21,6 +23,12 @@ export const ItemNameCard = ({ itemObject }) => {
         if (itemTaskData.task?.projectId) {
             getProjectInfoByProjectId(itemTaskData.task?.projectId).then(
                 (data) => setProjectData(data)
+            );
+        }
+
+        if (itemTaskData.task?.locationId) {
+            getLocationByLocationId(itemTaskData.task?.locationId).then(
+                (data) => setTaskLocationData(data)
             );
         }
     }, [itemTaskData]);
@@ -47,6 +55,7 @@ export const ItemNameCard = ({ itemObject }) => {
                 </Text>
             </Link>
             <Text as="div">Task: {itemTaskData.task?.taskName}</Text>
+            <Text as="div">Task Location: {taskLocationData.name}</Text>
             <Text as="div">Project: {projectData?.name || "Loading..."}</Text>
         </Card>
     );
