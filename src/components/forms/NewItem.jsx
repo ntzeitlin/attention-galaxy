@@ -13,13 +13,16 @@ import {
     Heading,
     RadioGroup,
     Section,
+    Select,
     Text,
     TextField,
 } from "@radix-ui/themes";
+import { getLocationsByUserId } from "../../services/locationService";
 
-export const NewItem = () => {
+export const NewItem = ({ currentUser }) => {
     const { itemId } = useParams();
     const [taskData, setTaskData] = useState({});
+    const [userLocations, setUserLocations] = useState([]);
     const navigate = useNavigate();
 
     const [itemData, setItemData] = useState({
@@ -40,6 +43,12 @@ export const NewItem = () => {
         });
     }, [itemId]);
 
+    useEffect(() => {
+        getLocationsByUserId(currentUser.id).then((data) =>
+            setUserLocations(data)
+        );
+    }, [currentUser]);
+
     const handleSaveItem = () => {
         updateItemByItemId(itemId, itemData).then(
             navigate(`/task/${taskData.id}`)
@@ -58,6 +67,30 @@ export const NewItem = () => {
                 </Heading>
                 <Section>
                     <Flex direction="column">
+                        <Text as="label">Item Location:</Text>
+                        <Select.Root
+                            m="2"
+                            value={itemData.locationId}
+                            onValueChange={(event) => {
+                                const itemDataCopy = { ...itemData };
+                                itemDataCopy.locationId = event;
+                                setItemData(itemDataCopy);
+                            }}
+                        >
+                            <Select.Trigger placeholder="Item Location.." />
+                            <Select.Content>
+                                {userLocations.map((locationObject) => {
+                                    return (
+                                        <Select.Item
+                                            key={locationObject.id}
+                                            value={locationObject.id}
+                                        >
+                                            {locationObject.name}
+                                        </Select.Item>
+                                    );
+                                })}
+                            </Select.Content>
+                        </Select.Root>
                         <Flex gap="2" my="2">
                             <RadioGroup.Root
                                 value={itemData?.isObject ? "true" : "false"}

@@ -79,14 +79,6 @@
       "description": "Facility for customer interactions and support.",
       "gpscoords": "37.7747,-122.4190",
       "userId": 1
-    },
-    {
-      "name": "Default Location Name",
-      "address": "",
-      "description": "",
-      "gpscoords": "",
-      "userId": 1,
-      "id": 8
     }
   ],
   "projects": [
@@ -389,7 +381,7 @@
   "projectlocations": [
     {
       "id": 1,
-      "locationId": 7,
+      "locationId": 1,
       "projectId": 1
     },
     {
