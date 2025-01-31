@@ -11,15 +11,16 @@ export const MiseEnPlaceItemCard = ({ taskWithTaskItemObject }) => {
 
             */
         }
+        let itemArrayLength = itemArray.length;
         for (let item of itemArray) {
             if (
                 !Object.hasOwnProperty.call(item, "onHand") ||
                 item.onHand === false
             ) {
-                return false;
+                itemArrayLength--;
             }
-            return true;
         }
+        return itemArrayLength === itemArray.length;
     };
     return (
         <Card
