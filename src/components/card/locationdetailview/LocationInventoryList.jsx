@@ -1,5 +1,5 @@
 import { Button, Card, Flex, Heading, Section } from "@radix-ui/themes";
-
+import { InventoryItemList } from "../../inventoriesview/ItemList";
 export const LocationInventoryListCard = ({ currentUser, locationData }) => {
     return (
         <Card>
@@ -25,12 +25,10 @@ export const LocationInventoryListCard = ({ currentUser, locationData }) => {
                 )}
             </Flex>
             <Section>
-                <Flex direction="column">
-                    <Card m="2">Placeholder Item Name...</Card>
-                    <Card m="2">Inventory Item Name...</Card>
-                    <Card m="2">Inventory Item Name...</Card>
-                    <Card m="2">Inventory Item Name...</Card>
-                </Flex>
+                <InventoryItemList
+                    locationId={locationData.id}
+                    currentUser={currentUser}
+                />
             </Section>
         </Card>
     );

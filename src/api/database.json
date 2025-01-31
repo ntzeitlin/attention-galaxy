@@ -207,7 +207,7 @@
     {
       "taskId": 1,
       "itemId": 1,
-      "onHand": true,
+      "onHand": false,
       "id": 1
     },
     {
@@ -261,7 +261,14 @@
     {
       "taskId": 6,
       "itemId": 10,
+      "onHand": false,
       "id": 10
+    },
+    {
+      "taskId": 6,
+      "itemId": 11,
+      "onHand": false,
+      "id": 11
     }
   ],
   "items": [
@@ -272,7 +279,7 @@
       "quantity": 10,
       "isObject": true,
       "resourceLink": null,
-      "locationId": 1,
+      "locationId": 2,
       "userId": 1
     },
     {
@@ -364,6 +371,16 @@
       "locationId": 1,
       "userId": 1,
       "id": 10
+    },
+    {
+      "name": "Default New Item",
+      "description": "",
+      "quantity": 2,
+      "isObject": false,
+      "resourceLink": null,
+      "locationId": 5,
+      "userId": 1,
+      "id": 11
     }
   ],
   "locationlocations": [
