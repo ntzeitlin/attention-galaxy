@@ -201,47 +201,6 @@
       "dateCompleted": null,
       "projectId": 1,
       "locationId": 1
-    },
-    {
-      "id": 9,
-      "taskName": "Different Task Name",
-      "dateCreated": "2025-01-30T20:17:05.925Z",
-      "dateCompleted": null,
-      "projectId": "2",
-      "locationId": 2
-    },
-    {
-      "id": 10,
-      "taskName": "Default Task Name",
-      "dateCreated": "2025-01-30T21:23:50.900Z",
-      "dateCompleted": null,
-      "projectId": "2",
-      "locationId": 2
-    },
-    {
-      "taskName": "Task has two items",
-      "dateCreated": "2025-01-31T15:29:01.534Z",
-      "dateCompleted": null,
-      "projectId": "6",
-      "locationId": 1,
-      "description": "\"Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?\"\n\n",
-      "id": 11
-    },
-    {
-      "taskName": "Default Task Name",
-      "dateCreated": "2025-01-31T15:29:08.740Z",
-      "dateCompleted": null,
-      "projectId": "6",
-      "locationId": 1,
-      "id": 12
-    },
-    {
-      "taskName": "Default Task Name",
-      "dateCreated": "2025-01-31T17:40:16.168Z",
-      "dateCompleted": null,
-      "projectId": 2,
-      "locationId": 2,
-      "id": 13
     }
   ],
   "taskitems": [
@@ -279,42 +238,6 @@
       "itemId": 6,
       "onHand": true,
       "id": 6
-    },
-    {
-      "taskId": 9,
-      "itemId": 7,
-      "onHand": false,
-      "id": 7
-    },
-    {
-      "taskId": 11,
-      "itemId": 8,
-      "onHand": false,
-      "id": 8
-    },
-    {
-      "taskId": 11,
-      "itemId": 9,
-      "onHand": false,
-      "id": 9
-    },
-    {
-      "taskId": 10,
-      "itemId": 10,
-      "onHand": false,
-      "id": 10
-    },
-    {
-      "taskId": 13,
-      "itemId": 11,
-      "onHand": false,
-      "id": 11
-    },
-    {
-      "taskId": 13,
-      "itemId": 12,
-      "onHand": false,
-      "id": 12
     }
   ],
   "items": [
@@ -377,66 +300,6 @@
       "resourceLink": null,
       "locationId": 2,
       "userId": 1
-    },
-    {
-      "name": "Default New Item",
-      "description": "",
-      "quantity": 0,
-      "isObject": false,
-      "resourceLink": null,
-      "locationId": 2,
-      "userId": 1,
-      "id": 7
-    },
-    {
-      "name": "Default New Item",
-      "description": "",
-      "quantity": 0,
-      "isObject": false,
-      "resourceLink": null,
-      "locationId": 1,
-      "userId": 1,
-      "id": 8
-    },
-    {
-      "name": "Handbook",
-      "description": "",
-      "quantity": 0,
-      "isObject": false,
-      "resourceLink": null,
-      "locationId": 1,
-      "userId": 1,
-      "id": 9
-    },
-    {
-      "name": "Default New Item",
-      "description": "",
-      "quantity": 0,
-      "isObject": false,
-      "resourceLink": null,
-      "locationId": 2,
-      "userId": 1,
-      "id": 10
-    },
-    {
-      "name": "Warehouse Item 1",
-      "description": "",
-      "quantity": 0,
-      "isObject": false,
-      "resourceLink": null,
-      "locationId": 2,
-      "userId": 1,
-      "id": 11
-    },
-    {
-      "name": "Warehouse Item 2",
-      "description": "",
-      "quantity": 0,
-      "isObject": false,
-      "resourceLink": null,
-      "locationId": 2,
-      "userId": 1,
-      "id": 12
     }
   ],
   "locationlocations": [
