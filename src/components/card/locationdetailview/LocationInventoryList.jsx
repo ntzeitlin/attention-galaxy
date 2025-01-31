@@ -8,7 +8,16 @@ export const LocationInventoryListCard = ({ currentUser, locationData }) => {
                     Inventory
                 </Heading>
                 {currentUser.id === locationData.userId ? (
-                    <Button size="1" mt="1" ml="3" onClick={() => {}}>
+                    <Button
+                        size="1"
+                        mt="1"
+                        ml="3"
+                        onClick={() => {
+                            window.alert(
+                                "You'd think that would do something, right?"
+                            );
+                        }}
+                    >
                         Add Inventory
                     </Button>
                 ) : (

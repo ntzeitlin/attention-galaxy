@@ -20,3 +20,7 @@ export const InventoryItemList = ({ locationId, currentUser }) => {
         );
     });
 };
+
+// Next Steps: Account for Unassigned Items...
+// Then, work on displaying Location Inventory by Project or Unassigned Items.
+// Allow users to add inventory items and default to unassigned.
