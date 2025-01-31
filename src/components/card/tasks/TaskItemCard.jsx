@@ -31,8 +31,7 @@ export const TaskItemCard = ({ itemObject, fetchAndSetTaskItems }) => {
     return (
         <CheckboxCards.Root>
             <Flex gap="2">
-                <Text mt="3">
-                    Edit{" "}
+                <Text my="6">
                     <Link to={`/item/${itemObject.id}/edit`}>
                         <Pencil2Icon />
                     </Link>{" "}

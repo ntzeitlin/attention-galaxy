@@ -27,7 +27,7 @@ export const NewItem = () => {
         name: "",
         description: "",
         quantity: 1,
-        isObject: true,
+        isObject: "",
         resourceLink: "",
         locationId: 0,
         userId: 0,
@@ -57,7 +57,36 @@ export const NewItem = () => {
                     Edit Item
                 </Heading>
                 <Section>
-                    <Flex direction="column" align="center">
+                    <Flex direction="column">
+                        <Flex gap="2" my="2">
+                            <RadioGroup.Root
+                                value={itemData?.isObject ? "true" : "false"}
+                                onValueChange={(event) => {
+                                    // console.log(event);
+                                    const itemDataCopy = { ...itemData };
+                                    itemDataCopy.isObject = event === "true";
+                                    setItemData(itemDataCopy);
+                                }}
+                            >
+                                <RadioGroup.Item
+                                    size="2"
+                                    name="resource-type"
+                                    value="true"
+                                >
+                                    Object
+                                </RadioGroup.Item>
+
+                                <RadioGroup.Item
+                                    size="2"
+                                    name="resource-type"
+                                    value="false"
+                                >
+                                    Information
+                                </RadioGroup.Item>
+                            </RadioGroup.Root>
+                        </Flex>
+                        <Text as="label">Item Name:</Text>
+
                         <TextField.Root
                             m="2"
                             size="2"
@@ -71,34 +100,7 @@ export const NewItem = () => {
                         >
                             <TextField.Slot></TextField.Slot>
                         </TextField.Root>
-                        <Flex gap="2">
-                            <RadioGroup.Root
-                                defaultValue={itemData?.isObject}
-                                onValueChange={(event) => {
-                                    console.log(event);
-                                    // const itemDataCopy = { ...itemData };
-                                    // itemDataCopy.isObject = event.target.value;
-                                    // setItemData(itemDataCopy);
-                                }}
-                            >
-                                <Text as="label" size="2">
-                                    <RadioGroup.Item
-                                        size="2"
-                                        name="resource-type"
-                                        value={true}
-                                    />
-                                    Object
-                                </Text>
-                                <Text as="label" size="2">
-                                    <RadioGroup.Item
-                                        size="2"
-                                        name="resource-type"
-                                        value={false}
-                                    />
-                                    Information
-                                </Text>
-                            </RadioGroup.Root>
-                        </Flex>
+                        <Text as="label">Resource Link:</Text>
                         <TextField.Root
                             m="2"
                             size="2"
@@ -112,12 +114,13 @@ export const NewItem = () => {
                         >
                             <TextField.Slot></TextField.Slot>
                         </TextField.Root>
+                        <Text as="label">Quantity:</Text>
                         <TextField.Root
                             m="2"
                             size="2"
                             placeholder="Enter Quantity..."
                             type="number"
-                            value={itemData.resourceLink}
+                            value={itemData.quantity}
                             onChange={(event) => {
                                 const itemDataCopy = { ...itemData };
                                 itemDataCopy.quantity = parseInt(

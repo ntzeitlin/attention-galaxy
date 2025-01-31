@@ -79,6 +79,14 @@
       "description": "Facility for customer interactions and support.",
       "gpscoords": "37.7747,-122.4190",
       "userId": 1
+    },
+    {
+      "name": "Default Location Name",
+      "address": "",
+      "description": "",
+      "gpscoords": "",
+      "userId": 1,
+      "id": 8
     }
   ],
   "projects": [
@@ -142,7 +150,7 @@
       "id": 1,
       "taskName": "Design Homepage",
       "dateCreated": "2025-01-05",
-      "dateCompleted": "2025-01-30T15:31:01.836Z",
+      "dateCompleted": null,
       "projectId": 1,
       "locationId": 1
     },
@@ -174,7 +182,7 @@
       "id": 5,
       "taskName": "Create Wireframes",
       "dateCreated": "2025-01-07",
-      "dateCompleted": "2025-01-30T15:31:02.506Z",
+      "dateCompleted": null,
       "projectId": 1,
       "locationId": 1
     },
@@ -207,7 +215,7 @@
     {
       "taskId": 1,
       "itemId": 1,
-      "onHand": false,
+      "onHand": true,
       "id": 1
     },
     {
@@ -255,6 +263,7 @@
     {
       "taskId": 5,
       "itemId": 9,
+      "onHand": false,
       "id": 9
     },
     {
@@ -279,7 +288,7 @@
       "name": "Warehouse Safety Manual",
       "description": "Guidelines for warehouse safety",
       "quantity": 1,
-      "isObject": false,
+      "isObject": "true",
       "resourceLink": "https://example.com/safety-manual",
       "locationId": 2,
       "userId": 1
