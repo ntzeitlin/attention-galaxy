@@ -1,11 +1,12 @@
 import { Card, Strong, Text } from "@radix-ui/themes";
 import { useEffect, useState } from "react";
 import { getItemTaskInfoByItemId } from "../../services/inventoryService";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { getProjectInfoByProjectId } from "../../services/projectService";
 import { getLocationByLocationId } from "../../services/locationService";
 
 export const ItemNameCard = ({ itemObject }) => {
+    const location = useLocation();
     const [itemTaskData, setItemTaskData] = useState({});
     const [projectData, setProjectData] = useState({
         id: "",
@@ -55,7 +56,13 @@ export const ItemNameCard = ({ itemObject }) => {
                 </Text>
             </Link>
             <Text as="div">Task: {itemTaskData.task?.taskName}</Text>
-            <Text as="div">Task Location: {taskLocationData.name}</Text>
+
+            {location.pathname.includes("location") ? (
+                ""
+            ) : (
+                <Text as="div">Task Location: {taskLocationData.name}</Text>
+            )}
+
             <Text as="div">Project: {projectData?.name || "Loading..."}</Text>
         </Card>
     );
