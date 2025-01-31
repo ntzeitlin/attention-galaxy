@@ -21,8 +21,12 @@ export const TaskItemListCard = ({ taskId, currentUser, locationId }) => {
     const navigate = useNavigate();
 
     useEffect(() => {
-        getTaskItemsByTaskId(taskId).then((data) => setTaskItemsArray(data));
+        fetchAndSetTaskItems();
     }, [taskId]);
+
+    const fetchAndSetTaskItems = () => {
+        getTaskItemsByTaskId(taskId).then((data) => setTaskItemsArray(data));
+    };
 
     const handleNewTaskItem = () => {
         // create new item for database
@@ -64,17 +68,16 @@ export const TaskItemListCard = ({ taskId, currentUser, locationId }) => {
                 </Button>
             </Flex>
             <Section>
-                <Flex direction="column">
-                    <CheckboxCards.Root>
-                        {taskItemsArray.map((itemObject) => {
-                            return (
-                                <TaskItemCard
-                                    key={itemObject.id}
-                                    itemObject={itemObject}
-                                />
-                            );
-                        })}
-                    </CheckboxCards.Root>
+                <Flex direction="column" gap="3">
+                    {taskItemsArray.map((itemObject) => {
+                        return (
+                            <TaskItemCard
+                                key={itemObject.id}
+                                itemObject={itemObject}
+                                fetchAndSetTaskItems={fetchAndSetTaskItems}
+                            />
+                        );
+                    })}
                 </Flex>
             </Section>
         </Card>

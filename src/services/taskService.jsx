@@ -22,6 +22,24 @@ export const getTaskItemsByTaskId = async (taskId) => {
     return data;
 };
 
+export const updateTaskItemByTaskItemId = async (
+    taskItemId,
+    submissionObject
+) => {
+    const response = await fetch(
+        `http://localhost:8088/taskitems/${taskItemId}`,
+        {
+            method: "PUT",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify(submissionObject),
+        }
+    );
+    const data = response.json();
+    return data;
+};
+
 export const getProjectAndLocationDataByTaskId = async (taskId) => {
     const response = await fetch(
         `http://localhost:8088/tasks/${taskId}?_expand=project&_expand=location`

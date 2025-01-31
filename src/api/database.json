@@ -273,12 +273,20 @@
     {
       "taskId": 11,
       "itemId": 8,
+      "onHand": true,
       "id": 8
     },
     {
       "taskId": 11,
       "itemId": 9,
+      "onHand": true,
       "id": 9
+    },
+    {
+      "taskId": 11,
+      "itemId": 10,
+      "onHand": true,
+      "id": 10
     }
   ],
   "items": [
@@ -371,6 +379,16 @@
       "locationId": 1,
       "userId": 1,
       "id": 9
+    },
+    {
+      "name": "Handbook",
+      "description": "",
+      "quantity": 0,
+      "isObject": false,
+      "resourceLink": null,
+      "locationId": 1,
+      "userId": 1,
+      "id": 10
     }
   ],
   "locationlocations": [
