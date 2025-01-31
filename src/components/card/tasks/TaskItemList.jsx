@@ -1,4 +1,11 @@
-import { Button, Card, Flex, Heading, Section } from "@radix-ui/themes";
+import {
+    Button,
+    Card,
+    CheckboxCards,
+    Flex,
+    Heading,
+    Section,
+} from "@radix-ui/themes";
 import { useEffect, useState } from "react";
 import { getTaskItemsByTaskId } from "../../../services/taskService";
 import {
@@ -6,6 +13,7 @@ import {
     createNewTaskItem,
 } from "../../../services/inventoryService";
 import { Link, useNavigate } from "react-router-dom";
+import { TaskItemCard } from "./TaskItemCard";
 
 export const TaskItemListCard = ({ taskId, currentUser, locationId }) => {
     const [taskItemsArray, setTaskItemsArray] = useState([]);
@@ -57,15 +65,16 @@ export const TaskItemListCard = ({ taskId, currentUser, locationId }) => {
             </Flex>
             <Section>
                 <Flex direction="column">
-                    {taskItemsArray.map((itemObject) => {
-                        return (
-                            <Card m="2" key={itemObject.id}>
-                                <Link to={`/item/${itemObject.id}/edit`}>
-                                    {itemObject.item?.name}
-                                </Link>
-                            </Card>
-                        );
-                    })}
+                    <CheckboxCards.Root>
+                        {taskItemsArray.map((itemObject) => {
+                            return (
+                                <TaskItemCard
+                                    key={itemObject.id}
+                                    itemObject={itemObject}
+                                />
+                            );
+                        })}
+                    </CheckboxCards.Root>
                 </Flex>
             </Section>
         </Card>

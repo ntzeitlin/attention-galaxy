@@ -71,7 +71,7 @@ export const NewItem = () => {
                         >
                             <TextField.Slot></TextField.Slot>
                         </TextField.Root>
-                        <Flex gap="2" align="center">
+                        <Flex gap="2">
                             <RadioGroup.Root
                                 defaultValue={itemData?.isObject}
                                 onValueChange={(event) => {
@@ -116,6 +116,7 @@ export const NewItem = () => {
                             m="2"
                             size="2"
                             placeholder="Enter Quantity..."
+                            type="number"
                             value={itemData.resourceLink}
                             onChange={(event) => {
                                 const itemDataCopy = { ...itemData };

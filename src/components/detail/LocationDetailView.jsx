@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import { Container, Flex } from "@radix-ui/themes";
 import { useEffect, useState } from "react";
 import {
