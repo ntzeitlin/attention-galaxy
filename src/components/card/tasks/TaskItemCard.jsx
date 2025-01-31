@@ -38,11 +38,13 @@ export const TaskItemCard = ({ itemObject, fetchAndSetTaskItems }) => {
                     </Link>{" "}
                 </Text>
                 <CheckboxCards.Item
+                    style={{ backgroundColor: onHand ? "blue" : "red" }}
                     checked={onHand}
                     onClick={() => handleCheckItem()}
                 >
                     <Flex direction="column" width="100%">
                         <Text weight="bold">{itemObject.item?.name}</Text>
+                        <Text>{onHand ? "on hand" : "need to pick up"}</Text>
                     </Flex>
                 </CheckboxCards.Item>
             </Flex>

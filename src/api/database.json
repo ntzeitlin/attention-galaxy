@@ -273,20 +273,14 @@
     {
       "taskId": 11,
       "itemId": 8,
-      "onHand": true,
+      "onHand": false,
       "id": 8
     },
     {
       "taskId": 11,
       "itemId": 9,
-      "onHand": true,
+      "onHand": false,
       "id": 9
-    },
-    {
-      "taskId": 11,
-      "itemId": 10,
-      "onHand": true,
-      "id": 10
     }
   ],
   "items": [
@@ -371,16 +365,6 @@
       "id": 8
     },
     {
-      "name": "Default New Item",
-      "description": "",
-      "quantity": 0,
-      "isObject": false,
-      "resourceLink": null,
-      "locationId": 1,
-      "userId": 1,
-      "id": 9
-    },
-    {
       "name": "Handbook",
       "description": "",
       "quantity": 0,
@@ -388,7 +372,7 @@
       "resourceLink": null,
       "locationId": 1,
       "userId": 1,
-      "id": 10
+      "id": 9
     }
   ],
   "locationlocations": [
