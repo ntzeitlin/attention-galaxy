@@ -1,6 +1,6 @@
 import { Button, Card, Container, Flex, Heading } from "@radix-ui/themes";
 import { useEffect, useState } from "react";
-import { useNavigate, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import {
     getProjectAndLocationDataByTaskId,
     getTaskByTaskId,
@@ -40,10 +40,18 @@ export const ManageTask = ({ currentUser }) => {
                         Task: {taskData?.taskName}
                     </Heading>
                     <Heading size="3">
-                        Project: {projectLocationData.project?.name}
+                        Project:{" "}
+                        <Link to={`/project/${projectLocationData.projectId}`}>
+                            {projectLocationData.project?.name}
+                        </Link>
                     </Heading>
                     <Heading size="3">
-                        Location: {projectLocationData.location?.name}
+                        Location:{" "}
+                        <Link
+                            to={`/location/${projectLocationData.locationId}`}
+                        >
+                            {projectLocationData.location?.name}
+                        </Link>
                     </Heading>
                     <Heading size="3">Created: {taskData?.dateCreated}</Heading>
                     <Heading size="3">

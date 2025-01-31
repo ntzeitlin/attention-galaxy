@@ -203,20 +203,20 @@
       "locationId": 1
     },
     {
+      "id": 9,
       "taskName": "Different Task Name",
       "dateCreated": "2025-01-30T20:17:05.925Z",
       "dateCompleted": null,
       "projectId": "2",
-      "locationId": 2,
-      "id": 9
+      "locationId": 2
     },
     {
+      "id": 10,
       "taskName": "Default Task Name",
       "dateCreated": "2025-01-30T21:23:50.900Z",
       "dateCompleted": null,
       "projectId": "2",
-      "locationId": 2,
-      "id": 10
+      "locationId": 2
     },
     {
       "taskName": "Task has two items",
@@ -275,7 +275,7 @@
     {
       "taskId": 9,
       "itemId": 7,
-      "onHand": true,
+      "onHand": false,
       "id": 7
     },
     {
@@ -289,6 +289,12 @@
       "itemId": 9,
       "onHand": false,
       "id": 9
+    },
+    {
+      "taskId": 10,
+      "itemId": 10,
+      "onHand": true,
+      "id": 10
     }
   ],
   "items": [
@@ -381,6 +387,16 @@
       "locationId": 1,
       "userId": 1,
       "id": 9
+    },
+    {
+      "name": "Default New Item",
+      "description": "",
+      "quantity": 0,
+      "isObject": false,
+      "resourceLink": null,
+      "locationId": 2,
+      "userId": 1,
+      "id": 10
     }
   ],
   "locationlocations": [
