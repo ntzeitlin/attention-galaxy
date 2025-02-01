@@ -135,6 +135,13 @@
       "enddate": "2025-07-01",
       "ageSinceTouch": 3,
       "description": "editing another descripton again"
+    },
+    {
+      "name": "Default Project Name",
+      "startdate": "",
+      "enddate": "",
+      "ageSinceTouch": 0,
+      "id": 8
     }
   ],
   "tasks": [
@@ -201,13 +208,29 @@
       "dateCompleted": null,
       "projectId": 1,
       "locationId": 1
+    },
+    {
+      "taskName": "Default Task Name",
+      "dateCreated": "2025-01-31T22:03:06.284Z",
+      "dateCompleted": null,
+      "projectId": 6,
+      "locationId": 1,
+      "id": 9
+    },
+    {
+      "taskName": "Default Task Name",
+      "dateCreated": "2025-01-31T22:03:29.915Z",
+      "dateCompleted": null,
+      "projectId": 8,
+      "locationId": 6,
+      "id": 10
     }
   ],
   "taskitems": [
     {
       "taskId": 1,
       "itemId": 1,
-      "onHand": false,
+      "onHand": true,
       "id": 1
     },
     {
@@ -243,13 +266,13 @@
     {
       "taskId": 1,
       "itemId": 7,
-      "onHand": false,
+      "onHand": true,
       "id": 7
     },
     {
       "taskId": 1,
       "itemId": 8,
-      "onHand": false,
+      "onHand": true,
       "id": 8
     },
     {
@@ -269,6 +292,22 @@
       "itemId": 11,
       "onHand": false,
       "id": 11
+    },
+    {
+      "taskId": 1,
+      "itemId": 12,
+      "onHand": true,
+      "id": 12
+    },
+    {
+      "taskId": 9,
+      "itemId": 13,
+      "id": 13
+    },
+    {
+      "taskId": 10,
+      "itemId": 14,
+      "id": 14
     }
   ],
   "items": [
@@ -381,6 +420,36 @@
       "locationId": 1,
       "userId": 1,
       "id": 11
+    },
+    {
+      "name": "Special Stuff",
+      "description": "",
+      "quantity": 0,
+      "isObject": false,
+      "resourceLink": null,
+      "locationId": 4,
+      "userId": 1,
+      "id": 12
+    },
+    {
+      "name": "Default New Item",
+      "description": "",
+      "quantity": 0,
+      "isObject": false,
+      "resourceLink": null,
+      "locationId": 1,
+      "userId": 1,
+      "id": 13
+    },
+    {
+      "name": "Default New Item",
+      "description": "",
+      "quantity": 0,
+      "isObject": false,
+      "resourceLink": null,
+      "locationId": 6,
+      "userId": 1,
+      "id": 14
     }
   ],
   "locationlocations": [
@@ -430,6 +499,11 @@
       "id": 7,
       "locationId": 1,
       "projectId": 7
+    },
+    {
+      "locationId": 6,
+      "projectId": 8,
+      "id": 8
     }
   ],
   "userprojects": [
@@ -468,6 +542,12 @@
       "projectId": 7,
       "userId": 1,
       "isOwner": true
+    },
+    {
+      "userId": 1,
+      "projectId": 8,
+      "isOwner": true,
+      "id": 7
     }
   ]
 }

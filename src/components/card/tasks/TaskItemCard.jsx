@@ -19,9 +19,11 @@ export const TaskItemCard = ({ itemObject, fetchAndSetTaskItems }) => {
     }, [taskItemData]);
 
     useEffect(() => {
-        getLocationByLocationId(taskItemData.item?.locationId).then((data) =>
-            setLocationInfo(data)
-        );
+        if (taskItemData.item?.locationId) {
+            getLocationByLocationId(taskItemData.item?.locationId).then(
+                (data) => setLocationInfo(data)
+            );
+        }
     }, [taskItemData.item]);
 
     const handleCheckItem = () => {
