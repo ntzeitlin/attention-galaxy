@@ -230,37 +230,37 @@
     {
       "taskId": 1,
       "itemId": 1,
-      "onHand": true,
+      "onHand": false,
       "id": 1
     },
     {
       "taskId": 2,
       "itemId": 2,
-      "onHand": false,
+      "onHand": true,
       "id": 2
     },
     {
       "taskId": 2,
       "itemId": 3,
-      "onHand": false,
+      "onHand": true,
       "id": 3
     },
     {
       "taskId": 2,
       "itemId": 4,
-      "onHand": false,
+      "onHand": true,
       "id": 4
     },
     {
       "taskId": 2,
       "itemId": 5,
-      "onHand": false,
+      "onHand": true,
       "id": 5
     },
     {
       "taskId": 2,
       "itemId": 6,
-      "onHand": false,
+      "onHand": true,
       "id": 6
     },
     {
@@ -278,19 +278,19 @@
     {
       "taskId": 5,
       "itemId": 9,
-      "onHand": false,
+      "onHand": true,
       "id": 9
     },
     {
       "taskId": 6,
       "itemId": 10,
-      "onHand": false,
+      "onHand": true,
       "id": 10
     },
     {
       "taskId": 6,
       "itemId": 11,
-      "onHand": false,
+      "onHand": true,
       "id": 11
     },
     {
@@ -427,7 +427,7 @@
       "quantity": 0,
       "isObject": false,
       "resourceLink": null,
-      "locationId": 4,
+      "locationId": 2,
       "userId": 1,
       "id": 12
     },
