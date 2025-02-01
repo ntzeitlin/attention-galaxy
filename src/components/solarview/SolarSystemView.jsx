@@ -96,11 +96,11 @@ const SolarSystem = ({ projects, setSelectedProject }) => {
     return (
         <Canvas
             camera={{ position: [0, 50, 0], rotation: [Math.PI / -2, 0, 0] }}
-            style={{ background: "black" }}
+            style={{ background: "none" }}
         >
             <ambientLight intensity={0.2} />
             <pointLight position={[0, 10, 0]} intensity={1} />
-            <OrbitControls enableRotate={true} />
+            <OrbitControls enableRotate={true} enableZoom={false} />
 
             <mesh position={[0, 0, 0]}>
                 <sphereGeometry args={[3, 32, 32]} />
@@ -194,7 +194,13 @@ export default function SolarSystemView() {
     ];
 
     return (
-        <div style={{ width: "100vw", height: "100vh" }}>
+        <div
+            style={{
+                width: "80vw",
+                height: "100vh",
+                margin: "auto",
+            }}
+        >
             {selectedProject && (
                 <HoverCard
                     project={selectedProject}
