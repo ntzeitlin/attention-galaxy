@@ -272,7 +272,7 @@ export default function SolarSystemView({ currentUser }) {
     return (
         <div
             style={{
-                width: "80vw",
+                width: "100vw",
                 height: "100vh",
                 margin: "auto",
             }}

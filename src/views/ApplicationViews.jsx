@@ -90,7 +90,10 @@ export const ApplicationViews = () => {
                     path="inventory"
                     element={<InventoryListView currentUser={currentUser} />}
                 ></Route>
-                <Route path="profile" element={<ProfileView />}></Route>
+                <Route
+                    path="profile"
+                    element={<ProfileView currentUser={currentUser} />}
+                ></Route>
             </Route>
         </Routes>
     );

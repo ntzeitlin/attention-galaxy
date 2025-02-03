@@ -161,6 +161,15 @@
       "enddate": "",
       "ageSinceTouch": 0,
       "id": 9
+    },
+    {
+      "name": "Designing a New StarShip",
+      "startdate": "",
+      "enddate": "",
+      "ageSinceTouch": 4,
+      "id": 10,
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
+      "planetColor": "#d4ff00"
     }
   ],
   "tasks": [
@@ -168,17 +177,17 @@
       "id": 1,
       "taskName": "Design Homepage",
       "dateCreated": "2025-01-05",
-      "dateCompleted": "2025-02-03T19:15:54.392Z",
+      "dateCompleted": null,
       "projectId": 1,
       "locationId": 1
     },
     {
-      "id": 2,
       "taskName": "Audit Inventory",
       "dateCreated": "2025-01-12",
       "dateCompleted": null,
       "projectId": 2,
-      "locationId": 2
+      "locationId": 2,
+      "id": 2
     },
     {
       "id": 3,
@@ -200,7 +209,7 @@
       "id": 5,
       "taskName": "Create Wireframes",
       "dateCreated": "2025-01-07",
-      "dateCompleted": null,
+      "dateCompleted": "2025-02-03T19:33:31.214Z",
       "projectId": 1,
       "locationId": 1
     },
@@ -208,7 +217,7 @@
       "id": 6,
       "taskName": "Develop Landing Page",
       "dateCreated": "2025-01-10",
-      "dateCompleted": null,
+      "dateCompleted": "2025-02-03T19:33:19.877Z",
       "projectId": 1,
       "locationId": 1
     },
@@ -216,7 +225,7 @@
       "id": 7,
       "taskName": "Optimize Site Performance",
       "dateCreated": "2025-01-12",
-      "dateCompleted": null,
+      "dateCompleted": "2025-02-03T19:33:21.254Z",
       "projectId": 1,
       "locationId": 1
     },
@@ -237,28 +246,37 @@
       "id": 9
     },
     {
+      "id": 10,
       "taskName": "Default Task Name",
       "dateCreated": "2025-02-03T17:21:15.413Z",
       "dateCompleted": null,
       "projectId": 2,
-      "locationId": 2,
-      "id": 10
+      "locationId": 2
     },
     {
+      "id": 11,
       "taskName": "Default Task Name",
       "dateCreated": "2025-02-03T17:21:20.023Z",
       "dateCompleted": null,
       "projectId": 2,
-      "locationId": 2,
-      "id": 11
+      "locationId": 2
     },
     {
+      "id": 12,
       "taskName": "Default Task Name",
       "dateCreated": "2025-02-03T17:21:22.155Z",
       "dateCompleted": null,
       "projectId": 2,
-      "locationId": 2,
-      "id": 12
+      "locationId": 2
+    },
+    {
+      "taskName": "Design Mockup",
+      "dateCreated": "2025-02-03T19:31:31.557Z",
+      "dateCompleted": null,
+      "projectId": 10,
+      "locationId": 6,
+      "description": "Using Miro, layout mockup of starship",
+      "id": 13
     }
   ],
   "taskitems": [
@@ -301,7 +319,7 @@
     {
       "taskId": 1,
       "itemId": 12,
-      "onHand": false,
+      "onHand": true,
       "id": 12
     },
     {
@@ -313,19 +331,26 @@
     {
       "taskId": 5,
       "itemId": 14,
-      "onHand": false,
+      "onHand": true,
       "id": 14
     },
     {
       "taskId": 5,
       "itemId": 15,
-      "onHand": false,
+      "onHand": true,
       "id": 15
     },
     {
       "taskId": 5,
       "itemId": 16,
+      "onHand": true,
       "id": 16
+    },
+    {
+      "taskId": 13,
+      "itemId": 17,
+      "onHand": false,
+      "id": 17
     }
   ],
   "items": [
@@ -438,6 +463,16 @@
       "locationId": 1,
       "userId": 1,
       "id": 16
+    },
+    {
+      "name": "Startship Model",
+      "description": "",
+      "quantity": 1,
+      "isObject": true,
+      "resourceLink": null,
+      "locationId": 6,
+      "userId": 1,
+      "id": 17
     }
   ],
   "locationlocations": [
@@ -497,6 +532,11 @@
       "locationId": 8,
       "projectId": 9,
       "id": 9
+    },
+    {
+      "locationId": 6,
+      "projectId": 10,
+      "id": 10
     }
   ],
   "userprojects": [
@@ -553,6 +593,12 @@
       "projectId": 5,
       "isOwner": true,
       "id": 9
+    },
+    {
+      "userId": 1,
+      "projectId": 10,
+      "isOwner": true,
+      "id": 10
     }
   ]
 }
