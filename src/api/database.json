@@ -331,12 +331,6 @@
       "id": 12
     },
     {
-      "taskId": 2,
-      "itemId": 13,
-      "onHand": false,
-      "id": 13
-    },
-    {
       "taskId": 5,
       "itemId": 14,
       "onHand": true,
@@ -431,16 +425,6 @@
       "locationId": 1,
       "userId": 1,
       "id": 12
-    },
-    {
-      "name": "Default New Item",
-      "description": "",
-      "quantity": 0,
-      "isObject": false,
-      "resourceLink": null,
-      "locationId": 2,
-      "userId": 1,
-      "id": 13
     },
     {
       "name": "Default New Item",

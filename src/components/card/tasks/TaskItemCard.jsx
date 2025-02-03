@@ -44,7 +44,10 @@ export const TaskItemCard = ({ itemObject, fetchAndSetTaskItems }) => {
                 <Flex direction="column" my="6">
                     {itemObject.item?.resourceLink ? (
                         <Text>
-                            <Link to={itemObject.item?.resourceLink}>
+                            <Link
+                                to={itemObject.item?.resourceLink}
+                                target="_blank"
+                            >
                                 <Link1Icon />
                             </Link>
                         </Text>
