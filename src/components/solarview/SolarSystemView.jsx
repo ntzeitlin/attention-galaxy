@@ -51,13 +51,13 @@ const TaskMoon = ({ task, planetPosition, index }) => {
     return (
         <mesh position={position}>
             <sphereGeometry args={[0.5, 16, 16]} />
-            <meshStandardMaterial color={"#d3d3d3"} />
+            <meshStandardMaterial color={"#ececec"} />
         </mesh>
     );
 };
 
 const ProjectPlanet = ({ project, index, setSelectedProject }) => {
-    const distance = Math.min(project.ageSinceTouch * 1.5, 50);
+    const distance = Math.min((project.ageSinceTouch || 2) * 3, 50);
     const angleSpeed = 0.001;
     const [angle, setAngle] = useState((index / 6) * Math.PI * 2);
 
@@ -190,7 +190,9 @@ export default function SolarSystemView({ currentUser }) {
     }, [userProjectArray]);
 
     useEffect(() => {
-        setFinalPlanets(userProjectsAndTasks);
+        if (finalPlanets.length < userProjectArray.length) {
+            setFinalPlanets(userProjectsAndTasks);
+        }
     }, [userProjectsAndTasks]);
 
     // for each project in the user's project array,

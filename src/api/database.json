@@ -79,6 +79,14 @@
       "description": "Facility for customer interactions and support.",
       "gpscoords": "37.7747,-122.4190",
       "userId": 1
+    },
+    {
+      "name": "Office",
+      "address": "",
+      "description": "",
+      "gpscoords": "",
+      "userId": 3,
+      "id": 8
     }
   ],
   "projects": [
@@ -135,6 +143,13 @@
       "enddate": "2025-07-01",
       "ageSinceTouch": 3,
       "description": "editing another descripton again"
+    },
+    {
+      "name": "Clean Office",
+      "startdate": "",
+      "enddate": "",
+      "ageSinceTouch": 0,
+      "id": 8
     }
   ],
   "tasks": [
@@ -374,6 +389,11 @@
       "id": 7,
       "locationId": 1,
       "projectId": 7
+    },
+    {
+      "locationId": 8,
+      "projectId": 8,
+      "id": 8
     }
   ],
   "userprojects": [
@@ -412,6 +432,12 @@
       "projectId": 7,
       "userId": 1,
       "isOwner": true
+    },
+    {
+      "userId": 3,
+      "projectId": 8,
+      "isOwner": true,
+      "id": 7
     }
   ]
 }
