@@ -3,7 +3,7 @@ import { LocationInventoryCard } from "./LocationInventoryCard";
 
 export const LocationInventoryList = ({ currentUser, locationArray }) => {
     return (
-        <Grid columns="3" gap="2">
+        <Grid columns="3" gap="4">
             {locationArray.map((locationObject) => {
                 return (
                     <LocationInventoryCard

@@ -1,4 +1,4 @@
-import { Button, Card, Flex, Heading } from "@radix-ui/themes";
+import { Button, Card, Flex, Grid, Heading } from "@radix-ui/themes";
 import { useEffect, useState } from "react";
 import {
     createNewTask,
@@ -63,16 +63,18 @@ export const TaskListCard = ({ projectId, locationData, currentUser }) => {
                     ""
                 )}
             </Flex>
-            {taskArray.map((taskObject) => {
-                return (
-                    <TaskOverviewCard
-                        key={`task-card-${taskObject.id}`}
-                        taskObject={taskObject}
-                        fetchAndSetTasks={fetchAndSetTasks}
-                        projectId={projectId}
-                    />
-                );
-            })}
+            <Grid columns="2">
+                {taskArray.map((taskObject) => {
+                    return (
+                        <TaskOverviewCard
+                            key={`task-card-${taskObject.id}`}
+                            taskObject={taskObject}
+                            fetchAndSetTasks={fetchAndSetTasks}
+                            projectId={projectId}
+                        />
+                    );
+                })}
+            </Grid>
         </Card>
     );
 };

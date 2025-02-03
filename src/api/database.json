@@ -231,6 +231,30 @@
       "projectId": 6,
       "locationId": 1,
       "id": 9
+    },
+    {
+      "taskName": "Default Task Name",
+      "dateCreated": "2025-02-03T17:21:15.413Z",
+      "dateCompleted": null,
+      "projectId": 2,
+      "locationId": 2,
+      "id": 10
+    },
+    {
+      "taskName": "Default Task Name",
+      "dateCreated": "2025-02-03T17:21:20.023Z",
+      "dateCompleted": null,
+      "projectId": 2,
+      "locationId": 2,
+      "id": 11
+    },
+    {
+      "taskName": "Default Task Name",
+      "dateCreated": "2025-02-03T17:21:22.155Z",
+      "dateCompleted": null,
+      "projectId": 2,
+      "locationId": 2,
+      "id": 12
     }
   ],
   "taskitems": [
@@ -275,6 +299,12 @@
       "itemId": 12,
       "onHand": false,
       "id": 12
+    },
+    {
+      "taskId": 2,
+      "itemId": 13,
+      "onHand": false,
+      "id": 13
     }
   ],
   "items": [
@@ -347,6 +377,16 @@
       "locationId": 1,
       "userId": 1,
       "id": 12
+    },
+    {
+      "name": "Default New Item",
+      "description": "",
+      "quantity": 0,
+      "isObject": false,
+      "resourceLink": null,
+      "locationId": 2,
+      "userId": 1,
+      "id": 13
     }
   ],
   "locationlocations": [

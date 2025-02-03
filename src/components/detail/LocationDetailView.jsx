@@ -37,7 +37,7 @@ export const LocationDetail = ({ currentUser }) => {
 
     return (
         <Container width="90%" m="5">
-            <Flex gap="4" direction="row">
+            <Flex gap="4" direction="row" justify="center">
                 <LocationInfoCard
                     currentUser={currentUser}
                     locationData={locationData}
