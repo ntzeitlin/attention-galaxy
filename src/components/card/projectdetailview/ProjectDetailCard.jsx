@@ -20,19 +20,20 @@ export const ProjectDetailCard = ({
     projectData,
     currentUser,
     locationData,
+    fetchAndSetProjectData,
 }) => {
     const navigate = useNavigate();
     const [userProjectData, setUserProjectData] = useState({});
 
     useEffect(() => {
-        fetchAndSetProjectData();
+        fetchAndSetUserProjectData();
     }, [projectData]);
 
     useEffect(() => {}, [userProjectData]);
 
     const loadAge = () => {};
 
-    const fetchAndSetProjectData = () => {
+    const fetchAndSetUserProjectData = () => {
         getUserProjectByProjectId(projectData.id).then((data) =>
             setUserProjectData(data[0])
         );
