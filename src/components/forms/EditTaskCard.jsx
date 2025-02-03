@@ -1,9 +1,11 @@
 import {
+    AlertDialog,
     Button,
     Card,
     Flex,
     Heading,
     Section,
+    Text,
     TextArea,
     TextField,
 } from "@radix-ui/themes";
@@ -81,7 +83,7 @@ export const EditTaskCard = ({ taskId }) => {
                         m="2"
                         size="2"
                         placeholder="Enter Task Name..."
-                        value={taskData.taskName}
+                        value={taskData?.taskName}
                         onChange={(event) => {
                             const taskDataCopy = { ...taskData };
                             taskDataCopy.taskName = event.target.value;
@@ -94,7 +96,7 @@ export const EditTaskCard = ({ taskId }) => {
                     <TextField.Root
                         m="2"
                         size="2"
-                        value={taskData.dateCreated}
+                        value={taskData?.dateCreated}
                         disabled
                     >
                         <TextField.Slot></TextField.Slot>
@@ -103,7 +105,7 @@ export const EditTaskCard = ({ taskId }) => {
                     <TextField.Root
                         m="2"
                         size="2"
-                        value={taskData.dateCompleted}
+                        value={taskData?.dateCompleted}
                         disabled
                     >
                         <TextField.Slot></TextField.Slot>
@@ -126,15 +128,39 @@ export const EditTaskCard = ({ taskId }) => {
                     >
                         Save Task
                     </Button>
-                    <Button
-                        m="2"
-                        color="red"
-                        onClick={() => {
-                            handleDeleteTask();
-                        }}
-                    >
-                        Delete Task
-                    </Button>
+                    <AlertDialog.Root>
+                        <AlertDialog.Trigger>
+                            <Button m="2" color="red">
+                                Delete Task
+                            </Button>
+                        </AlertDialog.Trigger>
+                        <AlertDialog.Content size="1" maxWidth="300px">
+                            <AlertDialog.Title>Delete Task</AlertDialog.Title>
+                            <AlertDialog.Description size="2">
+                                Are you sure? This Task and its Items will no
+                                longer be available.
+                            </AlertDialog.Description>
+
+                            <Flex gap="3" mt="4" justify="end">
+                                <AlertDialog.Cancel>
+                                    <Button variant="soft" color="gray">
+                                        Cancel
+                                    </Button>
+                                </AlertDialog.Cancel>
+                                <AlertDialog.Action>
+                                    <Button
+                                        variant="solid"
+                                        color="red"
+                                        onClick={() => {
+                                            handleDeleteTask();
+                                        }}
+                                    >
+                                        Delete Task
+                                    </Button>
+                                </AlertDialog.Action>
+                            </Flex>
+                        </AlertDialog.Content>
+                    </AlertDialog.Root>
                 </Flex>
             </Section>
         </Card>

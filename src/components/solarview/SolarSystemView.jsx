@@ -131,7 +131,7 @@ const HoverCard = ({ project, onClose }) => {
             style={{
                 zIndex: 1000,
                 position: "fixed",
-                margin: "15% 25%",
+                margin: "15% 10%",
                 backgroundColor: "rgba(100, 100, 100, 0.4",
                 borderRadius: "1em",
                 padding: "1em",
