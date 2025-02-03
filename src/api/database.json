@@ -168,7 +168,7 @@
       "id": 1,
       "taskName": "Design Homepage",
       "dateCreated": "2025-01-05",
-      "dateCompleted": null,
+      "dateCompleted": "2025-02-03T19:15:54.392Z",
       "projectId": 1,
       "locationId": 1
     },
@@ -200,7 +200,7 @@
       "id": 5,
       "taskName": "Create Wireframes",
       "dateCreated": "2025-01-07",
-      "dateCompleted": null,
+      "dateCompleted": "2025-02-03T19:16:00.439Z",
       "projectId": 1,
       "locationId": 1
     },
@@ -208,7 +208,7 @@
       "id": 6,
       "taskName": "Develop Landing Page",
       "dateCreated": "2025-01-10",
-      "dateCompleted": null,
+      "dateCompleted": "2025-02-03T19:15:56.746Z",
       "projectId": 1,
       "locationId": 1
     },
@@ -224,7 +224,7 @@
       "id": 8,
       "taskName": "User Testing and Feedback",
       "dateCreated": "2025-01-15",
-      "dateCompleted": null,
+      "dateCompleted": "2025-02-03T19:15:57.604Z",
       "projectId": 1,
       "locationId": 1
     },

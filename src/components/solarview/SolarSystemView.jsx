@@ -176,10 +176,12 @@ export default function SolarSystemView({ currentUser }) {
                         let taskArray = [];
                         if (data.tasks.length) {
                             for (const task of data.tasks) {
-                                taskArray.push({
-                                    id: task.id,
-                                    name: task.taskName,
-                                });
+                                if (!task.dateCompleted) {
+                                    taskArray.push({
+                                        id: task.id,
+                                        name: task.taskName,
+                                    });
+                                }
                             }
                         }
 
