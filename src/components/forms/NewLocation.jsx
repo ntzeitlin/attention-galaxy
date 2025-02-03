@@ -45,16 +45,17 @@ export const NewLocation = () => {
     };
 
     const handleDeleteLocation = () => {
-        deleteAllProjectsInLocation();
-        deleteLocationByLocationId(locationId).then(navigate("/locations"));
-    };
-
-    const deleteAllProjectsInLocation = () => {
-        getProjectsByLocationId(locationId).then((data) => {
-            for (const projectLocationObject of data) {
-                deleteProjectByProjectId(projectLocationObject.projectId);
-            }
-        });
+        getProjectsByLocationId(locationId)
+            .then((data) => {
+                for (const projectLocationObject of data) {
+                    deleteProjectByProjectId(projectLocationObject.projectId);
+                }
+            })
+            .then(() => {
+                deleteLocationByLocationId(locationId).then(() => {
+                    navigate("/locations");
+                });
+            });
     };
 
     return (
