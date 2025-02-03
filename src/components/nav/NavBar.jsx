@@ -61,7 +61,15 @@ export const NavBar = () => {
                 <TabNav.Root justify="center">
                     {pathname.includes("task") ? (
                         <TabNav.Link asChild active={pathname.includes("task")}>
-                            <Link>Manage Task</Link>
+                            <Link
+                                to={
+                                    location.pathname.includes("edit")
+                                        ? location.pathname.slice(0, -5)
+                                        : null
+                                }
+                            >
+                                Manage Task
+                            </Link>
                         </TabNav.Link>
                     ) : (
                         ""

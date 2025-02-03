@@ -78,7 +78,7 @@ const ProjectPlanet = ({ project, index, setSelectedProject }) => {
             <motion.mesh
                 position={position}
                 onClick={() => setSelectedProject(project)}
-                whileHover={{ scale: 1.2 }}
+                whileHover={{ scale: 1.5 }}
                 animate={{ scale: 1 }}
             >
                 <sphereGeometry args={[1.5, 32, 32]} />
