@@ -1,4 +1,13 @@
-import { Button, Card, Flex, Heading, Section, Text } from "@radix-ui/themes";
+import {
+    Box,
+    Button,
+    Card,
+    Flex,
+    Heading,
+    Section,
+    Strong,
+    Text,
+} from "@radix-ui/themes";
 import { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { getUserProjectByProjectId } from "../../../services/projectService";
@@ -57,7 +66,12 @@ export const ProjectDetailCard = ({
                     <Text as="span" size="2">
                         End: {projectData.enddate}
                     </Text>
-                    <Text size="3">Description: {projectData.description}</Text>
+                    <Box maxWidth="20em">
+                        <Text size="3" wrap="wrap">
+                            <Strong>Description:</Strong>{" "}
+                            {projectData.description}
+                        </Text>
+                    </Box>
                 </Flex>
             </Section>
         </Card>

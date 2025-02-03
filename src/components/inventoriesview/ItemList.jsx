@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { getInventoryItemsByLocationAndUserId } from "../../services/inventoryService";
 import { ItemNameCard } from "./ItemName";
-import { Flex } from "@radix-ui/themes";
+import { Flex, Grid } from "@radix-ui/themes";
 
 export const InventoryItemList = ({ locationId, currentUser }) => {
     const [itemArray, setItemArray] = useState([]);
@@ -13,7 +13,8 @@ export const InventoryItemList = ({ locationId, currentUser }) => {
     }, [locationId, currentUser]);
 
     return (
-        <Flex direction="column">
+        <Grid columns="2">
+            {/* <Flex direction="column"> */}
             {itemArray.map((itemObject) => {
                 return (
                     <ItemNameCard
@@ -22,7 +23,8 @@ export const InventoryItemList = ({ locationId, currentUser }) => {
                     />
                 );
             })}
-        </Flex>
+            {/* </Flex> */}
+        </Grid>
     );
 };
 

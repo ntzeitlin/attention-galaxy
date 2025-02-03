@@ -37,9 +37,9 @@ export const ProjectDetail = ({ currentUser }) => {
     }, [projectId]);
 
     return (
-        <Container width="80%" m="5">
+        <Container width="90%" m="5">
             {/* <Heading align="center">Project Details</Heading> */}
-            <Flex gap="3" justify="center">
+            <Flex gap="4" justify="center">
                 <ProjectDetailCard
                     currentUser={currentUser}
                     locationData={locationData}
