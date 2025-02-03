@@ -87,7 +87,7 @@ const ProjectPlanet = ({ project, index, setSelectedProject }) => {
             {project.tasks &&
                 project.tasks.map((task, taskIndex) => (
                     <TaskMoon
-                        key={task.id}
+                        key={`moon-key-${task.id}`}
                         task={task}
                         planetPosition={position}
                         index={taskIndex}
@@ -114,7 +114,7 @@ const SolarSystem = ({ projects, setSelectedProject }) => {
 
             {projects.map((project, index) => (
                 <ProjectPlanet
-                    key={project.id}
+                    key={`planet-key-${project.id}`}
                     project={project}
                     index={index}
                     setSelectedProject={setSelectedProject}
