@@ -22,6 +22,11 @@ import {
     TextField,
 } from "@radix-ui/themes";
 import { getLocationsByUserId } from "../../services/locationService";
+import {
+    deleteTaskByTaskId,
+    getTasksAndTaskItemsByProjectId,
+} from "../../services/taskService";
+import { deleteItemByItemId } from "../../services/inventoryService";
 
 export const NewProject = ({ currentUser }) => {
     const { projectId } = useParams();
@@ -101,9 +106,22 @@ export const NewProject = ({ currentUser }) => {
     };
 
     const handleDeleteProject = () => {
-        deleteProjectByProjectId(projectId).then(
-            navigate(`/location/${currentProjectLocation}`)
-        );
+        getTasksAndTaskItemsByProjectId(projectId)
+            .then((data) => {
+                for (const taskObject of data) {
+                    for (const taskItem of taskObject.taskitems) {
+                        deleteItemByItemId(taskItem.itemId);
+                    }
+                    deleteTaskByTaskId(taskObject.id);
+                }
+            })
+            .then(() => {
+                deleteProjectByProjectId(projectId).then(
+                    navigate(`/location/${currentProjectLocation}`)
+                );
+            });
+
+        // needs to also delete all taskItems and Items associated with the Project...
     };
 
     const handleSelectLocation = (event) => {
