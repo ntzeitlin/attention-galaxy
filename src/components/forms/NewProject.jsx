@@ -17,6 +17,7 @@ import {
     Heading,
     Section,
     Select,
+    Text,
     TextArea,
     TextField,
 } from "@radix-ui/themes";
@@ -39,6 +40,7 @@ export const NewProject = ({ currentUser }) => {
         enddate: "",
         ageSinceTouch: 0,
         description: "",
+        planetColor: "#87CEFA",
     });
 
     const [projectLocationData, setProjectLocationData] = useState({
@@ -117,8 +119,10 @@ export const NewProject = ({ currentUser }) => {
 
                 <Section>
                     <Flex direction="column">
+                        <Text as="label">Project Location:</Text>
                         <Select.Root
                             m="2"
+                            size="2"
                             value={currentProjectLocation}
                             onValueChange={(event) => {
                                 handleSelectLocation(event);
@@ -138,6 +142,22 @@ export const NewProject = ({ currentUser }) => {
                                 })}
                             </Select.Content>
                         </Select.Root>
+                        <Text as="label">Project Color:</Text>
+                        <TextField.Root
+                            m="2"
+                            type="color"
+                            value={projectData.planetColor}
+                            onChange={(event) => {
+                                const projectDataCopy = { ...projectData };
+                                projectDataCopy.planetColor =
+                                    event.target.value;
+                                setProjectData(projectDataCopy);
+                            }}
+                        >
+                            <TextField.Slot></TextField.Slot>
+                        </TextField.Root>
+                        <Text as="label">Project Name:</Text>
+
                         <TextField.Root
                             m="2"
                             size="2"
@@ -151,6 +171,8 @@ export const NewProject = ({ currentUser }) => {
                         >
                             <TextField.Slot></TextField.Slot>
                         </TextField.Root>
+                        <Text as="label">Start Date:</Text>
+
                         <TextField.Root
                             m="2"
                             size="2"
@@ -164,6 +186,8 @@ export const NewProject = ({ currentUser }) => {
                         >
                             <TextField.Slot></TextField.Slot>
                         </TextField.Root>
+                        <Text as="label">End Date:</Text>
+
                         <TextField.Root
                             m="2"
                             size="2"
@@ -177,6 +201,8 @@ export const NewProject = ({ currentUser }) => {
                         >
                             <TextField.Slot></TextField.Slot>
                         </TextField.Root>
+                        <Text as="label">Project Description:</Text>
+
                         <TextArea
                             m="2"
                             placeholder="Project Description..."

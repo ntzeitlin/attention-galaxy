@@ -7,6 +7,7 @@ import {
     getProjectAndTasksByProjectId,
     getProjectsByUserId,
 } from "../../services/projectService";
+import { Link } from "react-router-dom";
 
 const OrbitalPath = ({ distance }) => {
     const points = [];
@@ -81,7 +82,7 @@ const ProjectPlanet = ({ project, index, setSelectedProject }) => {
                 animate={{ scale: 1 }}
             >
                 <sphereGeometry args={[1.5, 32, 32]} />
-                <meshStandardMaterial color={"#87CEFA"} />
+                <meshStandardMaterial color={project.planetColor} />
             </motion.mesh>
             {project.tasks &&
                 project.tasks.map((task, taskIndex) => (
@@ -103,7 +104,7 @@ const SolarSystem = ({ projects, setSelectedProject }) => {
             style={{ background: "none" }}
         >
             <ambientLight intensity={0.2} />
-            <pointLight position={[0, 10, 0]} intensity={1} />
+            <pointLight position={[0, 10, 0]} intensity={80} />
             <OrbitControls enableRotate={true} enableZoom={false} />
 
             <mesh position={[0, 0, 0]}>
@@ -125,11 +126,23 @@ const SolarSystem = ({ projects, setSelectedProject }) => {
 
 const HoverCard = ({ project, onClose }) => {
     return (
-        <div className="hover-card">
+        <div
+            className="hover-card"
+            style={{
+                zIndex: 1000,
+                position: "fixed",
+                margin: "15% 25%",
+                backgroundColor: "rgba(100, 100, 100, 0.4",
+                borderRadius: "1em",
+                padding: "1em",
+            }}
+        >
             <button onClick={onClose} className="close-btn">
                 &times;
             </button>
-            <h3>{project.name}</h3>
+            <h3>
+                <Link to={`/project/${project.id}`}>{project.name}</Link>
+            </h3>
             <p>
                 <strong>Last Touched:</strong> {project.ageSinceTouch} days ago
             </p>
@@ -175,6 +188,7 @@ export default function SolarSystemView({ currentUser }) {
                             name: data.name,
                             ageSinceTouch: data.ageSinceTouch,
                             tasks: taskArray,
+                            planetColor: data.planetColor || "#87CEFA",
                         };
 
                         return newProjectData;
