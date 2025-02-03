@@ -13,7 +13,7 @@ export const InventoryItemList = ({ locationId, currentUser }) => {
     }, [locationId, currentUser]);
 
     return (
-        <Grid columns="2">
+        <Grid columns="1">
             {/* <Flex direction="column"> */}
             {itemArray.map((itemObject) => {
                 return (

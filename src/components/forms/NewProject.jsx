@@ -142,20 +142,7 @@ export const NewProject = ({ currentUser }) => {
                                 })}
                             </Select.Content>
                         </Select.Root>
-                        <Text as="label">Project Color:</Text>
-                        <TextField.Root
-                            m="2"
-                            type="color"
-                            value={projectData.planetColor}
-                            onChange={(event) => {
-                                const projectDataCopy = { ...projectData };
-                                projectDataCopy.planetColor =
-                                    event.target.value;
-                                setProjectData(projectDataCopy);
-                            }}
-                        >
-                            <TextField.Slot></TextField.Slot>
-                        </TextField.Root>
+
                         <Text as="label">Project Name:</Text>
 
                         <TextField.Root
@@ -214,6 +201,20 @@ export const NewProject = ({ currentUser }) => {
                                 setProjectData(projectDataCopy);
                             }}
                         />
+                        <Text as="label">Project Color:</Text>
+                        <TextField.Root
+                            m="2"
+                            type="color"
+                            value={projectData.planetColor}
+                            onChange={(event) => {
+                                const projectDataCopy = { ...projectData };
+                                projectDataCopy.planetColor =
+                                    event.target.value;
+                                setProjectData(projectDataCopy);
+                            }}
+                        >
+                            <TextField.Slot></TextField.Slot>
+                        </TextField.Root>
                         <Button
                             m="2"
                             onClick={() => {
