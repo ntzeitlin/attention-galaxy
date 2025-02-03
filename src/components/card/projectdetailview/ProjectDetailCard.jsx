@@ -123,7 +123,7 @@ export const ProjectDetailCard = ({
                     <Text as="span" size="2">
                         End: {projectData.enddate}
                     </Text>
-                    <Box maxWidth="20em">
+                    <Box maxWidth="20em" mt="1em">
                         <Text size="3" wrap="wrap">
                             <Strong>Description:</Strong>{" "}
                             {projectData.description}

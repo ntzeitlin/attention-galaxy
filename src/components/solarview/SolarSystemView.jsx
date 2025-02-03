@@ -103,7 +103,7 @@ const SolarSystem = ({ projects, setSelectedProject }) => {
             camera={{ position: [0, 50, 0], rotation: [Math.PI / -2, 0, 0] }}
             style={{ background: "none" }}
         >
-            <ambientLight intensity={0.2} />
+            <ambientLight intensity={0.6} />
             <pointLight position={[0, 10, 0]} intensity={80} />
             <OrbitControls enableRotate={true} enableZoom={false} />
 

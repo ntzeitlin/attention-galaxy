@@ -3,6 +3,7 @@ import { useLocation, useNavigate, useParams } from "react-router-dom";
 import {
     deleteLocationByLocationId,
     getLocationByLocationId,
+    getProjectsByLocationId,
     updateLocationByLocationId,
 } from "../../services/locationService";
 import {
@@ -15,6 +16,7 @@ import {
     TextArea,
     TextField,
 } from "@radix-ui/themes";
+import { deleteProjectByProjectId } from "../../services/projectService";
 
 export const NewLocation = () => {
     const { locationId } = useParams();
@@ -43,7 +45,16 @@ export const NewLocation = () => {
     };
 
     const handleDeleteLocation = () => {
+        deleteAllProjectsInLocation();
         deleteLocationByLocationId(locationId).then(navigate("/locations"));
+    };
+
+    const deleteAllProjectsInLocation = () => {
+        getProjectsByLocationId(locationId).then((data) => {
+            for (const projectLocationObject of data) {
+                deleteProjectByProjectId(projectLocationObject.projectId);
+            }
+        });
     };
 
     return (
