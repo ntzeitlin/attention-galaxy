@@ -3,6 +3,10 @@ import { Canvas, useFrame } from "@react-three/fiber";
 import { OrbitControls } from "@react-three/drei";
 import { motion } from "framer-motion-3d";
 import * as THREE from "three";
+import {
+    getProjectAndTasksByProjectId,
+    getProjectsByUserId,
+} from "../../services/projectService";
 
 const OrbitalPath = ({ distance }) => {
     const points = [];
@@ -139,8 +143,62 @@ const HoverCard = ({ project, onClose }) => {
     );
 };
 
-export default function SolarSystemView() {
+export default function SolarSystemView({ currentUser }) {
     const [selectedProject, setSelectedProject] = useState(null);
+    const [userProjectArray, setUserProjectArray] = useState([]);
+    const [userProjectsAndTasks, setUserProjectsAndTasks] = useState([]);
+    const [finalPlanets, setFinalPlanets] = useState([]);
+
+    useEffect(() => {
+        getProjectsByUserId(currentUser.id).then((data) =>
+            setUserProjectArray(data)
+        );
+    }, [currentUser]);
+
+    useEffect(() => {
+        if (userProjectArray) {
+            userProjectArray.map((projectObject) =>
+                getProjectAndTasksByProjectId(projectObject.projectId)
+                    .then((data) => {
+                        let taskArray = [];
+                        if (data.tasks.length) {
+                            for (const task of data.tasks) {
+                                taskArray.push({
+                                    id: task.id,
+                                    name: task.taskName,
+                                });
+                            }
+                        }
+
+                        const newProjectData = {
+                            id: data.id,
+                            name: data.name,
+                            ageSinceTouch: data.ageSinceTouch,
+                            tasks: taskArray,
+                        };
+
+                        return newProjectData;
+                    })
+                    .then((data) => {
+                        setUserProjectsAndTasks((prevData) => [
+                            ...(prevData || []),
+                            data,
+                        ]);
+                    })
+            );
+        }
+    }, [userProjectArray]);
+
+    useEffect(() => {
+        setFinalPlanets(userProjectsAndTasks);
+    }, [userProjectsAndTasks]);
+
+    // for each project in the user's project array,
+    // return an object that matches the sampleProjects format
+
+    //get projects by user id
+    //get tasks by project id, expand project.
+    //add task objects to project objects if task object does not have dateCompleted.
 
     const sampleProjects = [
         {
@@ -208,7 +266,7 @@ export default function SolarSystemView() {
                 />
             )}
             <SolarSystem
-                projects={sampleProjects}
+                projects={finalPlanets ? finalPlanets : sampleProjects}
                 setSelectedProject={setSelectedProject}
             />
         </div>

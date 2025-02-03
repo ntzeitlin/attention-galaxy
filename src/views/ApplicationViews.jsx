@@ -37,7 +37,7 @@ export const ApplicationViews = () => {
                     </>
                 }
             >
-                <Route index element={<HomeView />} />
+                <Route index element={<HomeView currentUser={currentUser} />} />
                 <Route
                     path="locations"
                     element={<LocationListView currentUser={currentUser} />}

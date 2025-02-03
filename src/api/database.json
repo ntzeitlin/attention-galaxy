@@ -135,13 +135,6 @@
       "enddate": "2025-07-01",
       "ageSinceTouch": 3,
       "description": "editing another descripton again"
-    },
-    {
-      "name": "Default Project Name",
-      "startdate": "",
-      "enddate": "",
-      "ageSinceTouch": 0,
-      "id": 8
     }
   ],
   "tasks": [
@@ -216,14 +209,6 @@
       "projectId": 6,
       "locationId": 1,
       "id": 9
-    },
-    {
-      "taskName": "Default Task Name",
-      "dateCreated": "2025-01-31T22:03:29.915Z",
-      "dateCompleted": null,
-      "projectId": 8,
-      "locationId": 6,
-      "id": 10
     }
   ],
   "taskitems": [
@@ -236,78 +221,38 @@
     {
       "taskId": 2,
       "itemId": 2,
-      "onHand": true,
+      "onHand": false,
       "id": 2
     },
     {
       "taskId": 2,
       "itemId": 3,
-      "onHand": true,
+      "onHand": false,
       "id": 3
     },
     {
       "taskId": 2,
       "itemId": 4,
-      "onHand": true,
+      "onHand": false,
       "id": 4
     },
     {
       "taskId": 2,
       "itemId": 5,
-      "onHand": true,
+      "onHand": false,
       "id": 5
     },
     {
       "taskId": 2,
       "itemId": 6,
-      "onHand": true,
+      "onHand": false,
       "id": 6
     },
     {
       "taskId": 1,
-      "itemId": 7,
-      "onHand": true,
-      "id": 7
-    },
-    {
-      "taskId": 1,
-      "itemId": 8,
-      "onHand": true,
-      "id": 8
-    },
-    {
-      "taskId": 5,
-      "itemId": 9,
-      "onHand": true,
-      "id": 9
-    },
-    {
-      "taskId": 6,
-      "itemId": 10,
-      "onHand": true,
-      "id": 10
-    },
-    {
-      "taskId": 6,
-      "itemId": 11,
-      "onHand": true,
-      "id": 11
-    },
-    {
-      "taskId": 1,
       "itemId": 12,
-      "onHand": true,
+      "onHand": false,
       "id": 12
-    },
-    {
-      "taskId": 9,
-      "itemId": 13,
-      "id": 13
-    },
-    {
-      "taskId": 10,
-      "itemId": 14,
-      "id": 14
     }
   ],
   "items": [
@@ -315,7 +260,7 @@
       "id": 1,
       "name": "Office Chair",
       "description": "Ergonomic desk chair",
-      "quantity": 10,
+      "quantity": 9,
       "isObject": true,
       "resourceLink": null,
       "locationId": 1,
@@ -372,56 +317,6 @@
       "userId": 1
     },
     {
-      "name": "Default New Item",
-      "description": "",
-      "quantity": 0,
-      "isObject": false,
-      "resourceLink": null,
-      "locationId": 1,
-      "userId": 1,
-      "id": 7
-    },
-    {
-      "name": "Default New Item",
-      "description": "",
-      "quantity": 0,
-      "isObject": false,
-      "resourceLink": null,
-      "locationId": 1,
-      "userId": 1,
-      "id": 8
-    },
-    {
-      "name": "Default New Item",
-      "description": "",
-      "quantity": 0,
-      "isObject": false,
-      "resourceLink": null,
-      "locationId": 1,
-      "userId": 1,
-      "id": 9
-    },
-    {
-      "name": "Default New Item",
-      "description": "",
-      "quantity": 0,
-      "isObject": false,
-      "resourceLink": null,
-      "locationId": 1,
-      "userId": 1,
-      "id": 10
-    },
-    {
-      "name": "Default New Item",
-      "description": "",
-      "quantity": 2,
-      "isObject": false,
-      "resourceLink": null,
-      "locationId": 1,
-      "userId": 1,
-      "id": 11
-    },
-    {
       "name": "Special Stuff",
       "description": "",
       "quantity": 0,
@@ -430,26 +325,6 @@
       "locationId": 2,
       "userId": 1,
       "id": 12
-    },
-    {
-      "name": "Default New Item",
-      "description": "",
-      "quantity": 0,
-      "isObject": false,
-      "resourceLink": null,
-      "locationId": 1,
-      "userId": 1,
-      "id": 13
-    },
-    {
-      "name": "Default New Item",
-      "description": "",
-      "quantity": 0,
-      "isObject": false,
-      "resourceLink": null,
-      "locationId": 6,
-      "userId": 1,
-      "id": 14
     }
   ],
   "locationlocations": [
@@ -499,11 +374,6 @@
       "id": 7,
       "locationId": 1,
       "projectId": 7
-    },
-    {
-      "locationId": 6,
-      "projectId": 8,
-      "id": 8
     }
   ],
   "userprojects": [
@@ -542,12 +412,6 @@
       "projectId": 7,
       "userId": 1,
       "isOwner": true
-    },
-    {
-      "userId": 1,
-      "projectId": 8,
-      "isOwner": true,
-      "id": 7
     }
   ]
 }

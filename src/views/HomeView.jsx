@@ -1,6 +1,6 @@
 import galaxyImage from "../assets/AttentionGalaxy.jpg";
 import SolarSystemView from "../components/solarview/SolarSystemView";
-export const HomeView = () => {
+export const HomeView = ({ currentUser }) => {
     // const backgroundStyle = {
     //     backgroundImage: `url(${galaxyImage})`,
     //     backgroundPosition: "center",
@@ -15,5 +15,5 @@ export const HomeView = () => {
 
     // return <div style={backgroundStyle}>Attention Galaxy</div>;
 
-    return <SolarSystemView />;
+    return <SolarSystemView currentUser={currentUser} />;
 };
