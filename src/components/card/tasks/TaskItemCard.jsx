@@ -1,4 +1,4 @@
-import { Pencil2Icon } from "@radix-ui/react-icons";
+import { Link1Icon, Pencil2Icon } from "@radix-ui/react-icons";
 import { CheckboxCards, Flex, Text } from "@radix-ui/themes";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
@@ -41,11 +41,23 @@ export const TaskItemCard = ({ itemObject, fetchAndSetTaskItems }) => {
     return (
         <CheckboxCards.Root>
             <Flex gap="2">
-                <Text my="6">
-                    <Link to={`/item/${itemObject.id}/edit`}>
-                        <Pencil2Icon />
-                    </Link>{" "}
-                </Text>
+                <Flex direction="column" my="6">
+                    {itemObject.item?.resourceLink ? (
+                        <Text>
+                            <Link to={itemObject.item?.resourceLink}>
+                                <Link1Icon />
+                            </Link>
+                        </Text>
+                    ) : (
+                        ""
+                    )}
+                    <Text>
+                        <Link to={`/item/${itemObject.id}/edit`}>
+                            <Pencil2Icon />
+                        </Link>{" "}
+                    </Text>
+                </Flex>
+
                 <CheckboxCards.Item
                     style={{ backgroundColor: onHand ? "blue" : "red" }}
                     checked={onHand}

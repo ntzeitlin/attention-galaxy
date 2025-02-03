@@ -3,6 +3,7 @@ import {
     Button,
     Card,
     Flex,
+    Grid,
     Heading,
     Section,
     Strong,
@@ -10,7 +11,10 @@ import {
 } from "@radix-ui/themes";
 import { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { getUserProjectByProjectId } from "../../../services/projectService";
+import {
+    getUserProjectByProjectId,
+    updateProjectByProjectId,
+} from "../../../services/projectService";
 
 export const ProjectDetailCard = ({
     projectData,
@@ -21,10 +25,38 @@ export const ProjectDetailCard = ({
     const [userProjectData, setUserProjectData] = useState({});
 
     useEffect(() => {
+        fetchAndSetProjectData();
+    }, [projectData]);
+
+    useEffect(() => {}, [userProjectData]);
+
+    const loadAge = () => {};
+
+    const fetchAndSetProjectData = () => {
         getUserProjectByProjectId(projectData.id).then((data) =>
             setUserProjectData(data[0])
         );
-    }, [projectData]);
+    };
+
+    const handleCheckIn = () => {
+        const submissionObject = {
+            ...projectData,
+            ageSinceTouch: 0,
+        };
+        updateProjectByProjectId(projectData.id, submissionObject).then(() => {
+            fetchAndSetProjectData();
+        });
+    };
+
+    const handleIgnore = () => {
+        const submissionObject = {
+            ...projectData,
+            ageSinceTouch: projectData.ageSinceTouch + 1,
+        };
+        updateProjectByProjectId(projectData.id, submissionObject).then(() => {
+            fetchAndSetProjectData();
+        });
+    };
 
     return (
         <Card>
@@ -32,22 +64,46 @@ export const ProjectDetailCard = ({
                 <Heading align="center" mt="4">
                     {projectData.name} Details
                 </Heading>
+                <Heading size="4" my="2">
+                    Days Since Checkin: {projectData.ageSinceTouch}
+                </Heading>
                 {currentUser.id === userProjectData?.userId &&
                 userProjectData.isOwner ? (
-                    <Button
-                        m="1"
-                        size="1"
-                        color="grass"
-                        onClick={() => {
-                            navigate(`edit`, {
-                                state: {
-                                    edit: true,
-                                },
-                            });
-                        }}
-                    >
-                        Edit
-                    </Button>
+                    <>
+                        <Grid>
+                            <Button
+                                m="1"
+                                onClick={() => {
+                                    handleCheckIn();
+                                }}
+                            >
+                                Check-In
+                            </Button>
+                            <Button
+                                color="red"
+                                m="1"
+                                onClick={() => {
+                                    handleIgnore();
+                                }}
+                            >
+                                Ignore
+                            </Button>
+                        </Grid>
+                        <Button
+                            m="1"
+                            size="1"
+                            color="grass"
+                            onClick={() => {
+                                navigate(`edit`, {
+                                    state: {
+                                        edit: true,
+                                    },
+                                });
+                            }}
+                        >
+                            Edit
+                        </Button>
+                    </>
                 ) : (
                     ""
                 )}
