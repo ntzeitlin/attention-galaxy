@@ -11,9 +11,11 @@ import { useEffect, useState } from "react";
 import {
     deleteTaskByTaskId,
     getTaskByTaskId,
+    getTaskItemsByTaskId,
     updateTaskByTaskId,
 } from "../../services/taskService";
 import { useNavigate } from "react-router-dom";
+import { deleteItemByItemId } from "../../services/inventoryService";
 
 export const EditTaskCard = ({ taskId }) => {
     const navigate = useNavigate();
@@ -47,10 +49,19 @@ export const EditTaskCard = ({ taskId }) => {
     };
 
     const handleDeleteTask = () => {
-        deleteTaskByTaskId(taskId).then(
-            navigate(`/project/${taskData.projectId}`)
-        );
+        getTaskItemsByTaskId(taskId)
+            .then((data) => {
+                for (const taskItem of data) {
+                    deleteItemByItemId(taskItem.itemId);
+                }
+            })
+            .then(() => {
+                deleteTaskByTaskId(taskId).then(() => {
+                    navigate(`/project/${taskData.projectId}`);
+                });
+            });
     };
+
     return (
         <Card>
             <Heading align="center" mt="4">

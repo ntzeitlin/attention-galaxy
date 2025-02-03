@@ -170,6 +170,13 @@
       "id": 10,
       "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
       "planetColor": "#d4ff00"
+    },
+    {
+      "name": "testing deleting tasks, deleting items",
+      "startdate": "",
+      "enddate": "",
+      "ageSinceTouch": 0,
+      "id": 11
     }
   ],
   "tasks": [
@@ -537,6 +544,11 @@
       "locationId": 6,
       "projectId": 10,
       "id": 10
+    },
+    {
+      "locationId": 6,
+      "projectId": 11,
+      "id": 11
     }
   ],
   "userprojects": [
@@ -599,6 +611,12 @@
       "projectId": 10,
       "isOwner": true,
       "id": 10
+    },
+    {
+      "userId": 1,
+      "projectId": 11,
+      "isOwner": true,
+      "id": 11
     }
   ]
 }
