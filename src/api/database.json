@@ -544,12 +544,18 @@
       "projectId": 8,
       "isOwner": false,
       "id": 10
-      },
-      {
+    },
+    {
       "userId": 1,
       "projectId": 9,
       "isOwner": false,
       "id": 11
-      }
+    },
+    {
+      "projectId": 1,
+      "userId": 3,
+      "isOwner": false,
+      "id": 12
+    }
   ]
 }

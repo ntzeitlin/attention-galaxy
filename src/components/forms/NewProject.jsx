@@ -28,6 +28,7 @@ import {
     getTasksAndTaskItemsByProjectId,
 } from "../../services/taskService";
 import { deleteItemByItemId } from "../../services/inventoryService";
+import { ShareProjectButton } from "./ShareProjectButton";
 
 export const NewProject = ({ currentUser }) => {
     const { projectId } = useParams();
@@ -234,6 +235,11 @@ export const NewProject = ({ currentUser }) => {
                         >
                             <TextField.Slot></TextField.Slot>
                         </TextField.Root>
+                        <Text as="label">Share Project:</Text>
+                        <ShareProjectButton projectId={projectId} />
+                        <Text mt="5" as="label">
+                            Save Project:
+                        </Text>
                         <Button
                             m="2"
                             onClick={() => {
