@@ -28,7 +28,7 @@
       "id": 1,
       "name": "Main Office",
       "address": "123 Main St, Springfield",
-      "description": "Corporate headquarters",
+      "description": "Corporate headquar",
       "gpscoords": "37.7749,-122.4194",
       "userId": 1
     },
@@ -79,6 +79,14 @@
       "description": "Facility for customer interactions and support.",
       "gpscoords": "37.7747,-122.4190",
       "userId": 1
+    },
+    {
+      "name": "here is a new location",
+      "address": "such new location wow",
+      "description": "ldksjfsldkjfd",
+      "gpscoords": "ioufuiw",
+      "userId": 1,
+      "id": 8
     }
   ],
   "Projects": [

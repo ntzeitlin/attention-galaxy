@@ -4,7 +4,10 @@
 
 import { useState } from "react";
 import { useEffect } from "react";
-import { getLocationsByUserId } from "../../services/locationService";
+import {
+    createNewLocationByUserId,
+    getLocationsByUserId,
+} from "../../services/locationService";
 import {
     Button,
     Card,
@@ -29,13 +32,25 @@ export const LocationList = ({ currentUser }) => {
         getLocationsByUserId(userId).then((data) => setLocationArray(data));
     };
 
+    // HANDLE CLICK FUNCTION
+    // CREATE NEW LOCATION IN DATABASE
+    // THEN TAKE YOU TO /LOCATIONS/edit/:locationId
+    // PREFILL FORM
+    // ON SAVE, TAKE YOU TO LOCATION DETAIL PAGE
+
+    const handleAddLocation = () => {
+        createNewLocationByUserId(currentUser.id).then((data) =>
+            navigate(`/location/${data.id}/edit`)
+        );
+    };
+
     return (
         <Container>
             <Button
                 mt="5"
                 mb="-6"
                 onClick={() => {
-                    navigate("/locations/new");
+                    handleAddLocation();
                 }}
             >
                 Add Location
