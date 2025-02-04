@@ -3,7 +3,6 @@ import { Canvas, useFrame } from "@react-three/fiber";
 import { OrbitControls } from "@react-three/drei";
 import { motion } from "framer-motion-3d";
 import * as THREE from "three";
-import Draggable from "react-draggable";
 import {
     getProjectAndTasksByProjectId,
     getProjectsByUserId,
@@ -127,36 +126,33 @@ const SolarSystem = ({ projects, setSelectedProject }) => {
 
 const HoverCard = ({ project, onClose }) => {
     return (
-        <Draggable>
-            <div
-                className="hover-card"
-                style={{
-                    zIndex: 1000,
-                    position: "fixed",
-                    margin: "15% 10%",
-                    backgroundColor: "rgba(100, 100, 100, 0.4",
-                    borderRadius: "1em",
-                    padding: "1em",
-                }}
-            >
-                <button onClick={onClose} className="close-btn">
-                    &times;
-                </button>
-                <h3>
-                    <Link to={`/project/${project.id}`}>{project.name}</Link>
-                </h3>
-                <p>
-                    <strong>Last Touched:</strong> {project.ageSinceTouch} days
-                    ago
-                </p>
-                <h4>Tasks:</h4>
-                <ul>
-                    {project.tasks.map((task) => (
-                        <li key={task.id}>{task.name}</li>
-                    ))}
-                </ul>
-            </div>
-        </Draggable>
+        <div
+            className="hover-card"
+            style={{
+                zIndex: 1000,
+                position: "fixed",
+                margin: "15% 10%",
+                backgroundColor: "rgba(100, 100, 100, 0.4",
+                borderRadius: "1em",
+                padding: "1em",
+            }}
+        >
+            <button onClick={onClose} className="close-btn">
+                &times;
+            </button>
+            <h3>
+                <Link to={`/project/${project.id}`}>{project.name}</Link>
+            </h3>
+            <p>
+                <strong>Last Touched:</strong> {project.ageSinceTouch} days ago
+            </p>
+            <h4>Tasks:</h4>
+            <ul>
+                {project.tasks.map((task) => (
+                    <li key={task.id}>{task.name}</li>
+                ))}
+            </ul>
+        </div>
     );
 };
 
@@ -173,7 +169,7 @@ export default function SolarSystemView({ currentUser }) {
     }, [currentUser]);
 
     useEffect(() => {
-        if (userProjectArray.length) {
+        if (userProjectArray) {
             userProjectArray.map((projectObject) =>
                 getProjectAndTasksByProjectId(projectObject.projectId)
                     .then((data) => {
