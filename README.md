@@ -1,8 +1,43 @@
-# React + Vite
+# Attention Galaxy
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Overview
 
-Currently, two official plugins are available:
+Attention Galaxy is a React-based task and project management app that visualizes your projects as a cosmic system. Projects and Tasksare represented as celestial bodies, providing an intuitive way to track focus and productivity.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Features
+
+-   **Galactic Project Visualization**: See your projects as planets and uncompleted tasks as moons.
+-   **Dynamic Positioning**: Projects drift outward when ignored and return when checked in.
+
+## Tech Stack
+
+-   **Frontend**: React, Radix-Theme components
+-   **Backend**: JSON Server (for development)
+-   **Data Visualization**: framer-motion-3d and THREE (for rendering the celestial system). Draggable for draggable hovercards.
+
+## Installation
+
+1. Clone the repository:
+    ```sh
+    git clone https://github.com/ntzeitlin/attention-galaxy.git
+    cd attention-galaxy
+    ```
+2. Install dependencies:
+    ```sh
+    npm install
+    ```
+3. Start the development server:
+    ```sh
+    npm run dev
+    ```
+
+## Usage
+
+-   Add projects and tasks in the UI.
+-   Watch projects move based on engagement.
+-   Drag, zoom, and interact with celestial bodies.
+
+## Future Enhancements
+
+-   Subtasks
+-
