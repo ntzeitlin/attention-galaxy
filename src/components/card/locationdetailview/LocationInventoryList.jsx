@@ -7,7 +7,7 @@ export const LocationInventoryListCard = ({ currentUser, locationData }) => {
                 <Heading align="center" mt="4">
                     Inventory
                 </Heading>
-                {currentUser.id === locationData.userId ? (
+                {/* {currentUser.id === locationData.userId ? (
                     <Button
                         size="1"
                         mt="1"
@@ -22,7 +22,7 @@ export const LocationInventoryListCard = ({ currentUser, locationData }) => {
                     </Button>
                 ) : (
                     ""
-                )}
+                )} */}
             </Flex>
             <Section>
                 <InventoryItemList

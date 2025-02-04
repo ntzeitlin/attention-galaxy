@@ -63,7 +63,7 @@ export const TaskListCard = ({ projectId, locationData, currentUser }) => {
                     ""
                 )}
             </Flex>
-            <Grid columns="2">
+            <Grid columns="1" align="center">
                 {taskArray.map((taskObject) => {
                     return (
                         <TaskOverviewCard

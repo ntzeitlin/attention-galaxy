@@ -15,7 +15,7 @@ import { HomeView } from "./HomeView";
 import { ProfileView } from "./ProfileView";
 import { ManageTask } from "../components/card/manage/ManageTask";
 
-export const ApplicationViews = () => {
+export const ApplicationViews = ({ setDisplayMode }) => {
     const [currentUser, setCurrentUser] = useState({});
 
     useEffect(() => {
@@ -30,7 +30,7 @@ export const ApplicationViews = () => {
                 path="/"
                 element={
                     <>
-                        <NavBar />
+                        <NavBar setDisplayMode={setDisplayMode} />
                         <Outlet />
                         <Footer />
                     </>

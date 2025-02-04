@@ -169,7 +169,7 @@ export default function SolarSystemView({ currentUser }) {
     }, [currentUser]);
 
     useEffect(() => {
-        if (userProjectArray) {
+        if (userProjectArray.length) {
             userProjectArray.map((projectObject) =>
                 getProjectAndTasksByProjectId(projectObject.projectId)
                     .then((data) => {
