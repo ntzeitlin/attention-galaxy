@@ -6,7 +6,7 @@ import { Register } from "./components/auth/Register";
 import { ApplicationViews } from "./views/ApplicationViews";
 import { Authorized } from "./views/Authorized";
 import { useEffect, useState } from "react";
-import { Theme, ThemePanel } from "@radix-ui/themes";
+import { Theme } from "@radix-ui/themes";
 
 export const App = () => {
     const [displayMode, setDisplayMode] = useState({
