@@ -10,6 +10,12 @@ export const getUserDataByUserId = async (userId) => {
   return data
 }
 
+export const getAllUserData = async () => {
+  const response = await fetch('http://localhost:8088/users')
+  const data = await response.json()
+  return data
+}
+
 export const createUser = (user) => {
   return fetch("http://localhost:8088/users", {
     method: "POST",

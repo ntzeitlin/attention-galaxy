@@ -5,7 +5,7 @@ export const Footer = () => {
         <Section>
             <Separator size="4" mb="4" />
             <Flex justify="center">
-                <Text align="center">Attention Galaxy</Text>
+                <Text justify="center">Attention Galaxy</Text>
             </Flex>
         </Section>
     );

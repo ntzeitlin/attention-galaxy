@@ -82,9 +82,9 @@
     },
     {
       "name": "Office",
-      "address": "",
-      "description": "",
-      "gpscoords": "",
+      "address": "Address Data",
+      "description": "Location Description Text",
+      "gpscoords": "GPS Data",
       "userId": 3,
       "id": 8
     }
@@ -104,7 +104,7 @@
       "name": "Inventory System Overhaul",
       "startdate": "2025-01-10",
       "enddate": "2025-06-10",
-      "ageSinceTouch": 5,
+      "ageSinceTouch": 9,
       "description": "New Project Description\n",
       "planetColor": "#bbff3d"
     },
@@ -152,15 +152,9 @@
       "name": "Clean Office",
       "startdate": "",
       "enddate": "",
-      "ageSinceTouch": 0,
-      "id": 8
-    },
-    {
-      "name": "Default Project Name",
-      "startdate": "",
-      "enddate": "",
-      "ageSinceTouch": 0,
-      "id": 9
+      "ageSinceTouch": 5,
+      "id": 8,
+      "description": "project description Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
     }
   ],
   "tasks": [
@@ -200,7 +194,7 @@
       "id": 5,
       "taskName": "Create Wireframes",
       "dateCreated": "2025-01-07",
-      "dateCompleted": "2025-02-03T19:33:31.214Z",
+      "dateCompleted": null,
       "projectId": 1,
       "locationId": 1
     },
@@ -208,7 +202,7 @@
       "id": 6,
       "taskName": "Develop Landing Page",
       "dateCreated": "2025-01-10",
-      "dateCompleted": "2025-02-03T19:33:19.877Z",
+      "dateCompleted": null,
       "projectId": 1,
       "locationId": 1
     },
@@ -216,7 +210,7 @@
       "id": 7,
       "taskName": "Optimize Site Performance",
       "dateCreated": "2025-01-12",
-      "dateCompleted": "2025-02-03T19:33:21.254Z",
+      "dateCompleted": null,
       "projectId": 1,
       "locationId": 1
     },
@@ -253,12 +247,22 @@
       "id": 17
     },
     {
-      "taskName": "Default Task Name",
-      "dateCreated": "2025-02-03T22:40:37.152Z",
+      "taskName": "Wipe off Counters",
+      "dateCreated": "2025-02-04T17:27:30.261Z",
+      "dateCompleted": null,
+      "projectId": 8,
+      "locationId": 8,
+      "description": "Weekly Office Cleaning",
+      "id": 19
+    },
+    {
+      "taskName": "Task with a long description",
+      "dateCreated": "2025-02-04T21:05:35.993Z",
       "dateCompleted": null,
       "projectId": 2,
       "locationId": 2,
-      "id": 18
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+      "id": 20
     }
   ],
   "taskitems": [
@@ -301,26 +305,43 @@
     {
       "taskId": 1,
       "itemId": 12,
-      "onHand": true,
+      "onHand": false,
       "id": 12
     },
     {
       "taskId": 5,
       "itemId": 14,
-      "onHand": true,
+      "onHand": false,
       "id": 14
     },
     {
       "taskId": 5,
       "itemId": 15,
-      "onHand": true,
+      "onHand": false,
       "id": 15
     },
     {
       "taskId": 5,
       "itemId": 16,
-      "onHand": true,
+      "onHand": false,
       "id": 16
+    },
+    {
+      "taskId": 19,
+      "itemId": 17,
+      "id": 17
+    },
+    {
+      "taskId": 6,
+      "itemId": 18,
+      "onHand": true,
+      "id": 18
+    },
+    {
+      "taskId": 6,
+      "itemId": 19,
+      "onHand": true,
+      "id": 19
     }
   ],
   "items": [
@@ -331,7 +352,7 @@
       "quantity": 9,
       "isObject": true,
       "resourceLink": null,
-      "locationId": 1,
+      "locationId": 8,
       "userId": 1
     },
     {
@@ -407,7 +428,7 @@
     {
       "name": "Default New Item",
       "description": "",
-      "quantity": 0,
+      "quantity": 39,
       "isObject": false,
       "resourceLink": null,
       "locationId": 1,
@@ -423,6 +444,36 @@
       "locationId": 1,
       "userId": 1,
       "id": 16
+    },
+    {
+      "name": "The Good Windex",
+      "description": "",
+      "quantity": 1,
+      "isObject": false,
+      "resourceLink": null,
+      "locationId": 8,
+      "userId": 3,
+      "id": 17
+    },
+    {
+      "name": "Default New Item",
+      "description": "",
+      "quantity": 0,
+      "isObject": false,
+      "resourceLink": null,
+      "locationId": 1,
+      "userId": 1,
+      "id": 18
+    },
+    {
+      "name": "Default New Item",
+      "description": "",
+      "quantity": 0,
+      "isObject": false,
+      "resourceLink": null,
+      "locationId": 1,
+      "userId": 1,
+      "id": 19
     }
   ],
   "locationlocations": [
@@ -477,11 +528,6 @@
       "locationId": 8,
       "projectId": 8,
       "id": 8
-    },
-    {
-      "locationId": 8,
-      "projectId": 9,
-      "id": 9
     }
   ],
   "userprojects": [
@@ -528,16 +574,22 @@
       "id": 7
     },
     {
-      "userId": 3,
-      "projectId": 9,
-      "isOwner": true,
-      "id": 8
-    },
-    {
       "userId": 1,
       "projectId": 5,
       "isOwner": true,
       "id": 9
+    },
+    {
+      "userId": 1,
+      "projectId": 8,
+      "isOwner": false,
+      "id": 10
+    },
+    {
+      "projectId": 1,
+      "userId": 3,
+      "isOwner": false,
+      "id": 12
     }
   ]
 }

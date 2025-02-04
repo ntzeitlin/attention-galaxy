@@ -83,7 +83,7 @@ export const EditTaskCard = ({ taskId }) => {
                         m="2"
                         size="2"
                         placeholder="Enter Task Name..."
-                        value={taskData?.taskName}
+                        value={taskData?.taskName || ""}
                         onChange={(event) => {
                             const taskDataCopy = { ...taskData };
                             taskDataCopy.taskName = event.target.value;
@@ -96,7 +96,7 @@ export const EditTaskCard = ({ taskId }) => {
                     <TextField.Root
                         m="2"
                         size="2"
-                        value={taskData?.dateCreated}
+                        value={taskData?.dateCreated || ""}
                         disabled
                     >
                         <TextField.Slot></TextField.Slot>
@@ -105,7 +105,7 @@ export const EditTaskCard = ({ taskId }) => {
                     <TextField.Root
                         m="2"
                         size="2"
-                        value={taskData?.dateCompleted}
+                        value={taskData?.dateCompleted || ""}
                         disabled
                     >
                         <TextField.Slot></TextField.Slot>
@@ -113,7 +113,7 @@ export const EditTaskCard = ({ taskId }) => {
                     <TextArea
                         m="2"
                         placeholder="Task Description..."
-                        value={taskData?.description}
+                        value={taskData?.description || ""}
                         onChange={(event) => {
                             const taskDataCopy = { ...taskData };
                             taskDataCopy.description = event.target.value;

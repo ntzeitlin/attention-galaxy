@@ -1,4 +1,5 @@
 import {
+    Box,
     Button,
     Card,
     CheckboxCards,
@@ -69,17 +70,20 @@ export const TaskItemListCard = ({ taskId, currentUser, locationId }) => {
                 </Button>
             </Flex>
             <Section>
-                <Flex direction="column" gap="3">
+                {/* <Flex direction="column" gap="3"> */}
+                <Grid columns="4" gap="4">
                     {taskItemsArray.map((itemObject) => {
                         return (
-                            <TaskItemCard
-                                key={itemObject.id}
-                                itemObject={itemObject}
-                                fetchAndSetTaskItems={fetchAndSetTaskItems}
-                            />
+                            <Box p="3" key={itemObject.id}>
+                                <TaskItemCard
+                                    itemObject={itemObject}
+                                    fetchAndSetTaskItems={fetchAndSetTaskItems}
+                                />
+                            </Box>
                         );
                     })}
-                </Flex>
+                </Grid>
+                {/* </Flex> */}
             </Section>
         </Card>
     );
