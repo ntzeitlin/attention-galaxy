@@ -10,6 +10,7 @@ import {
     updateUserProjectsById,
 } from "../../services/projectService";
 import {
+    AlertDialog,
     Button,
     Card,
     Container,
@@ -241,15 +242,41 @@ export const NewProject = ({ currentUser }) => {
                         >
                             Save Project
                         </Button>
-                        <Button
-                            m="2"
-                            color="red"
-                            onClick={() => {
-                                handleDeleteProject();
-                            }}
-                        >
-                            Delete Project
-                        </Button>
+                        <AlertDialog.Root>
+                            <AlertDialog.Trigger>
+                                <Button m="2" color="red">
+                                    Delete Project
+                                </Button>
+                            </AlertDialog.Trigger>
+                            <AlertDialog.Content size="1" maxWidth="300px">
+                                <AlertDialog.Title>
+                                    Delete Project
+                                </AlertDialog.Title>
+                                <AlertDialog.Description size="2">
+                                    Are you sure? This Project, its tasks and
+                                    items will be deleted.
+                                </AlertDialog.Description>
+
+                                <Flex gap="3" mt="4" justify="end">
+                                    <AlertDialog.Cancel>
+                                        <Button variant="soft" color="gray">
+                                            Cancel
+                                        </Button>
+                                    </AlertDialog.Cancel>
+                                    <AlertDialog.Action>
+                                        <Button
+                                            variant="solid"
+                                            color="red"
+                                            onClick={() => {
+                                                handleDeleteProject();
+                                            }}
+                                        >
+                                            Delete Project
+                                        </Button>
+                                    </AlertDialog.Action>
+                                </Flex>
+                            </AlertDialog.Content>
+                        </AlertDialog.Root>
                     </Flex>
                 </Section>
             </Card>
