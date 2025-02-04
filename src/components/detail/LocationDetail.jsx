@@ -1,20 +1,22 @@
 import {
+    Box,
     Button,
     Card,
     Container,
     Flex,
     Heading,
     Section,
-    TextArea,
-    TextField,
 } from "@radix-ui/themes";
 import { useEffect, useState } from "react";
-import { getLocationByLocationId } from "../../services/locationService";
-import { useNavigate, useParams } from "react-router-dom";
+import {
+    getLocationByLocationId,
+    getProjectsByLocationId,
+} from "../../services/locationService";
+import { useParams } from "react-router-dom";
+import { LocationInfoCard } from "../card/LocationInfo";
 
 export const LocationDetail = ({ currentUser }) => {
     const { locationId } = useParams();
-    const navigate = useNavigate();
     const [locationData, setLocationData] = useState({
         id: "",
         name: "",
@@ -24,65 +26,51 @@ export const LocationDetail = ({ currentUser }) => {
         userId: "",
     });
 
+    const [locationProjects, setLocationProjects] = useState([]);
+
     useEffect(() => {
         getLocationByLocationId(locationId).then((data) =>
             setLocationData(data)
         );
     }, []);
 
+    useEffect(() => {
+        getProjectsByLocationId(locationId).then((data) =>
+            setLocationProjects(data)
+        );
+    }, [locationId]);
+
     return (
         <Container width="60%" m="5">
-            <Card>
-                <Heading align="center" mt="4">
-                    Location Details
-                </Heading>
-                <Section>
-                    <Flex direction="column">
-                        <TextField.Root
-                            m="2"
-                            size="2"
-                            value={locationData.name}
-                            disabled
-                        >
-                            <TextField.Slot></TextField.Slot>
-                        </TextField.Root>
-                        <TextField.Root
-                            m="2"
-                            size="2"
-                            value={locationData.address}
-                            disabled
-                        >
-                            <TextField.Slot></TextField.Slot>
-                        </TextField.Root>
-                        <TextField.Root
-                            m="2"
-                            size="2"
-                            value={locationData.gpscoords}
-                            disabled
-                        >
-                            <TextField.Slot></TextField.Slot>
-                        </TextField.Root>
-                        <TextArea
-                            m="2"
-                            value={locationData.description}
-                            disabled
-                        />
-                        {currentUser.id === locationData.userId ? (
-                            <Button
-                                m="2"
-                                color="grass"
-                                onClick={() => {
-                                    navigate(`edit`);
-                                }}
-                            >
-                                Edit Location
-                            </Button>
-                        ) : (
-                            ""
-                        )}
-                    </Flex>
-                </Section>
-            </Card>
+            <Flex gap="4" justify="center">
+                <LocationInfoCard
+                    currentUser={currentUser}
+                    locationData={locationData}
+                />
+                <Card>
+                    <Heading align="center" mt="4">
+                        Projects
+                        <Button size="1" mt="1" ml="3">
+                            Add Project
+                        </Button>
+                    </Heading>
+
+                    <Section>
+                        <Flex direction="column">
+                            {locationProjects.map((projectObject) => {
+                                return (
+                                    <Card
+                                        m="2"
+                                        key={`location-project-${projectObject.project?.id}`}
+                                    >
+                                        {projectObject.project?.name}
+                                    </Card>
+                                );
+                            })}
+                        </Flex>
+                    </Section>
+                </Card>
+            </Flex>
         </Container>
     );
 };
