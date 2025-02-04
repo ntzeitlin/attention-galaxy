@@ -44,9 +44,9 @@ export const ShareProjectButton = ({ projectId }) => {
                             {userList.map((userObject) => (
                                 <Select.Item
                                     key={`share-user-key-${userObject.id}`}
-                                    value={userObject.id}
+                                    value={userObject?.id}
                                 >
-                                    {userObject.fullName}
+                                    {userObject?.fullName}
                                 </Select.Item>
                             ))}
                         </Select.Content>
