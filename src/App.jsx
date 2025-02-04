@@ -9,7 +9,11 @@ import { useEffect, useState } from "react";
 import { Theme, ThemePanel } from "@radix-ui/themes";
 
 export const App = () => {
-    const [displayMode, setDisplayMode] = useState({ appearance: "dark" });
+    const [displayMode, setDisplayMode] = useState({
+        appearance: "dark",
+        grayColor: "sage",
+        accentColor: "yellow",
+    });
 
     useEffect(() => {
         setDisplayMode(displayMode);

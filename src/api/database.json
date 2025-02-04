@@ -153,7 +153,8 @@
       "startdate": "",
       "enddate": "",
       "ageSinceTouch": 5,
-      "id": 8
+      "id": 8,
+      "description": "project description Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
     }
   ],
   "tasks": [
@@ -310,19 +311,19 @@
     {
       "taskId": 5,
       "itemId": 14,
-      "onHand": true,
+      "onHand": false,
       "id": 14
     },
     {
       "taskId": 5,
       "itemId": 15,
-      "onHand": true,
+      "onHand": false,
       "id": 15
     },
     {
       "taskId": 5,
       "itemId": 16,
-      "onHand": true,
+      "onHand": false,
       "id": 16
     },
     {
