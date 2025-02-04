@@ -29,6 +29,12 @@ export const getProjectLocationByProjectId = async (projectId) => {
     return data
 }
 
+export const getSharedUserProjectArrayByUserId = async (userId) => {
+    const response = await fetch(`http://localhost:8088/userprojects?userId=${userId}&isOwner=false&_expand=project`)
+    const data = response.json()
+    return data
+}
+
 export const getUserProjectByProjectId = async (projectId) => {
     const response = await fetch(`http://localhost:8088/userprojects?projectId=${projectId}`)
     const data = await response.json()

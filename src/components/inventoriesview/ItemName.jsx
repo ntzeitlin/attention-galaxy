@@ -53,7 +53,9 @@ export const ItemNameCard = ({ itemObject }) => {
             <Link to={`/item/${itemObject.id}/edit`}>
                 <Text as="div">
                     <Strong>Item:</Strong> {itemObject.name}{" "}
-                    {itemObject.quantity ? `x${itemObject.quantity}` : ""}
+                    {itemObject.quantity
+                        ? `| Quantity: ${itemObject.quantity}`
+                        : ""}
                 </Text>
             </Link>
             <Text as="div">Task: {itemTaskData.task?.taskName}</Text>
