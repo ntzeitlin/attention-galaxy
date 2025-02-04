@@ -7,6 +7,7 @@ import { LocationList } from "../components/lists/LocationList";
 import { NewLocation } from "../components/forms/NewLocation";
 import { LocationDetail } from "../components/detail/LocationDetail";
 import { ProjectList } from "../components/lists/ProjectsList";
+import { InventoryList } from "../components/lists/InventoryList";
 
 export const ApplicationViews = () => {
     const [currentUser, setCurrentUser] = useState({});
@@ -58,11 +59,7 @@ export const ApplicationViews = () => {
                 ></Route>
                 <Route
                     path="inventory"
-                    element={
-                        <TestComponent
-                            currentLocation={`Inventory for user #${currentUser.id}`}
-                        />
-                    }
+                    element={<InventoryList currentUser={currentUser} />}
                 ></Route>
                 <Route
                     path="profile"
