@@ -6,10 +6,7 @@ import {
     getTaskByTaskId,
 } from "../../../services/taskService";
 import { TaskItemListCard } from "../tasks/TaskItemList";
-import {
-    getUserProjectByProjectAndUserId,
-    getUserProjectByProjectId,
-} from "../../../services/projectService";
+import { getUserProjectByProjectAndUserId } from "../../../services/projectService";
 
 export const ManageTask = ({ currentUser }) => {
     const { taskId } = useParams();
