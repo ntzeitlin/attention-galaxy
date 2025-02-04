@@ -62,6 +62,10 @@ export const NewProject = ({ currentUser }) => {
     });
 
     useEffect(() => {
+        fetchAndSetData();
+    }, [projectId]);
+
+    const fetchAndSetData = () => {
         getProjectInfoByProjectId(projectId).then((data) =>
             setProjectData(data)
         );
@@ -74,7 +78,7 @@ export const NewProject = ({ currentUser }) => {
         getUserProjectByProjectId(projectId).then((data) =>
             setUserProjectsData(data[0])
         );
-    }, [projectId]);
+    };
 
     useEffect(() => {
         const copyProjectLocationData = { ...projectLocationData };
