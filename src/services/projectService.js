@@ -41,6 +41,12 @@ export const getUserProjectByProjectId = async (projectId) => {
     return data 
 }
 
+export const getUserProjectByProjectAndUserId = async (projectId, userId) => {
+    const response = await fetch(`http://localhost:8088/userprojects?userId=${userId}&projectId=${projectId}`)
+    const data = response.json()
+    return data
+}
+
 
 export const createNewProject = async () => {
     const projectSubmissionObject = {

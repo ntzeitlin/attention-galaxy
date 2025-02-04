@@ -205,12 +205,12 @@
       "locationId": 1
     },
     {
-      "id": 6,
       "taskName": "Develop Landing Page",
       "dateCreated": "2025-01-10",
       "dateCompleted": "2025-02-03T19:33:19.877Z",
       "projectId": 1,
-      "locationId": 1
+      "locationId": 1,
+      "id": 6
     },
     {
       "id": 7,
@@ -271,31 +271,31 @@
     {
       "taskId": 2,
       "itemId": 2,
-      "onHand": true,
+      "onHand": false,
       "id": 2
     },
     {
       "taskId": 2,
       "itemId": 3,
-      "onHand": true,
+      "onHand": false,
       "id": 3
     },
     {
       "taskId": 2,
       "itemId": 4,
-      "onHand": true,
+      "onHand": false,
       "id": 4
     },
     {
       "taskId": 2,
       "itemId": 5,
-      "onHand": true,
+      "onHand": false,
       "id": 5
     },
     {
       "taskId": 2,
       "itemId": 6,
-      "onHand": true,
+      "onHand": false,
       "id": 6
     },
     {

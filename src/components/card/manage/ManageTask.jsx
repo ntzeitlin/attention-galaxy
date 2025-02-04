@@ -6,10 +6,16 @@ import {
     getTaskByTaskId,
 } from "../../../services/taskService";
 import { TaskItemListCard } from "../tasks/TaskItemList";
+import {
+    getUserProjectByProjectAndUserId,
+    getUserProjectByProjectId,
+} from "../../../services/projectService";
 
 export const ManageTask = ({ currentUser }) => {
     const { taskId } = useParams();
     const navigate = useNavigate();
+
+    const [userProjectData, setUserProjectData] = useState({});
 
     const [projectLocationData, setProjectLocationData] = useState({});
     const [taskData, setTaskData] = useState({
@@ -31,6 +37,15 @@ export const ManageTask = ({ currentUser }) => {
             setProjectLocationData(data)
         );
     }, [taskId]);
+
+    useEffect(() => {
+        if (projectLocationData.projectId && currentUser.id) {
+            getUserProjectByProjectAndUserId(
+                projectLocationData?.projectId,
+                currentUser?.id
+            ).then((data) => setUserProjectData(data[0]));
+        }
+    }, [projectLocationData?.projectId]);
 
     return (
         <Container width="60%" m="5">
@@ -60,14 +75,18 @@ export const ManageTask = ({ currentUser }) => {
                     <Heading size="4">
                         Task Description: {taskData?.description}
                     </Heading>
-                    <Button
-                        color="green"
-                        onClick={() => {
-                            navigate(`edit`);
-                        }}
-                    >
-                        Edit Task
-                    </Button>
+                    {userProjectData?.isOwner ? (
+                        <Button
+                            color="green"
+                            onClick={() => {
+                                navigate(`edit`);
+                            }}
+                        >
+                            Edit Task
+                        </Button>
+                    ) : (
+                        ""
+                    )}
                 </Card>
                 <TaskItemListCard
                     taskId={taskId}
