@@ -3,3 +3,4 @@ export const getInventoryItemsByLocationAndUserId = async (locationId, userId) =
     const data = await response.json()
     return data
 }
+

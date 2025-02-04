@@ -35,7 +35,7 @@ export const getLocationsWithProjectsByUserId = async (userId) => {
 
 export const createNewLocationByUserId = async (userId) => {
     const newLocationObject = {
-        name: "",
+        name: "Default Location Name",
         address: "",
         description: "",
         gpscoords: "",

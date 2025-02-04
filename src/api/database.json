@@ -26,7 +26,7 @@
   "locations": [
     {
       "id": 1,
-      "name": "Main Office",
+      "name": "Main  Second Office",
       "address": "123 Main St, Springfield dlkjfakldsjf",
       "description": "Corporate headquarters",
       "gpscoords": "37.7749,-122.4194",
@@ -79,6 +79,30 @@
       "description": "Facility for customer interactions and support.",
       "gpscoords": "37.7747,-122.4190",
       "userId": 1
+    },
+    {
+      "name": "Test Location",
+      "address": "Test Address",
+      "description": "location description\n",
+      "gpscoords": "coodinates",
+      "userId": 3,
+      "id": 8
+    },
+    {
+      "name": "New location",
+      "address": "lkdjsflkj",
+      "description": "lkjdflksjd",
+      "gpscoords": "lksdjflkj",
+      "userId": 3,
+      "id": 9
+    },
+    {
+      "name": "Default Location Name",
+      "address": "",
+      "description": "",
+      "gpscoords": "",
+      "userId": 3,
+      "id": 10
     }
   ],
   "projects": [
@@ -87,14 +111,16 @@
       "name": "Website Redesign",
       "startdate": "2025-01-01",
       "enddate": "2025-03-01",
-      "ageSinceTouch": 5
+      "ageSinceTouch": 5,
+      "description": "here is a description... weird."
     },
     {
       "id": 2,
       "name": "Inventory System Overhaul",
       "startdate": "2025-01-10",
       "enddate": "2025-06-10",
-      "ageSinceTouch": 2
+      "ageSinceTouch": 2,
+      "description": "New Project Description\n"
     },
     {
       "id": 3,
@@ -115,7 +141,8 @@
       "name": "Employee Onboarding Program",
       "startdate": "2025-02-01",
       "enddate": "2025-04-01",
-      "ageSinceTouch": 15
+      "ageSinceTouch": 15,
+      "description": "here is a description"
     },
     {
       "id": 6,
@@ -129,7 +156,53 @@
       "name": "IT Infrastructure Upgrade",
       "startdate": "2025-04-01",
       "enddate": "2025-07-01",
-      "ageSinceTouch": 3
+      "ageSinceTouch": 3,
+      "description": "editing another descripton again"
+    },
+    {
+      "name": "SUPER NICE",
+      "startdate": "kljsdlkfj",
+      "enddate": "lksdjflk",
+      "ageSinceTouch": 0,
+      "id": 8,
+      "description": "slkdjflksd"
+    },
+    {
+      "name": "New2 porject jaldkfj",
+      "startdate": "lkjsdfk",
+      "enddate": "lkjsdkfj",
+      "ageSinceTouch": 0,
+      "id": 9,
+      "description": "Change to test location"
+    },
+    {
+      "name": "new conference room project",
+      "startdate": "start date",
+      "enddate": "end date ",
+      "ageSinceTouch": 0,
+      "id": 10,
+      "description": "kjdfslkjdfs"
+    },
+    {
+      "name": "Default Project Name",
+      "startdate": "",
+      "enddate": "",
+      "ageSinceTouch": 0,
+      "id": 11
+    },
+    {
+      "name": "Default Project Name",
+      "startdate": "",
+      "enddate": "",
+      "ageSinceTouch": 0,
+      "id": 12
+    },
+    {
+      "name": "Default Project Name",
+      "startdate": "",
+      "enddate": "",
+      "ageSinceTouch": 0,
+      "id": 13
     }
   ],
   "tasks": [
@@ -137,17 +210,17 @@
       "id": 1,
       "taskName": "Design Homepage",
       "dateCreated": "2025-01-05",
-      "dateCompleted": null,
+      "dateCompleted": "2025-01-30T15:31:01.836Z",
       "projectId": 1,
       "locationId": 1
     },
     {
-      "id": 2,
       "taskName": "Audit Inventory",
       "dateCreated": "2025-01-12",
       "dateCompleted": null,
       "projectId": 2,
-      "locationId": 2
+      "locationId": 2,
+      "id": 2
     },
     {
       "id": 3,
@@ -164,6 +237,62 @@
       "dateCompleted": null,
       "projectId": 4,
       "locationId": 3
+    },
+    {
+      "id": 5,
+      "taskName": "Create Wireframes",
+      "dateCreated": "2025-01-07",
+      "dateCompleted": "2025-01-30T15:31:02.506Z",
+      "projectId": 1,
+      "locationId": 1
+    },
+    {
+      "id": 6,
+      "taskName": "Develop Landing Page",
+      "dateCreated": "2025-01-10",
+      "dateCompleted": "2025-01-30T15:31:02.965Z",
+      "projectId": 1,
+      "locationId": 1
+    },
+    {
+      "id": 7,
+      "taskName": "Optimize Site Performance",
+      "dateCreated": "2025-01-12",
+      "dateCompleted": null,
+      "projectId": 1,
+      "locationId": 1
+    },
+    {
+      "id": 8,
+      "taskName": "User Testing and Feedback",
+      "dateCreated": "2025-01-15",
+      "dateCompleted": null,
+      "projectId": 1,
+      "locationId": 1
+    },
+    {
+      "id": 9,
+      "taskName": "Here is a task",
+      "dateCreated": "2025-01-30T15:25:54.088Z",
+      "dateCompleted": null,
+      "projectId": "8",
+      "locationId": 8
+    },
+    {
+      "id": 10,
+      "taskName": "New Task",
+      "dateCreated": "2025-01-30T15:56:22.825Z",
+      "dateCompleted": null,
+      "projectId": "10",
+      "locationId": 4
+    },
+    {
+      "taskName": "",
+      "dateCreated": "2025-01-30T16:30:51.517Z",
+      "dateCompleted": null,
+      "projectId": "2",
+      "locationId": 2,
+      "id": 11
     }
   ],
   "taskitems": [
@@ -176,6 +305,26 @@
       "id": 2,
       "taskId": 2,
       "itemId": 2
+    },
+    {
+      "id": 3,
+      "taskId": 2,
+      "itemId": 3
+    },
+    {
+      "id": 4,
+      "taskId": 2,
+      "itemId": 4
+    },
+    {
+      "id": 5,
+      "taskId": 2,
+      "itemId": 5
+    },
+    {
+      "id": 6,
+      "taskId": 2,
+      "itemId": 6
     }
   ],
   "items": [
@@ -198,6 +347,46 @@
       "resourceLink": "https://example.com/safety-manual",
       "locationId": 2,
       "userId": 1
+    },
+    {
+      "id": 3,
+      "name": "Barcode Scanner",
+      "description": "Handheld scanner for inventory management.",
+      "quantity": 3,
+      "isObject": true,
+      "resourceLink": null,
+      "locationId": 2,
+      "userId": 1
+    },
+    {
+      "id": 4,
+      "name": "Stock Report Template",
+      "description": "Spreadsheet template for inventory auditing.",
+      "quantity": 1,
+      "isObject": false,
+      "resourceLink": "https://example.com/stock-report-template",
+      "locationId": 2,
+      "userId": 1
+    },
+    {
+      "id": 5,
+      "name": "Warehouse Inventory List",
+      "description": "Complete list of stored items with stock levels.",
+      "quantity": 1,
+      "isObject": false,
+      "resourceLink": "https://example.com/warehouse-inventory",
+      "locationId": 2,
+      "userId": 1
+    },
+    {
+      "id": 6,
+      "name": "Pallet Jack",
+      "description": "Equipment for moving large stacks of inventory.",
+      "quantity": 2,
+      "isObject": true,
+      "resourceLink": null,
+      "locationId": 2,
+      "userId": 1
     }
   ],
   "locationlocations": [
@@ -215,7 +404,7 @@
   "projectlocations": [
     {
       "id": 1,
-      "locationId": 5,
+      "locationId": 7,
       "projectId": 1
     },
     {
@@ -235,7 +424,7 @@
     },
     {
       "id": 5,
-      "locationId": 1,
+      "locationId": 4,
       "projectId": 5
     },
     {
@@ -247,6 +436,36 @@
       "id": 7,
       "locationId": 1,
       "projectId": 7
+    },
+    {
+      "locationId": 8,
+      "projectId": 8,
+      "id": 8
+    },
+    {
+      "locationId": 8,
+      "projectId": 9,
+      "id": 9
+    },
+    {
+      "locationId": 4,
+      "projectId": 10,
+      "id": 10
+    },
+    {
+      "locationId": 8,
+      "projectId": 11,
+      "id": 11
+    },
+    {
+      "locationId": 9,
+      "projectId": 12,
+      "id": 12
+    },
+    {
+      "locationId": 10,
+      "projectId": 13,
+      "id": 13
     }
   ],
   "userprojects": [
@@ -273,6 +492,54 @@
       "projectId": 4,
       "userId": 2,
       "isOwner": true
+    },
+    {
+      "userId": 1,
+      "projectId": 8,
+      "isOwner": true,
+      "id": 5
+    },
+    {
+      "userId": 1,
+      "projectId": 7,
+      "isOwner": true,
+      "id": 7
+    },
+    {
+      "userId": 3,
+      "projectId": 8,
+      "isOwner": true,
+      "id": 8
+    },
+    {
+      "userId": 3,
+      "projectId": 9,
+      "isOwner": true,
+      "id": 9
+    },
+    {
+      "userId": 1,
+      "projectId": 10,
+      "isOwner": true,
+      "id": 10
+    },
+    {
+      "userId": 3,
+      "projectId": 11,
+      "isOwner": true,
+      "id": 11
+    },
+    {
+      "userId": 3,
+      "projectId": 12,
+      "isOwner": true,
+      "id": 12
+    },
+    {
+      "userId": 3,
+      "projectId": 13,
+      "isOwner": true,
+      "id": 13
     }
   ]
 }

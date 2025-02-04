@@ -1,8 +1,9 @@
-import { Flex, Section, Text } from "@radix-ui/themes";
+import { Flex, Section, Separator, Text } from "@radix-ui/themes";
 
 export const Footer = () => {
     return (
-        <Section style={{ backgroundColor: "lightgray" }}>
+        <Section>
+            <Separator size="4" mb="4" />
             <Flex justify="center">
                 <Text align="center">Attention Galaxy</Text>
             </Flex>

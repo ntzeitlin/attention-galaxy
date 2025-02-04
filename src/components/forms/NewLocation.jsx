@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useNavigate, useParams } from "react-router-dom";
+import { useLocation, useNavigate, useParams } from "react-router-dom";
 import {
     deleteLocationByLocationId,
     getLocationByLocationId,
@@ -18,6 +18,7 @@ import {
 
 export const NewLocation = () => {
     const { locationId } = useParams();
+    const location = useLocation();
     const [locationData, setLocationData] = useState({
         id: "",
         name: "",

@@ -1,21 +1,14 @@
-import {
-    Button,
-    Card,
-    Container,
-    Flex,
-    Heading,
-    Section,
-    TextArea,
-    TextField,
-} from "@radix-ui/themes";
+/* eslint-disable react/prop-types */
+import { Button, Card, Container, Flex, Heading } from "@radix-ui/themes";
 import { useEffect, useState } from "react";
-import { useNavigate, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { getProjectInfoByProjectId } from "../../services/projectService";
 import { getLocationInfoByProjectId } from "../../services/locationService";
 import { ProjectOverviewCard } from "../card/projectdetailview/ProjectOverview";
+import { TaskListCard } from "../card/projectdetailview/TaskListCard";
+import { MiseEnPlaceListCard } from "../card/tasks/MiseEnPlaceList";
 
 export const ProjectDetail = ({ currentUser }) => {
-    const navigate = useNavigate();
     const { projectId } = useParams();
     const [projectData, setProjectData] = useState({
         name: "",
@@ -45,28 +38,27 @@ export const ProjectDetail = ({ currentUser }) => {
 
     //WILL HAVE A TASK SECTION
 
-    // FOR JANUARY 29:
     /*
-    - START TASK GENERATION FOR PROJECT
-    - NEW CARD IN THIS VIEW WITH TASKS LISTED OUT FOR THE CURRENT PROJECT
-    - ADD TASK BUTTON AND FUNCTIONALITY
-    - CLICK ON TASK INFO
-    */
+     */
 
     return (
-        <Container>
-            <Heading align="center" mt="4">
-                Project Details
-            </Heading>
-            <Flex direction="row" justify="between">
+        <Container width="80%" m="5">
+            {/* <Heading align="center">Project Details</Heading> */}
+            <Flex gap="3" justify="center">
                 <ProjectOverviewCard
                     currentUser={currentUser}
                     locationData={locationData}
                     projectData={projectData}
                 />
-
-                <Card m="4">TASK CARD</Card>
-                <Card m="4">INVENTORY CARD</Card>
+                <TaskListCard
+                    projectId={projectId}
+                    locationData={locationData}
+                    currentUser={currentUser}
+                />
+                <MiseEnPlaceListCard
+                    currentUser={currentUser}
+                    projectId={projectId}
+                />
             </Flex>
         </Container>
     );
