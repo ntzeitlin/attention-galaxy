@@ -104,7 +104,7 @@
       "name": "Inventory System Overhaul",
       "startdate": "2025-01-10",
       "enddate": "2025-06-10",
-      "ageSinceTouch": 8,
+      "ageSinceTouch": 9,
       "description": "New Project Description\n",
       "planetColor": "#bbff3d"
     },
@@ -166,12 +166,12 @@
       "locationId": 1
     },
     {
-      "id": 2,
       "taskName": "Audit Inventory",
       "dateCreated": "2025-01-12",
       "dateCompleted": null,
       "projectId": 2,
-      "locationId": 2
+      "locationId": 2,
+      "id": 2
     },
     {
       "id": 3,
@@ -246,14 +246,6 @@
       "id": 17
     },
     {
-      "taskName": "Default Task Name",
-      "dateCreated": "2025-02-03T22:40:37.152Z",
-      "dateCompleted": null,
-      "projectId": 2,
-      "locationId": 2,
-      "id": 18
-    },
-    {
       "taskName": "Wipe off Counters",
       "dateCreated": "2025-02-04T17:27:30.261Z",
       "dateCompleted": null,
@@ -263,7 +255,7 @@
       "id": 19
     },
     {
-      "taskName": "What if I want this Task to be somewhere else?",
+      "taskName": "Task with a long description",
       "dateCreated": "2025-02-04T21:05:35.993Z",
       "dateCompleted": null,
       "projectId": 2,
