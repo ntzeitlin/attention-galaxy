@@ -4,18 +4,23 @@
       "id": 1,
       "userName": "john_doe",
       "fullName": "John Doe",
-      "emailAddress": "john@example.com"
+      "email": "john@example.com"
     },
     {
       "id": 2,
       "userName": "jane_smith",
       "fullName": "Jane Smith",
-      "emailAddress": "jane@example.com"
+      "email": "jane@example.com"
     },
     {
       "email": "test@test.com",
       "fullName": "Test User",
       "id": 3
+    },
+    {
+      "email": "testTwo@testTwo.com",
+      "fullName": "Test User Two",
+      "id": 4
     }
   ],
   "Locations": [
@@ -42,6 +47,38 @@
       "description": "Research facility",
       "gpscoords": "37.7751,-122.4172",
       "userId": 2
+    },
+    {
+      "id": 4,
+      "name": "Conference Room A",
+      "address": "123 Main St, Springfield",
+      "description": "Main office conference room for team meetings.",
+      "gpscoords": "37.7748,-122.4195",
+      "userId": 1
+    },
+    {
+      "id": 5,
+      "name": "Backup Storage",
+      "address": "789 Industrial Rd, Springfield",
+      "description": "Secondary storage area for archived inventory.",
+      "gpscoords": "37.7752,-122.4180",
+      "userId": 1
+    },
+    {
+      "id": 6,
+      "name": "Design Lab",
+      "address": "101 Innovation Dr, Springfield",
+      "description": "Creative space for product design and prototyping.",
+      "gpscoords": "37.7753,-122.4178",
+      "userId": 1
+    },
+    {
+      "id": 7,
+      "name": "Customer Service Center",
+      "address": "456 Main St, Springfield",
+      "description": "Facility for customer interactions and support.",
+      "gpscoords": "37.7747,-122.4190",
+      "userId": 1
     }
   ],
   "Projects": [
@@ -203,4 +240,3 @@
     }
   ]
 }
-
