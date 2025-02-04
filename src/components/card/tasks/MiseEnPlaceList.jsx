@@ -1,13 +1,20 @@
 import { Button, Card, Flex, Heading } from "@radix-ui/themes";
 import { useEffect, useState } from "react";
 import { getUserProjectByProjectId } from "../../../services/projectService";
+import { getTasksAndTaskItemsByProjectId } from "../../../services/taskService";
+import { MiseEnPlaceItemCard } from "./MiseEnPlaceItemCard";
 
 export const MiseEnPlaceListCard = ({ currentUser, projectId }) => {
     const [userProjectData, setUserProjectData] = useState({});
+    const [taskWithTaskItemArray, setTaskWithTaskItemArray] = useState([]);
 
     useEffect(() => {
         getUserProjectByProjectId(projectId).then((data) =>
             setUserProjectData(data[0])
+        );
+
+        getTasksAndTaskItemsByProjectId(projectId).then((data) =>
+            setTaskWithTaskItemArray(data)
         );
     }, [projectId]);
 
@@ -15,16 +22,16 @@ export const MiseEnPlaceListCard = ({ currentUser, projectId }) => {
         <Card>
             <Flex direction="column">
                 <Heading align="center" mt="4">
-                    Mise en Place
+                    Mise en Place Status
                 </Heading>
-                {/* Not sure if I need a button here. Mise en Place should be generated from tasks */}
-                {/* {currentUser.id === userProjectData?.userId ? (
-                    <Button size="1" mt="1" color="green" onClick={() => {}}>
-                        Add Item
-                    </Button>
-                ) : (
-                    ""
-                )} */}
+                {taskWithTaskItemArray.map((taskWithTaskItemObject) => {
+                    return (
+                        <MiseEnPlaceItemCard
+                            key={taskWithTaskItemObject.id}
+                            taskWithTaskItemObject={taskWithTaskItemObject}
+                        />
+                    );
+                })}
             </Flex>
         </Card>
     );

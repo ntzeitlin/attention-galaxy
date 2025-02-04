@@ -99,7 +99,9 @@ export const NewProject = ({ currentUser }) => {
     };
 
     const handleDeleteProject = () => {
-        deleteProjectByProjectId(projectId).then(navigate("/projects"));
+        deleteProjectByProjectId(projectId).then(
+            navigate(`/location/${currentProjectLocation}`)
+        );
     };
 
     const handleSelectLocation = (event) => {

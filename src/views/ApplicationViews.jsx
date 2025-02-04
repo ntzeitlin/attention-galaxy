@@ -1,16 +1,20 @@
 import { Outlet, Route, Routes } from "react-router-dom";
-import { TestComponent } from "../components/detail/TestComponent";
+import { TestComponent } from "../components/TestComponent";
 import { NavBar } from "../components/nav/NavBar";
 import { Footer } from "../components/nav/Footer";
 import { useEffect, useState } from "react";
-import { LocationList } from "../components/lists/LocationList";
 import { NewLocation } from "../components/forms/NewLocation";
-import { LocationDetail } from "../components/detail/LocationDetail";
-import { ProjectList } from "../components/lists/ProjectsList";
-import { InventoryList } from "../components/lists/InventoryList";
+import { LocationDetail } from "../components/detail/LocationDetailView";
+import { ProjectListView } from "./ProjectsView";
+import { InventoryListView } from "./InventoriesView";
 import { NewProject } from "../components/forms/NewProject";
-import { ProjectDetail } from "../components/detail/ProjectDetail";
+import { ProjectDetail } from "../components/detail/ProjectDetailView";
 import { NewTask } from "../components/forms/NewTask";
+import { NewItem } from "../components/forms/NewItem";
+import { LocationListView } from "./LocationsView";
+import { HomeView } from "./HomeView";
+import { ProfileView } from "./ProfileView";
+import { ManageTask } from "../components/card/manage/ManageTask";
 
 export const ApplicationViews = () => {
     const [currentUser, setCurrentUser] = useState({});
@@ -33,13 +37,10 @@ export const ApplicationViews = () => {
                     </>
                 }
             >
-                <Route
-                    index
-                    element={<TestComponent currentLocation={"Home Index"} />}
-                />
+                <Route index element={<HomeView />} />
                 <Route
                     path="locations"
-                    element={<LocationList currentUser={currentUser} />}
+                    element={<LocationListView currentUser={currentUser} />}
                 ></Route>
 
                 <Route path="location">
@@ -52,7 +53,7 @@ export const ApplicationViews = () => {
 
                 <Route
                     path="projects"
-                    element={<ProjectList currentUser={currentUser} />}
+                    element={<ProjectListView currentUser={currentUser} />}
                 ></Route>
 
                 <Route path="project">
@@ -67,25 +68,29 @@ export const ApplicationViews = () => {
                 </Route>
 
                 <Route path="task">
-                    <Route path=":taskId" element={<>TaskDetailView</>} />
+                    <Route
+                        path=":taskId"
+                        element={<ManageTask currentUser={currentUser} />}
+                    />
                     <Route
                         path=":taskId/edit"
                         element={<NewTask currentUser={currentUser} />}
                     />
                 </Route>
 
+                <Route path="item">
+                    <Route path=":itemId" element={<></>} />
+                    <Route
+                        path=":itemId/edit"
+                        element={<NewItem currentUser={currentUser} />}
+                    />
+                </Route>
+
                 <Route
                     path="inventory"
-                    element={<InventoryList currentUser={currentUser} />}
+                    element={<InventoryListView currentUser={currentUser} />}
                 ></Route>
-                <Route
-                    path="profile"
-                    element={
-                        <TestComponent
-                            currentLocation={`Profile for user #${currentUser.id}`}
-                        />
-                    }
-                ></Route>
+                <Route path="profile" element={<ProfileView />}></Route>
             </Route>
         </Routes>
     );

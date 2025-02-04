@@ -1,12 +1,11 @@
 import { Button, Card, Flex, Heading, Section } from "@radix-ui/themes";
-import { ProjectSummaryCard } from "./ProjectSummaryCard";
 import { useNavigate, useParams } from "react-router-dom";
 import {
     createNewProject,
     createProjectLocation,
     createUserProjects,
-} from "../../services/projectService";
-import { useEffect, useState } from "react";
+} from "../../../services/projectService";
+import { ProjectNameCard } from "../../projectsview/ProjectNameCard";
 
 export const ProjectListCard = ({
     locationProjects,
@@ -64,7 +63,7 @@ export const ProjectListCard = ({
                 <Flex direction="column">
                     {locationProjects.map((projectObject) => {
                         return (
-                            <ProjectSummaryCard
+                            <ProjectNameCard
                                 key={`location-project-${projectObject.project?.id}`}
                                 projectObject={projectObject}
                             />

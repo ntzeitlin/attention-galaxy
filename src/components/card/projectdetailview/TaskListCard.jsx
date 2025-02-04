@@ -32,7 +32,7 @@ export const TaskListCard = ({ projectId, locationData, currentUser }) => {
             taskName: "Default Task Name",
             dateCreated: new Date(),
             dateCompleted: null,
-            projectId: projectId,
+            projectId: parseInt(projectId),
             locationId: locationData.locationId,
         };
 

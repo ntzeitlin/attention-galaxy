@@ -27,7 +27,7 @@
     {
       "id": 1,
       "name": "Main  Second Office",
-      "address": "123 Main St, Springfield dlkjfakldsjf",
+      "address": "123 Main St, Springfield",
       "description": "Corporate headquarters",
       "gpscoords": "37.7749,-122.4194",
       "userId": 1
@@ -79,30 +79,6 @@
       "description": "Facility for customer interactions and support.",
       "gpscoords": "37.7747,-122.4190",
       "userId": 1
-    },
-    {
-      "name": "Test Location",
-      "address": "Test Address",
-      "description": "location description\n",
-      "gpscoords": "coodinates",
-      "userId": 3,
-      "id": 8
-    },
-    {
-      "name": "New location",
-      "address": "lkdjsflkj",
-      "description": "lkjdflksjd",
-      "gpscoords": "lksdjflkj",
-      "userId": 3,
-      "id": 9
-    },
-    {
-      "name": "Default Location Name",
-      "address": "",
-      "description": "",
-      "gpscoords": "",
-      "userId": 3,
-      "id": 10
     }
   ],
   "projects": [
@@ -149,7 +125,8 @@
       "name": "Office Renovation",
       "startdate": "2025-03-01",
       "enddate": "2025-06-01",
-      "ageSinceTouch": 7
+      "ageSinceTouch": 7,
+      "description": ""
     },
     {
       "id": 7,
@@ -160,49 +137,11 @@
       "description": "editing another descripton again"
     },
     {
-      "name": "SUPER NICE",
-      "startdate": "kljsdlkfj",
-      "enddate": "lksdjflk",
-      "ageSinceTouch": 0,
-      "id": 8,
-      "description": "slkdjflksd"
-    },
-    {
-      "name": "New2 porject jaldkfj",
-      "startdate": "lkjsdfk",
-      "enddate": "lkjsdkfj",
-      "ageSinceTouch": 0,
-      "id": 9,
-      "description": "Change to test location"
-    },
-    {
-      "name": "new conference room project",
-      "startdate": "start date",
-      "enddate": "end date ",
-      "ageSinceTouch": 0,
-      "id": 10,
-      "description": "kjdfslkjdfs"
-    },
-    {
       "name": "Default Project Name",
       "startdate": "",
       "enddate": "",
       "ageSinceTouch": 0,
-      "id": 11
-    },
-    {
-      "name": "Default Project Name",
-      "startdate": "",
-      "enddate": "",
-      "ageSinceTouch": 0,
-      "id": 12
-    },
-    {
-      "name": "Default Project Name",
-      "startdate": "",
-      "enddate": "",
-      "ageSinceTouch": 0,
-      "id": 13
+      "id": 8
     }
   ],
   "tasks": [
@@ -210,17 +149,17 @@
       "id": 1,
       "taskName": "Design Homepage",
       "dateCreated": "2025-01-05",
-      "dateCompleted": "2025-01-30T15:31:01.836Z",
+      "dateCompleted": null,
       "projectId": 1,
       "locationId": 1
     },
     {
+      "id": 2,
       "taskName": "Audit Inventory",
       "dateCreated": "2025-01-12",
       "dateCompleted": null,
       "projectId": 2,
-      "locationId": 2,
-      "id": 2
+      "locationId": 2
     },
     {
       "id": 3,
@@ -242,7 +181,7 @@
       "id": 5,
       "taskName": "Create Wireframes",
       "dateCreated": "2025-01-07",
-      "dateCompleted": "2025-01-30T15:31:02.506Z",
+      "dateCompleted": null,
       "projectId": 1,
       "locationId": 1
     },
@@ -250,7 +189,7 @@
       "id": 6,
       "taskName": "Develop Landing Page",
       "dateCreated": "2025-01-10",
-      "dateCompleted": "2025-01-30T15:31:02.965Z",
+      "dateCompleted": null,
       "projectId": 1,
       "locationId": 1
     },
@@ -271,60 +210,104 @@
       "locationId": 1
     },
     {
-      "id": 9,
-      "taskName": "Here is a task",
-      "dateCreated": "2025-01-30T15:25:54.088Z",
+      "taskName": "Default Task Name",
+      "dateCreated": "2025-01-31T22:03:06.284Z",
       "dateCompleted": null,
-      "projectId": "8",
-      "locationId": 8
+      "projectId": 6,
+      "locationId": 1,
+      "id": 9
     },
     {
-      "id": 10,
-      "taskName": "New Task",
-      "dateCreated": "2025-01-30T15:56:22.825Z",
+      "taskName": "Default Task Name",
+      "dateCreated": "2025-01-31T22:03:29.915Z",
       "dateCompleted": null,
-      "projectId": "10",
-      "locationId": 4
-    },
-    {
-      "taskName": "",
-      "dateCreated": "2025-01-30T16:30:51.517Z",
-      "dateCompleted": null,
-      "projectId": "2",
-      "locationId": 2,
-      "id": 11
+      "projectId": 8,
+      "locationId": 6,
+      "id": 10
     }
   ],
   "taskitems": [
     {
-      "id": 1,
       "taskId": 1,
-      "itemId": 1
+      "itemId": 1,
+      "onHand": true,
+      "id": 1
     },
     {
-      "id": 2,
       "taskId": 2,
-      "itemId": 2
+      "itemId": 2,
+      "onHand": false,
+      "id": 2
     },
     {
-      "id": 3,
       "taskId": 2,
-      "itemId": 3
+      "itemId": 3,
+      "onHand": false,
+      "id": 3
     },
     {
-      "id": 4,
       "taskId": 2,
-      "itemId": 4
+      "itemId": 4,
+      "onHand": false,
+      "id": 4
     },
     {
-      "id": 5,
       "taskId": 2,
-      "itemId": 5
+      "itemId": 5,
+      "onHand": false,
+      "id": 5
     },
     {
-      "id": 6,
       "taskId": 2,
-      "itemId": 6
+      "itemId": 6,
+      "onHand": false,
+      "id": 6
+    },
+    {
+      "taskId": 1,
+      "itemId": 7,
+      "onHand": true,
+      "id": 7
+    },
+    {
+      "taskId": 1,
+      "itemId": 8,
+      "onHand": true,
+      "id": 8
+    },
+    {
+      "taskId": 5,
+      "itemId": 9,
+      "onHand": false,
+      "id": 9
+    },
+    {
+      "taskId": 6,
+      "itemId": 10,
+      "onHand": false,
+      "id": 10
+    },
+    {
+      "taskId": 6,
+      "itemId": 11,
+      "onHand": false,
+      "id": 11
+    },
+    {
+      "taskId": 1,
+      "itemId": 12,
+      "onHand": true,
+      "id": 12
+    },
+    {
+      "taskId": 9,
+      "itemId": 13,
+      "id": 13
+    },
+    {
+      "taskId": 10,
+      "itemId": 14,
+      "id": 14
     }
   ],
   "items": [
@@ -343,7 +326,7 @@
       "name": "Warehouse Safety Manual",
       "description": "Guidelines for warehouse safety",
       "quantity": 1,
-      "isObject": false,
+      "isObject": "true",
       "resourceLink": "https://example.com/safety-manual",
       "locationId": 2,
       "userId": 1
@@ -387,6 +370,86 @@
       "resourceLink": null,
       "locationId": 2,
       "userId": 1
+    },
+    {
+      "name": "Default New Item",
+      "description": "",
+      "quantity": 0,
+      "isObject": false,
+      "resourceLink": null,
+      "locationId": 1,
+      "userId": 1,
+      "id": 7
+    },
+    {
+      "name": "Default New Item",
+      "description": "",
+      "quantity": 0,
+      "isObject": false,
+      "resourceLink": null,
+      "locationId": 1,
+      "userId": 1,
+      "id": 8
+    },
+    {
+      "name": "Default New Item",
+      "description": "",
+      "quantity": 0,
+      "isObject": false,
+      "resourceLink": null,
+      "locationId": 1,
+      "userId": 1,
+      "id": 9
+    },
+    {
+      "name": "Default New Item",
+      "description": "",
+      "quantity": 0,
+      "isObject": false,
+      "resourceLink": null,
+      "locationId": 1,
+      "userId": 1,
+      "id": 10
+    },
+    {
+      "name": "Default New Item",
+      "description": "",
+      "quantity": 2,
+      "isObject": false,
+      "resourceLink": null,
+      "locationId": 1,
+      "userId": 1,
+      "id": 11
+    },
+    {
+      "name": "Special Stuff",
+      "description": "",
+      "quantity": 0,
+      "isObject": false,
+      "resourceLink": null,
+      "locationId": 4,
+      "userId": 1,
+      "id": 12
+    },
+    {
+      "name": "Default New Item",
+      "description": "",
+      "quantity": 0,
+      "isObject": false,
+      "resourceLink": null,
+      "locationId": 1,
+      "userId": 1,
+      "id": 13
+    },
+    {
+      "name": "Default New Item",
+      "description": "",
+      "quantity": 0,
+      "isObject": false,
+      "resourceLink": null,
+      "locationId": 6,
+      "userId": 1,
+      "id": 14
     }
   ],
   "locationlocations": [
@@ -404,7 +467,7 @@
   "projectlocations": [
     {
       "id": 1,
-      "locationId": 7,
+      "locationId": 1,
       "projectId": 1
     },
     {
@@ -438,34 +501,9 @@
       "projectId": 7
     },
     {
-      "locationId": 8,
+      "locationId": 6,
       "projectId": 8,
       "id": 8
-    },
-    {
-      "locationId": 8,
-      "projectId": 9,
-      "id": 9
-    },
-    {
-      "locationId": 4,
-      "projectId": 10,
-      "id": 10
-    },
-    {
-      "locationId": 8,
-      "projectId": 11,
-      "id": 11
-    },
-    {
-      "locationId": 9,
-      "projectId": 12,
-      "id": 12
-    },
-    {
-      "locationId": 10,
-      "projectId": 13,
-      "id": 13
     }
   ],
   "userprojects": [
@@ -494,52 +532,22 @@
       "isOwner": true
     },
     {
+      "id": 5,
+      "projectId": 6,
       "userId": 1,
-      "projectId": 8,
-      "isOwner": true,
-      "id": 5
+      "isOwner": true
+    },
+    {
+      "id": 6,
+      "projectId": 7,
+      "userId": 1,
+      "isOwner": true
     },
     {
       "userId": 1,
-      "projectId": 7,
+      "projectId": 8,
       "isOwner": true,
       "id": 7
-    },
-    {
-      "userId": 3,
-      "projectId": 8,
-      "isOwner": true,
-      "id": 8
-    },
-    {
-      "userId": 3,
-      "projectId": 9,
-      "isOwner": true,
-      "id": 9
-    },
-    {
-      "userId": 1,
-      "projectId": 10,
-      "isOwner": true,
-      "id": 10
-    },
-    {
-      "userId": 3,
-      "projectId": 11,
-      "isOwner": true,
-      "id": 11
-    },
-    {
-      "userId": 3,
-      "projectId": 12,
-      "isOwner": true,
-      "id": 12
-    },
-    {
-      "userId": 3,
-      "projectId": 13,
-      "isOwner": true,
-      "id": 13
     }
   ]
 }

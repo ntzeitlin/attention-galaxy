@@ -1,13 +1,53 @@
-import { Button, Card, Flex, Heading, Section } from "@radix-ui/themes";
+import {
+    Button,
+    Card,
+    CheckboxCards,
+    Flex,
+    Heading,
+    Section,
+} from "@radix-ui/themes";
 import { useEffect, useState } from "react";
 import { getTaskItemsByTaskId } from "../../../services/taskService";
+import {
+    createNewItem,
+    createNewTaskItem,
+} from "../../../services/inventoryService";
+import { Link, useNavigate } from "react-router-dom";
+import { TaskItemCard } from "./TaskItemCard";
 
-export const TaskItemListCard = ({ taskId }) => {
+export const TaskItemListCard = ({ taskId, currentUser, locationId }) => {
     const [taskItemsArray, setTaskItemsArray] = useState([]);
 
+    const navigate = useNavigate();
+
     useEffect(() => {
-        getTaskItemsByTaskId(taskId).then((data) => setTaskItemsArray(data));
+        fetchAndSetTaskItems();
     }, [taskId]);
+
+    const fetchAndSetTaskItems = () => {
+        getTaskItemsByTaskId(taskId).then((data) => setTaskItemsArray(data));
+    };
+
+    const handleNewTaskItem = () => {
+        // create new item for database
+        const newItemObject = {
+            name: "Default New Item",
+            description: "",
+            quantity: 0,
+            isObject: false,
+            resourceLink: null,
+            locationId: locationId,
+            userId: currentUser.id,
+        };
+
+        createNewItem(newItemObject).then((data) => {
+            createNewTaskItem({
+                taskId: parseInt(taskId),
+                itemId: data.id,
+            });
+            navigate(`/item/${data.id}/edit`);
+        });
+    };
 
     return (
         <Card>
@@ -21,19 +61,21 @@ export const TaskItemListCard = ({ taskId }) => {
                     size="1"
                     color="green"
                     onClick={() => {
-                        window.alert("You thought that would do anything?");
+                        handleNewTaskItem();
                     }}
                 >
                     Add Item
                 </Button>
             </Flex>
             <Section>
-                <Flex direction="column">
+                <Flex direction="column" gap="3">
                     {taskItemsArray.map((itemObject) => {
                         return (
-                            <Card m="2" key={itemObject.id}>
-                                {itemObject.item?.name}
-                            </Card>
+                            <TaskItemCard
+                                key={itemObject.id}
+                                itemObject={itemObject}
+                                fetchAndSetTaskItems={fetchAndSetTaskItems}
+                            />
                         );
                     })}
                 </Flex>
