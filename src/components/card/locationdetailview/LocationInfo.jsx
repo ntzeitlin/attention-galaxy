@@ -35,14 +35,15 @@ export const LocationInfoCard = ({ locationData, currentUser }) => {
             </Flex>
             <Section mt="-6">
                 <Flex direction="column">
-                    <TextField.Root
+                    <Heading>{locationData.name}</Heading>
+                    {/* <TextField.Root
                         m="2"
                         size="2"
                         value={locationData.name}
                         disabled
                     >
                         <TextField.Slot></TextField.Slot>
-                    </TextField.Root>
+                    </TextField.Root> */}
                     <TextField.Root
                         m="2"
                         size="2"

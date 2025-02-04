@@ -25,9 +25,7 @@ export const ProjectDetail = ({ currentUser }) => {
     });
 
     useEffect(() => {
-        getProjectInfoByProjectId(projectId).then((data) =>
-            setProjectData(data)
-        );
+        fetchAndSetProjectData();
     }, [currentUser]);
 
     useEffect(() => {
@@ -36,14 +34,21 @@ export const ProjectDetail = ({ currentUser }) => {
         );
     }, [projectId]);
 
+    const fetchAndSetProjectData = () => {
+        getProjectInfoByProjectId(projectId).then((data) =>
+            setProjectData(data)
+        );
+    };
+
     return (
-        <Container width="80%" m="5">
+        <Container width="90%" m="5">
             {/* <Heading align="center">Project Details</Heading> */}
-            <Flex gap="3" justify="center">
+            <Flex gap="4" justify="center">
                 <ProjectDetailCard
                     currentUser={currentUser}
                     locationData={locationData}
                     projectData={projectData}
+                    fetchAndSetProjectData={fetchAndSetProjectData}
                 />
                 <TaskListCard
                     projectId={projectId}

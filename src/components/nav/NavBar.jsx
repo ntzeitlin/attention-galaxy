@@ -11,13 +11,31 @@ export const NavBar = () => {
                 <TabNav.Link asChild active={pathname === "/"}>
                     <Link to="/">Home</Link>
                 </TabNav.Link>
-                <TabNav.Link asChild active={pathname === "/locations"}>
+                <TabNav.Link
+                    asChild
+                    active={
+                        pathname === "/locations" ||
+                        pathname.includes("location")
+                    }
+                >
                     <Link to="/locations">Locations</Link>
                 </TabNav.Link>
-                <TabNav.Link asChild active={pathname === "/projects"}>
+                <TabNav.Link
+                    asChild
+                    active={
+                        pathname === "/projects" ||
+                        pathname.includes("project") ||
+                        pathname.includes("task")
+                    }
+                >
                     <Link to="/projects">Projects</Link>
                 </TabNav.Link>
-                <TabNav.Link asChild active={pathname === "/inventory"}>
+                <TabNav.Link
+                    asChild
+                    active={
+                        pathname === "/inventory" || pathname.includes("item")
+                    }
+                >
                     <Link to="/inventory">Inventory</Link>
                 </TabNav.Link>
                 <TabNav.Link asChild active={pathname === "/profile"}>
@@ -39,6 +57,34 @@ export const NavBar = () => {
                     )}
                 </TabNav.Link>
             </TabNav.Root>
+            {pathname.includes("task") || pathname.includes("item") ? (
+                <TabNav.Root justify="center">
+                    {pathname.includes("task") ? (
+                        <TabNav.Link asChild active={pathname.includes("task")}>
+                            <Link
+                                to={
+                                    location.pathname.includes("edit")
+                                        ? location.pathname.slice(0, -5)
+                                        : null
+                                }
+                            >
+                                Manage Task
+                            </Link>
+                        </TabNav.Link>
+                    ) : (
+                        ""
+                    )}
+                    {pathname.includes("item") ? (
+                        <TabNav.Link asChild active={pathname.includes("item")}>
+                            <Link>Manage Item</Link>
+                        </TabNav.Link>
+                    ) : (
+                        ""
+                    )}
+                </TabNav.Root>
+            ) : (
+                ""
+            )}
         </>
     );
 };

@@ -3,9 +3,11 @@ import { useLocation, useNavigate, useParams } from "react-router-dom";
 import {
     deleteLocationByLocationId,
     getLocationByLocationId,
+    getProjectsByLocationId,
     updateLocationByLocationId,
 } from "../../services/locationService";
 import {
+    AlertDialog,
     Button,
     Card,
     Container,
@@ -15,6 +17,7 @@ import {
     TextArea,
     TextField,
 } from "@radix-ui/themes";
+import { deleteProjectByProjectId } from "../../services/projectService";
 
 export const NewLocation = () => {
     const { locationId } = useParams();
@@ -43,7 +46,17 @@ export const NewLocation = () => {
     };
 
     const handleDeleteLocation = () => {
-        deleteLocationByLocationId(locationId).then(navigate("/locations"));
+        getProjectsByLocationId(locationId)
+            .then((data) => {
+                for (const projectLocationObject of data) {
+                    deleteProjectByProjectId(projectLocationObject.projectId);
+                }
+            })
+            .then(() => {
+                deleteLocationByLocationId(locationId).then(() => {
+                    navigate("/locations");
+                });
+            });
     };
 
     return (
@@ -112,15 +125,41 @@ export const NewLocation = () => {
                         >
                             Save Location
                         </Button>
-                        <Button
-                            color="red"
-                            m="2"
-                            onClick={() => {
-                                handleDeleteLocation();
-                            }}
-                        >
-                            Delete Location
-                        </Button>
+                        <AlertDialog.Root>
+                            <AlertDialog.Trigger>
+                                <Button m="2" color="red">
+                                    Delete Location
+                                </Button>
+                            </AlertDialog.Trigger>
+                            <AlertDialog.Content size="1" maxWidth="300px">
+                                <AlertDialog.Title>
+                                    Delete Location
+                                </AlertDialog.Title>
+                                <AlertDialog.Description size="2">
+                                    Are you sure? This Location, its projects,
+                                    tasks and items will be deleted.
+                                </AlertDialog.Description>
+
+                                <Flex gap="3" mt="4" justify="end">
+                                    <AlertDialog.Cancel>
+                                        <Button variant="soft" color="gray">
+                                            Cancel
+                                        </Button>
+                                    </AlertDialog.Cancel>
+                                    <AlertDialog.Action>
+                                        <Button
+                                            variant="solid"
+                                            color="red"
+                                            onClick={() => {
+                                                handleDeleteLocation();
+                                            }}
+                                        >
+                                            Delete Location
+                                        </Button>
+                                    </AlertDialog.Action>
+                                </Flex>
+                            </AlertDialog.Content>
+                        </AlertDialog.Root>
                     </Flex>
                 </Section>
             </Card>

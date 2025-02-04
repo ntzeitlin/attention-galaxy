@@ -1,3 +1,15 @@
+export const getProjectAndTasksByProjectId = async (projectId) => {
+    const response = await fetch(`http://localhost:8088/projects/${projectId}?_embed=tasks`)
+    const data = await response.json()
+    return data
+}
+
+export const getProjectsByUserId = async(userId) => {
+    const response = await fetch(`http://localhost:8088/userprojects?userId=${userId}`)
+    const data = await response.json()
+    return data
+}
+
 export const getProjectInfoByProjectId = async (projectId) => {
     const response = await fetch(`http://localhost:8088/projects/${projectId}`)
     const data = await response.json()

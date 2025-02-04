@@ -36,8 +36,8 @@ export const LocationDetail = ({ currentUser }) => {
     }, [locationId]);
 
     return (
-        <Container width="60%" m="5">
-            <Flex gap="4" justify="center">
+        <Container width="90%" m="5">
+            <Flex gap="4" direction="row" justify="center">
                 <LocationInfoCard
                     currentUser={currentUser}
                     locationData={locationData}

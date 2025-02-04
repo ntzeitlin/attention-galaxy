@@ -1,5 +1,4 @@
 import { Outlet, Route, Routes } from "react-router-dom";
-import { TestComponent } from "../components/TestComponent";
 import { NavBar } from "../components/nav/NavBar";
 import { Footer } from "../components/nav/Footer";
 import { useEffect, useState } from "react";
@@ -37,7 +36,7 @@ export const ApplicationViews = () => {
                     </>
                 }
             >
-                <Route index element={<HomeView />} />
+                <Route index element={<HomeView currentUser={currentUser} />} />
                 <Route
                     path="locations"
                     element={<LocationListView currentUser={currentUser} />}
@@ -90,7 +89,10 @@ export const ApplicationViews = () => {
                     path="inventory"
                     element={<InventoryListView currentUser={currentUser} />}
                 ></Route>
-                <Route path="profile" element={<ProfileView />}></Route>
+                <Route
+                    path="profile"
+                    element={<ProfileView currentUser={currentUser} />}
+                ></Route>
             </Route>
         </Routes>
     );

@@ -10,6 +10,7 @@ import {
     updateUserProjectsById,
 } from "../../services/projectService";
 import {
+    AlertDialog,
     Button,
     Card,
     Container,
@@ -17,10 +18,16 @@ import {
     Heading,
     Section,
     Select,
+    Text,
     TextArea,
     TextField,
 } from "@radix-ui/themes";
 import { getLocationsByUserId } from "../../services/locationService";
+import {
+    deleteTaskByTaskId,
+    getTasksAndTaskItemsByProjectId,
+} from "../../services/taskService";
+import { deleteItemByItemId } from "../../services/inventoryService";
 
 export const NewProject = ({ currentUser }) => {
     const { projectId } = useParams();
@@ -39,6 +46,7 @@ export const NewProject = ({ currentUser }) => {
         enddate: "",
         ageSinceTouch: 0,
         description: "",
+        planetColor: "#87CEFA",
     });
 
     const [projectLocationData, setProjectLocationData] = useState({
@@ -99,9 +107,22 @@ export const NewProject = ({ currentUser }) => {
     };
 
     const handleDeleteProject = () => {
-        deleteProjectByProjectId(projectId).then(
-            navigate(`/location/${currentProjectLocation}`)
-        );
+        getTasksAndTaskItemsByProjectId(projectId)
+            .then((data) => {
+                for (const taskObject of data) {
+                    for (const taskItem of taskObject.taskitems) {
+                        deleteItemByItemId(taskItem.itemId);
+                    }
+                    deleteTaskByTaskId(taskObject.id);
+                }
+            })
+            .then(() => {
+                deleteProjectByProjectId(projectId).then(
+                    navigate(`/location/${currentProjectLocation}`)
+                );
+            });
+
+        // needs to also delete all taskItems and Items associated with the Project...
     };
 
     const handleSelectLocation = (event) => {
@@ -117,8 +138,10 @@ export const NewProject = ({ currentUser }) => {
 
                 <Section>
                     <Flex direction="column">
+                        <Text as="label">Project Location:</Text>
                         <Select.Root
                             m="2"
+                            size="2"
                             value={currentProjectLocation}
                             onValueChange={(event) => {
                                 handleSelectLocation(event);
@@ -138,6 +161,9 @@ export const NewProject = ({ currentUser }) => {
                                 })}
                             </Select.Content>
                         </Select.Root>
+
+                        <Text as="label">Project Name:</Text>
+
                         <TextField.Root
                             m="2"
                             size="2"
@@ -151,6 +177,8 @@ export const NewProject = ({ currentUser }) => {
                         >
                             <TextField.Slot></TextField.Slot>
                         </TextField.Root>
+                        <Text as="label">Start Date:</Text>
+
                         <TextField.Root
                             m="2"
                             size="2"
@@ -164,6 +192,8 @@ export const NewProject = ({ currentUser }) => {
                         >
                             <TextField.Slot></TextField.Slot>
                         </TextField.Root>
+                        <Text as="label">End Date:</Text>
+
                         <TextField.Root
                             m="2"
                             size="2"
@@ -177,6 +207,8 @@ export const NewProject = ({ currentUser }) => {
                         >
                             <TextField.Slot></TextField.Slot>
                         </TextField.Root>
+                        <Text as="label">Project Description:</Text>
+
                         <TextArea
                             m="2"
                             placeholder="Project Description..."
@@ -188,6 +220,20 @@ export const NewProject = ({ currentUser }) => {
                                 setProjectData(projectDataCopy);
                             }}
                         />
+                        <Text as="label">Project Color:</Text>
+                        <TextField.Root
+                            m="2"
+                            type="color"
+                            value={projectData.planetColor}
+                            onChange={(event) => {
+                                const projectDataCopy = { ...projectData };
+                                projectDataCopy.planetColor =
+                                    event.target.value;
+                                setProjectData(projectDataCopy);
+                            }}
+                        >
+                            <TextField.Slot></TextField.Slot>
+                        </TextField.Root>
                         <Button
                             m="2"
                             onClick={() => {
@@ -196,15 +242,41 @@ export const NewProject = ({ currentUser }) => {
                         >
                             Save Project
                         </Button>
-                        <Button
-                            m="2"
-                            color="red"
-                            onClick={() => {
-                                handleDeleteProject();
-                            }}
-                        >
-                            Delete Project
-                        </Button>
+                        <AlertDialog.Root>
+                            <AlertDialog.Trigger>
+                                <Button m="2" color="red">
+                                    Delete Project
+                                </Button>
+                            </AlertDialog.Trigger>
+                            <AlertDialog.Content size="1" maxWidth="300px">
+                                <AlertDialog.Title>
+                                    Delete Project
+                                </AlertDialog.Title>
+                                <AlertDialog.Description size="2">
+                                    Are you sure? This Project, its tasks and
+                                    items will be deleted.
+                                </AlertDialog.Description>
+
+                                <Flex gap="3" mt="4" justify="end">
+                                    <AlertDialog.Cancel>
+                                        <Button variant="soft" color="gray">
+                                            Cancel
+                                        </Button>
+                                    </AlertDialog.Cancel>
+                                    <AlertDialog.Action>
+                                        <Button
+                                            variant="solid"
+                                            color="red"
+                                            onClick={() => {
+                                                handleDeleteProject();
+                                            }}
+                                        >
+                                            Delete Project
+                                        </Button>
+                                    </AlertDialog.Action>
+                                </Flex>
+                            </AlertDialog.Content>
+                        </AlertDialog.Root>
                     </Flex>
                 </Section>
             </Card>
