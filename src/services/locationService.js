@@ -10,7 +10,12 @@ export const getLocationsByUserId = async (userId) => {
 export const getLocationByLocationId = async (locationId) => {
     const response = await fetch(`http://localhost:8088/locations/${locationId}`)
     const data = await response.json()
+    return data
+}
 
+export const getLocationInfoByProjectId = async (projectId) => {
+    const response = await fetch(`http://localhost:8088/projectlocations?projectId=${projectId}&_expand=location`)
+    const data = await response.json()
     return data
 }
 

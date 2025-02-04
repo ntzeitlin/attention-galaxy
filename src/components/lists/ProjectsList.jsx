@@ -10,10 +10,17 @@ import {
 } from "@radix-ui/themes";
 import { useEffect, useState } from "react";
 import { getLocationsByUserId } from "../../services/locationService";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { ProjectNameCard } from "../card/ProjectNameList";
+import {
+    createNewProject,
+    createProjectLocation,
+    createUserProjects,
+} from "../../services/projectService";
 
 export const ProjectList = ({ currentUser }) => {
+    const navigate = useNavigate();
+
     const [locationArray, setLocationArray] = useState([]);
 
     useEffect(() => {
@@ -21,6 +28,28 @@ export const ProjectList = ({ currentUser }) => {
             setLocationArray(data)
         );
     }, [currentUser]);
+
+    const handleNewProject = (locationId) => {
+        let updatedProjectId = null;
+        createNewProject()
+            .then((data) => {
+                updatedProjectId = parseInt(data.id);
+                createProjectLocation({
+                    locationId: parseInt(locationId),
+                    projectId: updatedProjectId,
+                });
+                createUserProjects({
+                    userId: parseInt(currentUser.id),
+                    projectId: updatedProjectId,
+                    isOwner: true,
+                });
+            })
+            .then(() => {
+                navigate(`/project/${updatedProjectId}/edit`, {
+                    state: { locationId },
+                });
+            });
+    };
 
     return (
         <Container>
@@ -43,7 +72,14 @@ export const ProjectList = ({ currentUser }) => {
                                             {locationObject.name}
                                         </Link>
                                     </Text>
-                                    <Button m="2" size="1" color="green">
+                                    <Button
+                                        m="2"
+                                        size="1"
+                                        color="green"
+                                        onClick={() => {
+                                            handleNewProject(locationObject.id);
+                                        }}
+                                    >
                                         Add Project
                                     </Button>
                                 </Flex>

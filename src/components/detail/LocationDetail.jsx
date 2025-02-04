@@ -40,7 +40,10 @@ export const LocationDetail = ({ currentUser }) => {
                     currentUser={currentUser}
                     locationData={locationData}
                 />
-                <ProjectListCard locationProjects={locationProjects} />
+                <ProjectListCard
+                    locationProjects={locationProjects}
+                    currentUser={currentUser}
+                />
             </Flex>
         </Container>
     );

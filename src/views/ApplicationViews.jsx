@@ -8,6 +8,8 @@ import { NewLocation } from "../components/forms/NewLocation";
 import { LocationDetail } from "../components/detail/LocationDetail";
 import { ProjectList } from "../components/lists/ProjectsList";
 import { InventoryList } from "../components/lists/InventoryList";
+import { NewProject } from "../components/forms/NewProject";
+import { ProjectDetail } from "../components/detail/ProjectDetail";
 
 export const ApplicationViews = () => {
     const [currentUser, setCurrentUser] = useState({});
@@ -38,14 +40,7 @@ export const ApplicationViews = () => {
                     path="locations"
                     element={<LocationList currentUser={currentUser} />}
                 ></Route>
-                <Route
-                    path="locations/new"
-                    element={
-                        <TestComponent
-                            currentLocation={`New Location View for user #${currentUser.id}`}
-                        />
-                    }
-                />
+
                 <Route path="location">
                     <Route
                         path=":locationId"
@@ -53,10 +48,23 @@ export const ApplicationViews = () => {
                     />
                     <Route path=":locationId/edit" element={<NewLocation />} />
                 </Route>
+
                 <Route
                     path="projects"
                     element={<ProjectList currentUser={currentUser} />}
                 ></Route>
+
+                <Route path="project">
+                    <Route
+                        path=":projectId"
+                        element={<ProjectDetail currentUser={currentUser} />}
+                    />
+                    <Route
+                        path=":projectId/edit"
+                        element={<NewProject currentUser={currentUser} />}
+                    />
+                </Route>
+
                 <Route
                     path="inventory"
                     element={<InventoryList currentUser={currentUser} />}
