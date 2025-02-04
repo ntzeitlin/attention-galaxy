@@ -22,14 +22,7 @@ import { getLocationsByUserId } from "../../services/locationService";
 
 export const NewItem = ({ currentUser }) => {
     const { itemId } = useParams();
-    const [taskData, setTaskData] = useState({
-        taskName: "",
-        dateCreated: "",
-        dateCompleted: "",
-        projectId: "",
-        locationId: "",
-        id: "",
-    });
+    const [taskData, setTaskData] = useState({});
     const [userLocations, setUserLocations] = useState([]);
     const navigate = useNavigate();
 
@@ -38,7 +31,7 @@ export const NewItem = ({ currentUser }) => {
         name: "",
         description: "",
         quantity: 1,
-        isObject: false,
+        isObject: "",
         resourceLink: "",
         locationId: 0,
         userId: 0,
@@ -76,34 +69,29 @@ export const NewItem = ({ currentUser }) => {
                 <Section>
                     <Flex direction="column">
                         <Text as="label">Item Location:</Text>
-                        {currentUser.id === itemData?.userId ? (
-                            <Select.Root
-                                m="2"
-                                value={itemData?.locationId || ""}
-                                onValueChange={(event) => {
-                                    const itemDataCopy = { ...itemData };
-                                    itemDataCopy.locationId = event;
-                                    setItemData(itemDataCopy);
-                                }}
-                            >
-                                <Select.Trigger placeholder="Item Location.." />
-                                <Select.Content>
-                                    {userLocations.map((locationObject) => {
-                                        return (
-                                            <Select.Item
-                                                key={locationObject.id}
-                                                value={locationObject?.id || ""}
-                                            >
-                                                {locationObject.name}
-                                            </Select.Item>
-                                        );
-                                    })}
-                                </Select.Content>
-                            </Select.Root>
-                        ) : (
-                            ""
-                        )}
-
+                        <Select.Root
+                            m="2"
+                            value={itemData.locationId}
+                            onValueChange={(event) => {
+                                const itemDataCopy = { ...itemData };
+                                itemDataCopy.locationId = event;
+                                setItemData(itemDataCopy);
+                            }}
+                        >
+                            <Select.Trigger placeholder="Item Location.." />
+                            <Select.Content>
+                                {userLocations.map((locationObject) => {
+                                    return (
+                                        <Select.Item
+                                            key={locationObject.id}
+                                            value={locationObject.id}
+                                        >
+                                            {locationObject.name}
+                                        </Select.Item>
+                                    );
+                                })}
+                            </Select.Content>
+                        </Select.Root>
                         <Flex gap="2" my="2">
                             <RadioGroup.Root
                                 value={itemData?.isObject ? "true" : "false"}
@@ -137,7 +125,7 @@ export const NewItem = ({ currentUser }) => {
                             m="2"
                             size="2"
                             placeholder="Enter Item Name..."
-                            value={itemData?.name || ""}
+                            value={itemData.name}
                             onChange={(event) => {
                                 const itemDataCopy = { ...itemData };
                                 itemDataCopy.name = event.target.value;
@@ -151,7 +139,7 @@ export const NewItem = ({ currentUser }) => {
                             m="2"
                             size="2"
                             placeholder="Enter Resource Link..."
-                            value={itemData?.resourceLink || ""}
+                            value={itemData.resourceLink}
                             onChange={(event) => {
                                 const itemDataCopy = { ...itemData };
                                 itemDataCopy.resourceLink = event.target.value;
@@ -166,7 +154,7 @@ export const NewItem = ({ currentUser }) => {
                             size="2"
                             placeholder="Enter Quantity..."
                             type="number"
-                            value={itemData?.quantity ?? 1}
+                            value={itemData.quantity}
                             onChange={(event) => {
                                 const itemDataCopy = { ...itemData };
                                 itemDataCopy.quantity = parseInt(
@@ -185,45 +173,41 @@ export const NewItem = ({ currentUser }) => {
                         >
                             Save Item
                         </Button>
-                        {currentUser.id === itemData.userId ? (
-                            <AlertDialog.Root>
-                                <AlertDialog.Trigger>
-                                    <Button m="2" color="red">
-                                        Delete Item
-                                    </Button>
-                                </AlertDialog.Trigger>
-                                <AlertDialog.Content size="1" maxWidth="300px">
-                                    <AlertDialog.Title>
-                                        Delete Item
-                                    </AlertDialog.Title>
-                                    <AlertDialog.Description size="2">
-                                        Are you sure? This will delete the item
-                                        permanently.
-                                    </AlertDialog.Description>
+                        <AlertDialog.Root>
+                            <AlertDialog.Trigger>
+                                <Button m="2" color="red">
+                                    Delete Item
+                                </Button>
+                            </AlertDialog.Trigger>
+                            <AlertDialog.Content size="1" maxWidth="300px">
+                                <AlertDialog.Title>
+                                    Delete Item
+                                </AlertDialog.Title>
+                                <AlertDialog.Description size="2">
+                                    Are you sure? This will delete the item
+                                    permanently.
+                                </AlertDialog.Description>
 
-                                    <Flex gap="3" mt="4" justify="end">
-                                        <AlertDialog.Cancel>
-                                            <Button variant="soft" color="gray">
-                                                Cancel
-                                            </Button>
-                                        </AlertDialog.Cancel>
-                                        <AlertDialog.Action>
-                                            <Button
-                                                variant="solid"
-                                                color="red"
-                                                onClick={() => {
-                                                    handleDeleteItem();
-                                                }}
-                                            >
-                                                Delete Item
-                                            </Button>
-                                        </AlertDialog.Action>
-                                    </Flex>
-                                </AlertDialog.Content>
-                            </AlertDialog.Root>
-                        ) : (
-                            ""
-                        )}
+                                <Flex gap="3" mt="4" justify="end">
+                                    <AlertDialog.Cancel>
+                                        <Button variant="soft" color="gray">
+                                            Cancel
+                                        </Button>
+                                    </AlertDialog.Cancel>
+                                    <AlertDialog.Action>
+                                        <Button
+                                            variant="solid"
+                                            color="red"
+                                            onClick={() => {
+                                                handleDeleteItem();
+                                            }}
+                                        >
+                                            Delete Item
+                                        </Button>
+                                    </AlertDialog.Action>
+                                </Flex>
+                            </AlertDialog.Content>
+                        </AlertDialog.Root>
                     </Flex>
                 </Section>
             </Card>
