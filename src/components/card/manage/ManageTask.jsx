@@ -45,8 +45,8 @@ export const ManageTask = ({ currentUser }) => {
     }, [projectLocationData?.projectId]);
 
     return (
-        <Container width="60%" m="5">
-            <Flex gap="4" justify="center">
+        <Container width="80%" m="5">
+            <Flex gap="4" justify="center" direction="column">
                 <Card>
                     <Heading align="center" mt="4">
                         Task: {taskData?.taskName}

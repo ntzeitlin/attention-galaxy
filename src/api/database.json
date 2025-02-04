@@ -178,6 +178,7 @@
       "dateCompleted": null,
       "projectId": 2,
       "locationId": 2,
+      "description": "Here is a new task description for auditing inventory.",
       "id": 2
     },
     {
