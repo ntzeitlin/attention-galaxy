@@ -147,7 +147,7 @@ export const NewProject = ({ currentUser }) => {
                         <Select.Root
                             m="2"
                             size="2"
-                            value={currentProjectLocation}
+                            value={currentProjectLocation || ""}
                             onValueChange={(event) => {
                                 handleSelectLocation(event);
                             }}
@@ -158,7 +158,7 @@ export const NewProject = ({ currentUser }) => {
                                     return (
                                         <Select.Item
                                             key={`location-item-${locationObject.id}`}
-                                            value={locationObject.id}
+                                            value={locationObject.id || 0}
                                         >
                                             {locationObject.name}
                                         </Select.Item>
@@ -173,7 +173,7 @@ export const NewProject = ({ currentUser }) => {
                             m="2"
                             size="2"
                             placeholder="Enter Project Name..."
-                            value={projectData?.name}
+                            value={projectData?.name || ""}
                             onChange={(event) => {
                                 const projectDataCopy = { ...projectData };
                                 projectDataCopy.name = event.target.value;
@@ -188,7 +188,7 @@ export const NewProject = ({ currentUser }) => {
                             m="2"
                             size="2"
                             placeholder="Enter Start Date..."
-                            value={projectData?.startdate}
+                            value={projectData?.startdate || ""}
                             onChange={(event) => {
                                 const projectDataCopy = { ...projectData };
                                 projectDataCopy.startdate = event.target.value;
@@ -203,7 +203,7 @@ export const NewProject = ({ currentUser }) => {
                             m="2"
                             size="2"
                             placeholder="Enter End Date..."
-                            value={projectData?.enddate}
+                            value={projectData?.enddate || ""}
                             onChange={(event) => {
                                 const projectDataCopy = { ...projectData };
                                 projectDataCopy.enddate = event.target.value;
@@ -217,7 +217,7 @@ export const NewProject = ({ currentUser }) => {
                         <TextArea
                             m="2"
                             placeholder="Project Description..."
-                            value={projectData?.description}
+                            value={projectData?.description || ""}
                             onChange={(event) => {
                                 const projectDataCopy = { ...projectData };
                                 projectDataCopy.description =
@@ -229,7 +229,7 @@ export const NewProject = ({ currentUser }) => {
                         <TextField.Root
                             m="2"
                             type="color"
-                            value={projectData?.planetColor}
+                            value={projectData?.planetColor || "#ffffff"}
                             onChange={(event) => {
                                 const projectDataCopy = { ...projectData };
                                 projectDataCopy.planetColor =
