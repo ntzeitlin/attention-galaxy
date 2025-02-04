@@ -236,7 +236,10 @@ export const NewProject = ({ currentUser }) => {
                             <TextField.Slot></TextField.Slot>
                         </TextField.Root>
                         <Text as="label">Share Project:</Text>
-                        <ShareProjectButton projectId={projectId} />
+                        <ShareProjectButton
+                            projectId={projectId}
+                            currentUser={currentUser}
+                        />
                         <Text mt="5" as="label">
                             Save Project:
                         </Text>

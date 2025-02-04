@@ -1,15 +1,47 @@
 import { AlertDialog, Button, Flex, Select, Text } from "@radix-ui/themes";
 import { useEffect, useState } from "react";
 import { getAllUserData } from "../../services/userService";
-import { createUserProjects } from "../../services/projectService";
+import {
+    createUserProjects,
+    getUserProjectByProjectId,
+} from "../../services/projectService";
 
-export const ShareProjectButton = ({ projectId }) => {
+export const ShareProjectButton = ({ projectId, currentUser }) => {
     const [userList, setUserList] = useState([]);
+    const [filteredUserList, setFilteredUserList] = useState([]);
+    const [userProjectsData, setUserProjectsData] = useState([]);
     const [selectedUserId, setSelectedUserId] = useState("select user");
 
     useEffect(() => {
-        getAllUserData().then((data) => setUserList(data));
-    }, []);
+        getAllUserData().then((data) => {
+            setUserList(data);
+        });
+    }, [currentUser]);
+
+    useEffect(() => {
+        getUserProjectByProjectId(projectId).then((data) =>
+            setUserProjectsData(data)
+        );
+
+        setFilteredUserList(
+            // need to filter userList down to users who the project has not been shared with and not the current user
+            filterUserList()
+        );
+    }, [userList]);
+
+    const filterUserList = () => {
+        const filteredList = userList.filter(
+            (userObject) => userObject.id !== currentUser.id
+        );
+        const removeAlreadySharedUsers = filteredList.filter((userObject) => {
+            return !userProjectsData.some(
+                (userProjectObject) =>
+                    userObject.id === userProjectObject.userId
+            );
+        });
+
+        return removeAlreadySharedUsers;
+    };
 
     const handleShareProject = () => {
         const submissionObject = {
@@ -41,7 +73,7 @@ export const ShareProjectButton = ({ projectId }) => {
                     >
                         <Select.Trigger />
                         <Select.Content>
-                            {userList.map((userObject) => (
+                            {filteredUserList.map((userObject) => (
                                 <Select.Item
                                     key={`share-user-key-${userObject.id}`}
                                     value={userObject?.id}
