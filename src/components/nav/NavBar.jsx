@@ -1,8 +1,7 @@
 import { TabNav } from "@radix-ui/themes";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import { DarkModeSwitch } from "./DarkModeToggle";
 
-export const NavBar = ({ setDisplayMode }) => {
+export const NavBar = () => {
     const { pathname } = useLocation();
     const navigate = useNavigate();
 
@@ -56,9 +55,6 @@ export const NavBar = ({ setDisplayMode }) => {
                     ) : (
                         ""
                     )}
-                </TabNav.Link>
-                <TabNav.Link>
-                    <DarkModeSwitch setDisplayMode={setDisplayMode} />
                 </TabNav.Link>
             </TabNav.Root>
             {pathname.includes("task") || pathname.includes("item") ? (
