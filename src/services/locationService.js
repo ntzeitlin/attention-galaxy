@@ -20,8 +20,11 @@ export const getProjectsByLocationId = async (locationId) => {
     return data 
 }
 
-
-
+export const getLocationsWithProjectsByUserId = async (userId) => {
+    const response = await fetch(`http://localhost:8088/locations?userId=${userId}&_embed=projectlocations`)
+    const data = response.json()
+    return data
+}
 // SETTERS
 
 
