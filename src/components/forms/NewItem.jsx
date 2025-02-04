@@ -6,6 +6,7 @@ import {
     updateItemByItemId,
 } from "../../services/inventoryService";
 import {
+    AlertDialog,
     Button,
     Card,
     Container,
@@ -172,15 +173,41 @@ export const NewItem = ({ currentUser }) => {
                         >
                             Save Item
                         </Button>
-                        <Button
-                            m="2"
-                            color="red"
-                            onClick={() => {
-                                handleDeleteItem();
-                            }}
-                        >
-                            Delete Item
-                        </Button>
+                        <AlertDialog.Root>
+                            <AlertDialog.Trigger>
+                                <Button m="2" color="red">
+                                    Delete Item
+                                </Button>
+                            </AlertDialog.Trigger>
+                            <AlertDialog.Content size="1" maxWidth="300px">
+                                <AlertDialog.Title>
+                                    Delete Item
+                                </AlertDialog.Title>
+                                <AlertDialog.Description size="2">
+                                    Are you sure? This will delete the item
+                                    permanently.
+                                </AlertDialog.Description>
+
+                                <Flex gap="3" mt="4" justify="end">
+                                    <AlertDialog.Cancel>
+                                        <Button variant="soft" color="gray">
+                                            Cancel
+                                        </Button>
+                                    </AlertDialog.Cancel>
+                                    <AlertDialog.Action>
+                                        <Button
+                                            variant="solid"
+                                            color="red"
+                                            onClick={() => {
+                                                handleDeleteItem();
+                                            }}
+                                        >
+                                            Delete Item
+                                        </Button>
+                                    </AlertDialog.Action>
+                                </Flex>
+                            </AlertDialog.Content>
+                        </AlertDialog.Root>
                     </Flex>
                 </Section>
             </Card>

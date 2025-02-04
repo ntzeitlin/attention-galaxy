@@ -95,7 +95,7 @@
       "name": "Website Redesign",
       "startdate": "2025-01-01",
       "enddate": "2025-03-01",
-      "ageSinceTouch": 5,
+      "ageSinceTouch": 6,
       "description": "\"Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?\"\n\n",
       "planetColor": "#aeff00"
     },
@@ -104,9 +104,9 @@
       "name": "Inventory System Overhaul",
       "startdate": "2025-01-10",
       "enddate": "2025-06-10",
-      "ageSinceTouch": 7,
+      "ageSinceTouch": 5,
       "description": "New Project Description\n",
-      "planetColor": "#8000ff"
+      "planetColor": "#bbff3d"
     },
     {
       "id": 3,
@@ -129,7 +129,7 @@
       "enddate": "2025-04-01",
       "ageSinceTouch": 0,
       "description": "here is a description",
-      "planetColor": "#1e00ff"
+      "planetColor": "#cbc8df"
     },
     {
       "id": 6,
@@ -161,15 +161,6 @@
       "enddate": "",
       "ageSinceTouch": 0,
       "id": 9
-    },
-    {
-      "name": "Designing a New StarShip",
-      "startdate": "",
-      "enddate": "",
-      "ageSinceTouch": 4,
-      "id": 10,
-      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
-      "planetColor": "#d4ff00"
     }
   ],
   "tasks": [
@@ -246,39 +237,6 @@
       "id": 9
     },
     {
-      "id": 10,
-      "taskName": "Default Task Name",
-      "dateCreated": "2025-02-03T17:21:15.413Z",
-      "dateCompleted": null,
-      "projectId": 2,
-      "locationId": 2
-    },
-    {
-      "id": 11,
-      "taskName": "Default Task Name",
-      "dateCreated": "2025-02-03T17:21:20.023Z",
-      "dateCompleted": null,
-      "projectId": 2,
-      "locationId": 2
-    },
-    {
-      "id": 12,
-      "taskName": "Default Task Name",
-      "dateCreated": "2025-02-03T17:21:22.155Z",
-      "dateCompleted": null,
-      "projectId": 2,
-      "locationId": 2
-    },
-    {
-      "taskName": "Design Mockup",
-      "dateCreated": "2025-02-03T19:31:31.557Z",
-      "dateCompleted": null,
-      "projectId": 10,
-      "locationId": 6,
-      "description": "Using Miro, layout mockup of starship",
-      "id": 13
-    },
-    {
       "taskName": "Default Task Name",
       "dateCreated": "2025-02-03T21:29:07.450Z",
       "dateCompleted": null,
@@ -293,6 +251,14 @@
       "projectId": 5,
       "locationId": 4,
       "id": 17
+    },
+    {
+      "taskName": "Default Task Name",
+      "dateCreated": "2025-02-03T22:40:37.152Z",
+      "dateCompleted": null,
+      "projectId": 2,
+      "locationId": 2,
+      "id": 18
     }
   ],
   "taskitems": [
@@ -355,12 +321,6 @@
       "itemId": 16,
       "onHand": true,
       "id": 16
-    },
-    {
-      "taskId": 13,
-      "itemId": 17,
-      "onHand": false,
-      "id": 17
     }
   ],
   "items": [
@@ -463,16 +423,6 @@
       "locationId": 1,
       "userId": 1,
       "id": 16
-    },
-    {
-      "name": "Startship Model",
-      "description": "",
-      "quantity": 1,
-      "isObject": true,
-      "resourceLink": null,
-      "locationId": 6,
-      "userId": 1,
-      "id": 17
     }
   ],
   "locationlocations": [
@@ -532,11 +482,6 @@
       "locationId": 8,
       "projectId": 9,
       "id": 9
-    },
-    {
-      "locationId": 6,
-      "projectId": 10,
-      "id": 10
     }
   ],
   "userprojects": [
@@ -593,12 +538,6 @@
       "projectId": 5,
       "isOwner": true,
       "id": 9
-    },
-    {
-      "userId": 1,
-      "projectId": 10,
-      "isOwner": true,
-      "id": 10
     }
   ]
 }
