@@ -22,7 +22,14 @@ import { getLocationsByUserId } from "../../services/locationService";
 
 export const NewItem = ({ currentUser }) => {
     const { itemId } = useParams();
-    const [taskData, setTaskData] = useState({});
+    const [taskData, setTaskData] = useState({
+        taskName: "",
+        dateCreated: "",
+        dateCompleted: "",
+        projectId: "",
+        locationId: "",
+        id: "",
+    });
     const [userLocations, setUserLocations] = useState([]);
     const navigate = useNavigate();
 
@@ -31,7 +38,7 @@ export const NewItem = ({ currentUser }) => {
         name: "",
         description: "",
         quantity: 1,
-        isObject: "",
+        isObject: false,
         resourceLink: "",
         locationId: 0,
         userId: 0,
@@ -68,33 +75,31 @@ export const NewItem = ({ currentUser }) => {
                 </Heading>
                 <Section>
                     <Flex direction="column">
-                        {currentUser.id === itemData.userId ? (
-                            <>
-                                <Text as="label">Item Location:</Text>
-                                <Select.Root
-                                    m="2"
-                                    value={itemData?.locationId}
-                                    onValueChange={(event) => {
-                                        const itemDataCopy = { ...itemData };
-                                        itemDataCopy.locationId = event;
-                                        setItemData(itemDataCopy);
-                                    }}
-                                >
-                                    <Select.Trigger placeholder="Item Location.." />
-                                    <Select.Content>
-                                        {userLocations.map((locationObject) => {
-                                            return (
-                                                <Select.Item
-                                                    key={locationObject.id}
-                                                    value={locationObject?.id}
-                                                >
-                                                    {locationObject.name}
-                                                </Select.Item>
-                                            );
-                                        })}
-                                    </Select.Content>
-                                </Select.Root>
-                            </>
+                        <Text as="label">Item Location:</Text>
+                        {currentUser.id === itemData?.userId ? (
+                            <Select.Root
+                                m="2"
+                                value={itemData?.locationId || ""}
+                                onValueChange={(event) => {
+                                    const itemDataCopy = { ...itemData };
+                                    itemDataCopy.locationId = event;
+                                    setItemData(itemDataCopy);
+                                }}
+                            >
+                                <Select.Trigger placeholder="Item Location.." />
+                                <Select.Content>
+                                    {userLocations.map((locationObject) => {
+                                        return (
+                                            <Select.Item
+                                                key={locationObject.id}
+                                                value={locationObject?.id || ""}
+                                            >
+                                                {locationObject.name}
+                                            </Select.Item>
+                                        );
+                                    })}
+                                </Select.Content>
+                            </Select.Root>
                         ) : (
                             ""
                         )}
@@ -132,7 +137,7 @@ export const NewItem = ({ currentUser }) => {
                             m="2"
                             size="2"
                             placeholder="Enter Item Name..."
-                            value={itemData?.name}
+                            value={itemData?.name || ""}
                             onChange={(event) => {
                                 const itemDataCopy = { ...itemData };
                                 itemDataCopy.name = event.target.value;
@@ -146,7 +151,7 @@ export const NewItem = ({ currentUser }) => {
                             m="2"
                             size="2"
                             placeholder="Enter Resource Link..."
-                            value={itemData?.resourceLink}
+                            value={itemData?.resourceLink || ""}
                             onChange={(event) => {
                                 const itemDataCopy = { ...itemData };
                                 itemDataCopy.resourceLink = event.target.value;
@@ -161,7 +166,7 @@ export const NewItem = ({ currentUser }) => {
                             size="2"
                             placeholder="Enter Quantity..."
                             type="number"
-                            value={itemData?.quantity}
+                            value={itemData?.quantity ?? 1}
                             onChange={(event) => {
                                 const itemDataCopy = { ...itemData };
                                 itemDataCopy.quantity = parseInt(

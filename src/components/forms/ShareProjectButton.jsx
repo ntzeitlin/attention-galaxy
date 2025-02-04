@@ -57,6 +57,7 @@ export const ShareProjectButton = ({ projectId, currentUser }) => {
             userId: parseInt(selectedUserId),
             isOwner: false,
         };
+
         createUserProjects(submissionObject).then(() => {
             fetchAndSetUserData();
             fetchAndSetUserProjects();

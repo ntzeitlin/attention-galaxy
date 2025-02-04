@@ -1,5 +1,5 @@
 import { AlertDialog, Button, Flex, Select, Text } from "@radix-ui/themes";
-import { ShareUserDropDown } from "../card/ShareUserDropDown";
+import { ShareUserDropDown } from "./ShareUserDropDown";
 
 export const ShareProjectAlertDialog = ({
     setSelectedUserId,

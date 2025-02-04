@@ -37,7 +37,7 @@ export const NewProject = ({ currentUser }) => {
 
     const [userLocationsArray, setUserLocationsArray] = useState([]);
     const [currentProjectLocation, setCurrentProjectLocation] = useState(
-        state.locationId
+        state?.locationId
     );
 
     const [projectData, setProjectData] = useState({
