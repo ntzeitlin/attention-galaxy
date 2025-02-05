@@ -13,7 +13,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { getUserProjectByProjectId } from "../../../services/projectService";
 import { ProjectCheckIn } from "./ProjectCheckIn";
 import { getUserProjectsAndUserInfoByProjectId } from "../../../services/userService";
-import { PersonIcon } from "@radix-ui/react-icons";
+import { PersonIcon, StarFilledIcon } from "@radix-ui/react-icons";
 
 export const ProjectDetailCard = ({
     projectData,
@@ -111,6 +111,7 @@ const ProjectInformation = ({ locationData, projectData }) => {
             {projectUsers?.map((userObject) => {
                 return (
                     <Text key={userObject.id}>
+                        {userObject.isOwner ? <StarFilledIcon /> : ""}
                         <PersonIcon />{" "}
                         {userObject.user?.userName || userObject.user?.email}
                     </Text>
