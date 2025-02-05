@@ -1,6 +1,13 @@
-// check to see who the current user is
-// find locations related to that current user
-// list them out as cards
+/*
+Component Purpose:
+List out all locations owned by user as cards.
+
+Process:
+check to see who the current user is
+fetch locations related to that current user
+dynamically generate locations as cards
+
+*/
 
 import { useState } from "react";
 import { useEffect } from "react";
@@ -14,7 +21,6 @@ import { LocationList } from "../components/locationsview/LocationList";
 
 export const LocationListView = ({ currentUser }) => {
     const [locationArray, setLocationArray] = useState([]);
-
     const navigate = useNavigate();
 
     useEffect(() => {

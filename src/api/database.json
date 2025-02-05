@@ -95,9 +95,9 @@
       "name": "Website Redesign",
       "startdate": "2025-01-01",
       "enddate": "2025-03-01",
-      "ageSinceTouch": 6,
+      "ageSinceTouch": 0,
       "description": "\"Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?\"\n\n",
-      "planetColor": "#aeff00"
+      "planetColor": "#7361ff"
     },
     {
       "id": 2,
@@ -127,7 +127,7 @@
       "name": "Employee Onboarding Program",
       "startdate": "2025-02-01",
       "enddate": "2025-04-01",
-      "ageSinceTouch": 0,
+      "ageSinceTouch": 7,
       "description": "here is a description",
       "planetColor": "#cbc8df"
     },
@@ -162,7 +162,7 @@
       "id": 1,
       "taskName": "Design Homepage",
       "dateCreated": "2025-01-05",
-      "dateCompleted": null,
+      "dateCompleted": "2025-02-05T17:12:08.125Z",
       "projectId": 1,
       "locationId": 1
     },
@@ -194,7 +194,7 @@
       "id": 5,
       "taskName": "Create Wireframes",
       "dateCreated": "2025-01-07",
-      "dateCompleted": null,
+      "dateCompleted": "2025-02-05T17:12:10.208Z",
       "projectId": 1,
       "locationId": 1
     },
@@ -202,7 +202,7 @@
       "id": 6,
       "taskName": "Develop Landing Page",
       "dateCreated": "2025-01-10",
-      "dateCompleted": null,
+      "dateCompleted": "2025-02-05T17:12:11.475Z",
       "projectId": 1,
       "locationId": 1
     },
@@ -210,7 +210,7 @@
       "id": 7,
       "taskName": "Optimize Site Performance",
       "dateCreated": "2025-01-12",
-      "dateCompleted": null,
+      "dateCompleted": "2025-02-05T17:12:12.403Z",
       "projectId": 1,
       "locationId": 1
     },
@@ -218,7 +218,7 @@
       "id": 8,
       "taskName": "User Testing and Feedback",
       "dateCreated": "2025-01-15",
-      "dateCompleted": null,
+      "dateCompleted": "2025-02-05T17:12:13.304Z",
       "projectId": 1,
       "locationId": 1
     },
@@ -269,7 +269,7 @@
     {
       "taskId": 1,
       "itemId": 1,
-      "onHand": false,
+      "onHand": true,
       "id": 1
     },
     {
@@ -305,7 +305,7 @@
     {
       "taskId": 1,
       "itemId": 12,
-      "onHand": false,
+      "onHand": true,
       "id": 12
     },
     {
@@ -330,18 +330,6 @@
       "taskId": 19,
       "itemId": 17,
       "id": 17
-    },
-    {
-      "taskId": 6,
-      "itemId": 18,
-      "onHand": true,
-      "id": 18
-    },
-    {
-      "taskId": 6,
-      "itemId": 19,
-      "onHand": true,
-      "id": 19
     }
   ],
   "items": [
@@ -454,26 +442,6 @@
       "locationId": 8,
       "userId": 3,
       "id": 17
-    },
-    {
-      "name": "Default New Item",
-      "description": "",
-      "quantity": 0,
-      "isObject": false,
-      "resourceLink": null,
-      "locationId": 1,
-      "userId": 1,
-      "id": 18
-    },
-    {
-      "name": "Default New Item",
-      "description": "",
-      "quantity": 0,
-      "isObject": false,
-      "resourceLink": null,
-      "locationId": 1,
-      "userId": 1,
-      "id": 19
     }
   ],
   "locationlocations": [

@@ -14,6 +14,7 @@ import { LocationListView } from "./LocationsView";
 import { HomeView } from "./HomeView";
 import { ProfileView } from "./ProfileView";
 import { ManageTask } from "../components/card/manage/ManageTask";
+import { PageNoteFound } from "../components/PageNotFound";
 
 export const ApplicationViews = ({ setDisplayMode }) => {
     const [currentUser, setCurrentUser] = useState({});
@@ -93,6 +94,7 @@ export const ApplicationViews = ({ setDisplayMode }) => {
                     path="profile"
                     element={<ProfileView currentUser={currentUser} />}
                 ></Route>
+                <Route path="*" element={<PageNoteFound />} />
             </Route>
         </Routes>
     );

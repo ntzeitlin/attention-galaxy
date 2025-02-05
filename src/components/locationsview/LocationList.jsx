@@ -1,5 +1,14 @@
-import { Card, Flex, Grid, Text } from "@radix-ui/themes";
-import { Link } from "react-router-dom";
+/*
+Component Purpose:
+Create Grid for Location Cards
+
+Process:
+Receive user's location array from LocationsView.
+Iterate through the array and return 
+a LocationListCard component for each location.
+*/
+
+import { Grid } from "@radix-ui/themes";
 import { LocationListCard } from "./LocationListCard";
 
 export const LocationList = ({ locationArray }) => {
