@@ -180,7 +180,7 @@ const ProjectUserCard = ({ userObject, fetchAndSetProjectData }) => {
                             </Heading>
                             <Text as="div">
                                 Clicking this button will remove user from
-                                project.
+                                project
                             </Text>
                         </HoverCard.Content>
                     </HoverCard.Root>
