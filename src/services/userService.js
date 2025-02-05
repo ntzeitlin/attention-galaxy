@@ -16,6 +16,12 @@ export const getAllUserData = async () => {
   return data
 }
 
+export const getUserProjectsAndUserInfoByProjectId = async (projectId) => {
+  const response = await fetch(`http://localhost:8088/userprojects?projectId=${projectId}&_expand=user`)
+  const data = await response.json()
+  return data 
+}
+
 export const createUser = (user) => {
   return fetch("http://localhost:8088/users", {
     method: "POST",
