@@ -12,6 +12,8 @@ import { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { getUserProjectByProjectId } from "../../../services/projectService";
 import { ProjectCheckIn } from "./ProjectCheckIn";
+import { getUserProjectsAndUserInfoByProjectId } from "../../../services/userService";
+import { PersonIcon } from "@radix-ui/react-icons";
 
 export const ProjectDetailCard = ({
     projectData,
@@ -85,6 +87,16 @@ const EditProjectButton = () => {
 };
 
 const ProjectInformation = ({ locationData, projectData }) => {
+    const [projectUsers, setProjectUsers] = useState();
+
+    useEffect(() => {
+        if (projectData.id) {
+            getUserProjectsAndUserInfoByProjectId(projectData?.id).then(
+                (data) => setProjectUsers(data)
+            );
+        }
+    }, [projectData]);
+
     return (
         <Flex direction="column">
             <Heading size="5">
@@ -93,7 +105,18 @@ const ProjectInformation = ({ locationData, projectData }) => {
                     {locationData.location?.name}
                 </Link>
             </Heading>
-            <Text as="span" size="2">
+            <Text as="label" mt="3">
+                <Strong>Project Users:</Strong>
+            </Text>
+            {projectUsers?.map((userObject) => {
+                return (
+                    <Text key={userObject.id}>
+                        <PersonIcon />{" "}
+                        {userObject.user?.userName || userObject.user?.email}
+                    </Text>
+                );
+            })}
+            <Text as="span" size="2" mt="3">
                 Start: {projectData.startdate}
             </Text>
             <Text as="span" size="2">
