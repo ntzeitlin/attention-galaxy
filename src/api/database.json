@@ -127,7 +127,7 @@
       "name": "Employee Onboarding Program",
       "startdate": "2025-02-01",
       "enddate": "2025-04-01",
-      "ageSinceTouch": 0,
+      "ageSinceTouch": 7,
       "description": "here is a description",
       "planetColor": "#cbc8df"
     },
@@ -330,12 +330,6 @@
       "taskId": 19,
       "itemId": 17,
       "id": 17
-    },
-    {
-      "taskId": 6,
-      "itemId": 18,
-      "onHand": true,
-      "id": 18
     }
   ],
   "items": [
@@ -448,16 +442,6 @@
       "locationId": 8,
       "userId": 3,
       "id": 17
-    },
-    {
-      "name": "Default New Item",
-      "description": "",
-      "quantity": 0,
-      "isObject": false,
-      "resourceLink": null,
-      "locationId": 1,
-      "userId": 1,
-      "id": 18
     }
   ],
   "locationlocations": [

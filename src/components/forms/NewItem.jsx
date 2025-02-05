@@ -185,7 +185,7 @@ export const NewItem = ({ currentUser }) => {
                         >
                             Save Item
                         </Button>
-                        {currentUser.id === itemData.userId ? (
+                        {currentUser?.id === itemData?.userId ? (
                             <AlertDialog.Root>
                                 <AlertDialog.Trigger>
                                     <Button m="2" color="red">
