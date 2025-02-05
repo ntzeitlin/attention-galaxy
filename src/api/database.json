@@ -552,6 +552,12 @@
       "userId": 1,
       "isOwner": false,
       "id": 10
+    },
+    {
+      "projectId": 2,
+      "userId": 3,
+      "isOwner": false,
+      "id": 11
     }
   ]
 }
