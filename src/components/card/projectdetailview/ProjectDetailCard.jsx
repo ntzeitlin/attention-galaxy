@@ -126,25 +126,23 @@ const ProjectInformation = ({
                         {userObject.isOwner ? <StarFilledIcon /> : ""}
                         <PersonIcon />{" "}
                         {userObject.user?.userName || userObject.user?.email}
-                        {!userObject.isOwner ? (
-                            <Button
-                                size="1"
-                                color="red"
-                                ml="2"
-                                value={userObject.id}
-                                onClick={(e) =>
-                                    deleteUserProjectByUserProjectId(
-                                        e.target.value
-                                    ).then(() => {
-                                        fetchAndSetProjectData();
-                                    })
-                                }
-                            >
-                                <CrossCircledIcon />
-                            </Button>
-                        ) : (
-                            ""
-                        )}
+                        {typeof userObject.id !== "undefined" &&
+                            !userObject.isOwner && (
+                                <Button
+                                    size="1"
+                                    color="red"
+                                    ml="2"
+                                    onClick={() => {
+                                        deleteUserProjectByUserProjectId(
+                                            userObject.id
+                                        ).then(() => {
+                                            fetchAndSetProjectData();
+                                        });
+                                    }}
+                                >
+                                    <CrossCircledIcon />
+                                </Button>
+                            )}
                     </Text>
                 );
             })}

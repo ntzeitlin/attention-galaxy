@@ -95,7 +95,7 @@
       "name": "Website Redesign",
       "startdate": "2025-01-01",
       "enddate": "2025-03-01",
-      "ageSinceTouch": 0,
+      "ageSinceTouch": 4,
       "description": "\"Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?\"\n\n",
       "planetColor": "#7361ff"
     },
@@ -162,7 +162,7 @@
       "id": 1,
       "taskName": "Design Homepage",
       "dateCreated": "2025-01-05",
-      "dateCompleted": "2025-02-05T17:12:08.125Z",
+      "dateCompleted": null,
       "projectId": 1,
       "locationId": 1
     },
@@ -194,7 +194,7 @@
       "id": 5,
       "taskName": "Create Wireframes",
       "dateCreated": "2025-01-07",
-      "dateCompleted": "2025-02-05T17:12:10.208Z",
+      "dateCompleted": null,
       "projectId": 1,
       "locationId": 1
     },
@@ -202,7 +202,7 @@
       "id": 6,
       "taskName": "Develop Landing Page",
       "dateCreated": "2025-01-10",
-      "dateCompleted": "2025-02-05T17:12:11.475Z",
+      "dateCompleted": null,
       "projectId": 1,
       "locationId": 1
     },
@@ -210,7 +210,7 @@
       "id": 7,
       "taskName": "Optimize Site Performance",
       "dateCreated": "2025-01-12",
-      "dateCompleted": "2025-02-05T17:12:12.403Z",
+      "dateCompleted": null,
       "projectId": 1,
       "locationId": 1
     },
@@ -218,7 +218,7 @@
       "id": 8,
       "taskName": "User Testing and Feedback",
       "dateCreated": "2025-01-15",
-      "dateCompleted": "2025-02-05T17:12:13.304Z",
+      "dateCompleted": null,
       "projectId": 1,
       "locationId": 1
     },
@@ -269,7 +269,7 @@
     {
       "taskId": 1,
       "itemId": 1,
-      "onHand": true,
+      "onHand": false,
       "id": 1
     },
     {
@@ -305,7 +305,7 @@
     {
       "taskId": 1,
       "itemId": 12,
-      "onHand": true,
+      "onHand": false,
       "id": 12
     },
     {
@@ -546,12 +546,6 @@
       "projectId": 5,
       "isOwner": true,
       "id": 9
-    },
-    {
-      "projectId": 1,
-      "userId": 3,
-      "isOwner": false,
-      "id": 12
     },
     {
       "projectId": 7,
