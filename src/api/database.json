@@ -546,12 +546,6 @@
       "projectId": 5,
       "isOwner": true,
       "id": 9
-    },
-    {
-      "projectId": 7,
-      "userId": 4,
-      "isOwner": false,
-      "id": 13
     }
   ]
 }

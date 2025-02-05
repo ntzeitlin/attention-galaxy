@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import {
     Box,
     Button,
@@ -120,32 +121,17 @@ const ProjectInformation = ({
             <Text as="label" mt="3">
                 <Strong>Project Users:</Strong>
             </Text>
-            {projectUsers?.map((userObject) => {
-                return (
-                    <Text key={userObject.id}>
-                        {userObject.isOwner ? <StarFilledIcon /> : ""}
-                        <PersonIcon />{" "}
-                        {userObject.user?.userName || userObject.user?.email}
-                        {typeof userObject.id !== "undefined" &&
-                            !userObject.isOwner && (
-                                <Button
-                                    size="1"
-                                    color="red"
-                                    ml="2"
-                                    onClick={() => {
-                                        deleteUserProjectByUserProjectId(
-                                            userObject.id
-                                        ).then(() => {
-                                            fetchAndSetProjectData();
-                                        });
-                                    }}
-                                >
-                                    <CrossCircledIcon />
-                                </Button>
-                            )}
-                    </Text>
-                );
-            })}
+            <Flex direction="column" gap="2">
+                {projectUsers?.map((userObject) => {
+                    return (
+                        <ProjectUserCard
+                            key={userObject.id}
+                            userObject={userObject}
+                            fetchAndSetProjectData={fetchAndSetProjectData}
+                        />
+                    );
+                })}
+            </Flex>
             <Text as="span" size="2" mt="3">
                 Start: {projectData.startdate}
             </Text>
@@ -158,5 +144,38 @@ const ProjectInformation = ({
                 </Text>
             </Box>
         </Flex>
+    );
+};
+
+const ProjectUserCard = ({ userObject, fetchAndSetProjectData }) => {
+    return (
+        <Card>
+            <Flex justify="between">
+                <Text>
+                    {userObject.isOwner ? "" : ""}
+                    <PersonIcon />{" "}
+                    {userObject.user?.userName || userObject.user?.email}
+                </Text>
+                {typeof userObject.id !== "undefined" && !userObject.isOwner ? (
+                    <Button
+                        size="1"
+                        color="red"
+                        onClick={() => {
+                            deleteUserProjectByUserProjectId(
+                                userObject.id
+                            ).then(() => {
+                                fetchAndSetProjectData();
+                            });
+                        }}
+                    >
+                        <CrossCircledIcon />
+                    </Button>
+                ) : (
+                    <Box mr="2">
+                        <StarFilledIcon />
+                    </Box>
+                )}
+            </Flex>
+        </Card>
     );
 };
