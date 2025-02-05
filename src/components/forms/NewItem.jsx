@@ -64,7 +64,7 @@ export const NewItem = ({ currentUser }) => {
     };
 
     const handleDeleteItem = () => {
-        deleteItemByItemId(itemId).then(navigate(`/task/${taskData.id}`));
+        deleteItemByItemId(itemId).then(navigate(-1));
     };
 
     return (

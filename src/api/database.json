@@ -336,12 +336,6 @@
       "itemId": 18,
       "onHand": true,
       "id": 18
-    },
-    {
-      "taskId": 6,
-      "itemId": 19,
-      "onHand": true,
-      "id": 19
     }
   ],
   "items": [
@@ -464,16 +458,6 @@
       "locationId": 1,
       "userId": 1,
       "id": 18
-    },
-    {
-      "name": "Default New Item",
-      "description": "",
-      "quantity": 0,
-      "isObject": false,
-      "resourceLink": null,
-      "locationId": 1,
-      "userId": 1,
-      "id": 19
     }
   ],
   "locationlocations": [
