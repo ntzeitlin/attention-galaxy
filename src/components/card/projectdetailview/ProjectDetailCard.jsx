@@ -5,6 +5,7 @@ import {
     Card,
     Flex,
     Heading,
+    HoverCard,
     Section,
     Strong,
     Text,
@@ -118,10 +119,16 @@ const ProjectInformation = ({
                     {locationData.location?.name}
                 </Link>
             </Heading>
+            <Text as="span" size="2" mt="3">
+                Start: {projectData.startdate}
+            </Text>
+            <Text as="span" size="2">
+                End: {projectData.enddate}
+            </Text>
             <Text as="label" mt="3">
                 <Strong>Project Users:</Strong>
             </Text>
-            <Flex direction="column" gap="2">
+            <Flex direction="column" gap="2" mt="1">
                 {projectUsers?.map((userObject) => {
                     return (
                         <ProjectUserCard
@@ -132,12 +139,6 @@ const ProjectInformation = ({
                     );
                 })}
             </Flex>
-            <Text as="span" size="2" mt="3">
-                Start: {projectData.startdate}
-            </Text>
-            <Text as="span" size="2">
-                End: {projectData.enddate}
-            </Text>
             <Box maxWidth="20em" mt="1em">
                 <Text size="3" wrap="wrap">
                     <Strong>Description:</Strong> {projectData.description}
@@ -149,7 +150,7 @@ const ProjectInformation = ({
 
 const ProjectUserCard = ({ userObject, fetchAndSetProjectData }) => {
     return (
-        <Card>
+        <Card size="s1">
             <Flex justify="between">
                 <Text>
                     {userObject.isOwner ? "" : ""}
@@ -157,19 +158,32 @@ const ProjectUserCard = ({ userObject, fetchAndSetProjectData }) => {
                     {userObject.user?.userName || userObject.user?.email}
                 </Text>
                 {typeof userObject.id !== "undefined" && !userObject.isOwner ? (
-                    <Button
-                        size="1"
-                        color="red"
-                        onClick={() => {
-                            deleteUserProjectByUserProjectId(
-                                userObject.id
-                            ).then(() => {
-                                fetchAndSetProjectData();
-                            });
-                        }}
-                    >
-                        <CrossCircledIcon />
-                    </Button>
+                    <HoverCard.Root>
+                        <HoverCard.Trigger>
+                            <Button
+                                size="1"
+                                color="red"
+                                onClick={() => {
+                                    deleteUserProjectByUserProjectId(
+                                        userObject.id
+                                    ).then(() => {
+                                        fetchAndSetProjectData();
+                                    });
+                                }}
+                            >
+                                <CrossCircledIcon />
+                            </Button>
+                        </HoverCard.Trigger>
+                        <HoverCard.Content maxWidth="300px">
+                            <Heading size="3" as="h3">
+                                Unshare Project
+                            </Heading>
+                            <Text as="div">
+                                Clicking this button will remove user from
+                                project
+                            </Text>
+                        </HoverCard.Content>
+                    </HoverCard.Root>
                 ) : (
                     <Box mr="2">
                         <StarFilledIcon />
