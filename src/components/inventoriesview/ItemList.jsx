@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { getInventoryItemsByLocationAndUserId } from "../../services/inventoryService";
 import { ItemNameCard } from "./ItemName";
-import { Flex, Grid } from "@radix-ui/themes";
+import { Grid } from "@radix-ui/themes";
 
 export const InventoryItemList = ({ locationId, currentUser }) => {
     const [itemArray, setItemArray] = useState([]);
@@ -14,7 +14,6 @@ export const InventoryItemList = ({ locationId, currentUser }) => {
 
     return (
         <Grid columns="1">
-            {/* <Flex direction="column"> */}
             {itemArray.map((itemObject) => {
                 return (
                     <ItemNameCard
@@ -23,11 +22,6 @@ export const InventoryItemList = ({ locationId, currentUser }) => {
                     />
                 );
             })}
-            {/* </Flex> */}
         </Grid>
     );
 };
-
-// Next Steps: Account for Unassigned Items...
-// Then, work on displaying Location Inventory by Project or Unassigned Items.
-// Allow users to add inventory items and default to unassigned.
