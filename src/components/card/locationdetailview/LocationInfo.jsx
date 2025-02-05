@@ -1,3 +1,12 @@
+/* 
+Purpose:
+Generate a location info card with an edit button for the location details view. 
+
+Process:
+Receive locationData and currentUser data. Use the data to generate the card
+while hiding the Edit button behind a location owner check. 
+*/
+
 import {
     Button,
     Card,
@@ -36,18 +45,10 @@ export const LocationInfoCard = ({ locationData, currentUser }) => {
             <Section mt="-6">
                 <Flex direction="column">
                     <Heading>{locationData.name}</Heading>
-                    {/* <TextField.Root
-                        m="2"
-                        size="2"
-                        value={locationData.name}
-                        disabled
-                    >
-                        <TextField.Slot></TextField.Slot>
-                    </TextField.Root> */}
                     <TextField.Root
                         m="2"
                         size="2"
-                        value={locationData.address}
+                        value={locationData.address || "loading..."}
                         disabled
                     >
                         <TextField.Slot></TextField.Slot>
@@ -55,12 +56,16 @@ export const LocationInfoCard = ({ locationData, currentUser }) => {
                     <TextField.Root
                         m="2"
                         size="2"
-                        value={locationData.gpscoords}
+                        value={locationData.gpscoords || "loading..."}
                         disabled
                     >
                         <TextField.Slot></TextField.Slot>
                     </TextField.Root>
-                    <TextArea m="2" value={locationData.description} disabled />
+                    <TextArea
+                        m="2"
+                        value={locationData.description || "loading..."}
+                        disabled
+                    />
                 </Flex>
             </Section>
         </Card>
