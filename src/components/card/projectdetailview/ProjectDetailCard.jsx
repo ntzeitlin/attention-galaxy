@@ -3,7 +3,6 @@ import {
     Button,
     Card,
     Flex,
-    Grid,
     Heading,
     Section,
     Strong,
@@ -11,10 +10,8 @@ import {
 } from "@radix-ui/themes";
 import { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import {
-    getUserProjectByProjectId,
-    updateProjectByProjectId,
-} from "../../../services/projectService";
+import { getUserProjectByProjectId } from "../../../services/projectService";
+import { ProjectCheckIn } from "./ProjectCheckIn";
 
 export const ProjectDetailCard = ({
     projectData,
@@ -31,32 +28,10 @@ export const ProjectDetailCard = ({
 
     useEffect(() => {}, [userProjectData]);
 
-    const loadAge = () => {};
-
     const fetchAndSetUserProjectData = () => {
         getUserProjectByProjectId(projectData.id).then((data) =>
             setUserProjectData(data[0])
         );
-    };
-
-    const handleCheckIn = () => {
-        const submissionObject = {
-            ...projectData,
-            ageSinceTouch: 0,
-        };
-        updateProjectByProjectId(projectData.id, submissionObject).then(() => {
-            fetchAndSetProjectData();
-        });
-    };
-
-    const handleIgnore = () => {
-        const submissionObject = {
-            ...projectData,
-            ageSinceTouch: projectData.ageSinceTouch + 1,
-        };
-        updateProjectByProjectId(projectData.id, submissionObject).then(() => {
-            fetchAndSetProjectData();
-        });
     };
 
     return (
@@ -71,25 +46,10 @@ export const ProjectDetailCard = ({
                 {currentUser.id === userProjectData?.userId &&
                 userProjectData.isOwner ? (
                     <>
-                        <Grid>
-                            <Button
-                                m="1"
-                                onClick={() => {
-                                    handleCheckIn();
-                                }}
-                            >
-                                Check-In
-                            </Button>
-                            <Button
-                                color="red"
-                                m="1"
-                                onClick={() => {
-                                    handleIgnore();
-                                }}
-                            >
-                                Ignore
-                            </Button>
-                        </Grid>
+                        <ProjectCheckIn
+                            projectData={projectData}
+                            fetchAndSetProjectData={fetchAndSetProjectData}
+                        />
                         <Button
                             m="1"
                             size="1"
