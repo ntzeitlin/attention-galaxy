@@ -10,10 +10,17 @@ import {
 } from "@radix-ui/themes";
 import { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { getUserProjectByProjectId } from "../../../services/projectService";
+import {
+    deleteUserProjectByUserProjectId,
+    getUserProjectByProjectId,
+} from "../../../services/projectService";
 import { ProjectCheckIn } from "./ProjectCheckIn";
 import { getUserProjectsAndUserInfoByProjectId } from "../../../services/userService";
-import { PersonIcon, StarFilledIcon } from "@radix-ui/react-icons";
+import {
+    CrossCircledIcon,
+    PersonIcon,
+    StarFilledIcon,
+} from "@radix-ui/react-icons";
 
 export const ProjectDetailCard = ({
     projectData,
@@ -59,6 +66,7 @@ export const ProjectDetailCard = ({
                 <ProjectInformation
                     locationData={locationData}
                     projectData={projectData}
+                    fetchAndSetProjectData={fetchAndSetProjectData}
                 />
             </Section>
         </Card>
@@ -86,7 +94,11 @@ const EditProjectButton = () => {
     );
 };
 
-const ProjectInformation = ({ locationData, projectData }) => {
+const ProjectInformation = ({
+    locationData,
+    projectData,
+    fetchAndSetProjectData,
+}) => {
     const [projectUsers, setProjectUsers] = useState();
 
     useEffect(() => {
@@ -114,6 +126,25 @@ const ProjectInformation = ({ locationData, projectData }) => {
                         {userObject.isOwner ? <StarFilledIcon /> : ""}
                         <PersonIcon />{" "}
                         {userObject.user?.userName || userObject.user?.email}
+                        {!userObject.isOwner ? (
+                            <Button
+                                size="1"
+                                color="red"
+                                ml="2"
+                                value={userObject.id}
+                                onClick={(e) =>
+                                    deleteUserProjectByUserProjectId(
+                                        e.target.value
+                                    ).then(() => {
+                                        fetchAndSetProjectData();
+                                    })
+                                }
+                            >
+                                <CrossCircledIcon />
+                            </Button>
+                        ) : (
+                            ""
+                        )}
                     </Text>
                 );
             })}

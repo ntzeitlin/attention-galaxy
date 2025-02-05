@@ -548,16 +548,16 @@
       "id": 9
     },
     {
-      "userId": 1,
-      "projectId": 8,
-      "isOwner": false,
-      "id": 10
-    },
-    {
       "projectId": 1,
       "userId": 3,
       "isOwner": false,
       "id": 12
+    },
+    {
+      "projectId": 7,
+      "userId": 4,
+      "isOwner": false,
+      "id": 13
     }
   ]
 }
