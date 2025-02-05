@@ -1,3 +1,14 @@
+/*
+Purpose: 
+Return a Location details card, with hover styling, that provides a link
+to the location's details page.
+
+Process:
+Receive a locationObject from LocationList and dynamically generate 
+a new location list card.
+
+*/
+
 import { Card, Flex, Text } from "@radix-ui/themes";
 import { Link } from "react-router-dom";
 
