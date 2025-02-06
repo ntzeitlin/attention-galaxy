@@ -1,11 +1,10 @@
-import { Button, Card, Flex, Heading } from "@radix-ui/themes";
+import { Card, Flex, Heading } from "@radix-ui/themes";
 import { useEffect, useState } from "react";
 import { getUserProjectByProjectId } from "../../../services/projectService";
 import { getTasksAndTaskItemsByProjectId } from "../../../services/taskService";
 import { MiseEnPlaceItemCard } from "./MiseEnPlaceItemCard";
 
-export const MiseEnPlaceListCard = ({ currentUser, projectId }) => {
-    const [userProjectData, setUserProjectData] = useState({});
+export const MiseEnPlaceListCard = ({ projectId }) => {
     const [taskWithTaskItemArray, setTaskWithTaskItemArray] = useState([]);
 
     useEffect(() => {
