@@ -5,7 +5,6 @@ import {
     Flex,
     Heading,
     Section,
-    Text,
     TextArea,
     TextField,
 } from "@radix-ui/themes";
@@ -35,7 +34,8 @@ export const EditTaskCard = ({ taskId }) => {
         getTaskByTaskId(taskId).then((data) => setTaskData(data));
     }, [taskId]);
 
-    const handleSaveTask = () => {
+    const handleSaveTask = (event) => {
+        event.preventDefault();
         const submissionObject = {
             taskName: taskData.taskName,
             dateCreated: taskData.dateCreated,
@@ -78,56 +78,58 @@ export const EditTaskCard = ({ taskId }) => {
                         Project: {taskData.project?.name}
                     </Heading>
                     {taskData.dateCompleted ? <>COMPLETED</> : ""}
+                    <form>
+                        <TextField.Root
+                            m="2"
+                            size="2"
+                            placeholder="Enter Task Name..."
+                            value={taskData?.taskName || ""}
+                            onChange={(event) => {
+                                const taskDataCopy = { ...taskData };
+                                taskDataCopy.taskName = event.target.value;
+                                setTaskData(taskDataCopy);
+                            }}
+                        >
+                            <TextField.Slot></TextField.Slot>
+                        </TextField.Root>
 
-                    <TextField.Root
-                        m="2"
-                        size="2"
-                        placeholder="Enter Task Name..."
-                        value={taskData?.taskName || ""}
-                        onChange={(event) => {
-                            const taskDataCopy = { ...taskData };
-                            taskDataCopy.taskName = event.target.value;
-                            setTaskData(taskDataCopy);
-                        }}
-                    >
-                        <TextField.Slot></TextField.Slot>
-                    </TextField.Root>
+                        <TextField.Root
+                            m="2"
+                            size="2"
+                            value={taskData?.dateCreated || ""}
+                            disabled
+                        >
+                            <TextField.Slot></TextField.Slot>
+                        </TextField.Root>
 
-                    <TextField.Root
-                        m="2"
-                        size="2"
-                        value={taskData?.dateCreated || ""}
-                        disabled
-                    >
-                        <TextField.Slot></TextField.Slot>
-                    </TextField.Root>
-
-                    <TextField.Root
-                        m="2"
-                        size="2"
-                        value={taskData?.dateCompleted || ""}
-                        disabled
-                    >
-                        <TextField.Slot></TextField.Slot>
-                    </TextField.Root>
-                    <TextArea
-                        m="2"
-                        placeholder="Task Description..."
-                        value={taskData?.description || ""}
-                        onChange={(event) => {
-                            const taskDataCopy = { ...taskData };
-                            taskDataCopy.description = event.target.value;
-                            setTaskData(taskDataCopy);
-                        }}
-                    />
-                    <Button
-                        m="2"
-                        onClick={() => {
-                            handleSaveTask();
-                        }}
-                    >
-                        Save Task
-                    </Button>
+                        <TextField.Root
+                            m="2"
+                            size="2"
+                            value={taskData?.dateCompleted || ""}
+                            disabled
+                        >
+                            <TextField.Slot></TextField.Slot>
+                        </TextField.Root>
+                        <TextArea
+                            m="2"
+                            placeholder="Task Description..."
+                            value={taskData?.description || ""}
+                            onChange={(event) => {
+                                const taskDataCopy = { ...taskData };
+                                taskDataCopy.description = event.target.value;
+                                setTaskData(taskDataCopy);
+                            }}
+                        />
+                        <Button
+                            type="submit"
+                            m="2"
+                            onClick={(event) => {
+                                handleSaveTask(event);
+                            }}
+                        >
+                            Save Task
+                        </Button>
+                    </form>
                     <AlertDialog.Root>
                         <AlertDialog.Trigger>
                             <Button m="2" color="red">
