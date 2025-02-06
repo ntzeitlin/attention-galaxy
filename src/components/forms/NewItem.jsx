@@ -58,9 +58,7 @@ export const NewItem = ({ currentUser }) => {
     }, [currentUser]);
 
     const handleSaveItem = () => {
-        updateItemByItemId(itemId, itemData).then(
-            navigate(`/task/${taskData.id}`)
-        );
+        updateItemByItemId(itemId, itemData).then(navigate(-1));
     };
 
     const handleDeleteItem = () => {
@@ -108,7 +106,6 @@ export const NewItem = ({ currentUser }) => {
                             <RadioGroup.Root
                                 value={itemData?.isObject ? "true" : "false"}
                                 onValueChange={(event) => {
-                                    // console.log(event);
                                     const itemDataCopy = { ...itemData };
                                     itemDataCopy.isObject = event === "true";
                                     setItemData(itemDataCopy);
