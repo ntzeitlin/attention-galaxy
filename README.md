@@ -37,6 +37,12 @@ Attention Galaxy is a React-based task and project management app that visualize
 -   Watch projects move based on engagement.
 -   Drag, zoom, and interact with celestial bodies.
 
+### Orbital View
+
+https://github.com/user-attachments/assets/6ea760c2-0089-42d7-bda4-7d9317c6c6d9
+
+
+
 ## Future Enhancements
 
 -   Subtasks
