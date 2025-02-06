@@ -7,14 +7,12 @@ export const Register = (props) => {
     const [user, setUser] = useState({
         email: "",
         fullName: "",
-        cohort: 0,
     });
     let navigate = useNavigate();
 
     const registerNewUser = () => {
         const newUser = {
             ...user,
-            cohort: parseInt(user.cohort),
         };
 
         createUser(newUser).then((createdUser) => {
@@ -23,7 +21,6 @@ export const Register = (props) => {
                     "attention_astronaut",
                     JSON.stringify({
                         id: createdUser.id,
-                        staff: createdUser.isStaff,
                     })
                 );
 
@@ -62,7 +59,6 @@ export const Register = (props) => {
                             onChange={updateUser}
                             type="text"
                             id="fullName"
-                            className="auth-form-input"
                             placeholder="Enter your name"
                             required
                             autoFocus
@@ -75,20 +71,7 @@ export const Register = (props) => {
                             onChange={updateUser}
                             type="email"
                             id="email"
-                            className="auth-form-input"
                             placeholder="Email address"
-                            required
-                        />
-                    </div>
-                </fieldset>
-                <fieldset className="auth-fieldset">
-                    <div>
-                        <input
-                            onChange={updateUser}
-                            type="number"
-                            id="cohort"
-                            className="auth-form-input"
-                            placeholder="Cohort #"
                             required
                         />
                     </div>
