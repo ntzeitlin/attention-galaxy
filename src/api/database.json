@@ -329,6 +329,7 @@
     {
       "taskId": 19,
       "itemId": 17,
+      "onHand": false,
       "id": 17
     }
   ],
@@ -548,16 +549,28 @@
       "id": 9
     },
     {
-      "projectId": 8,
-      "userId": 1,
-      "isOwner": false,
-      "id": 10
-    },
-    {
       "projectId": 2,
       "userId": 3,
       "isOwner": false,
       "id": 11
+    },
+    {
+      "projectId": 1,
+      "userId": 2,
+      "isOwner": false,
+      "id": 12
+    },
+    {
+      "projectId": 8,
+      "userId": 2,
+      "isOwner": false,
+      "id": 13
+    },
+    {
+      "projectId": 8,
+      "userId": 1,
+      "isOwner": false,
+      "id": 14
     }
   ]
 }
