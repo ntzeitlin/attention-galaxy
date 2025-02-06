@@ -27,7 +27,9 @@ export const MiseEnPlaceItemCard = ({ taskWithTaskItemObject }) => {
         <Card
             my="2"
             style={{
-                backgroundColor: checkItemOnHandStatus() ? "blue" : "red",
+                backgroundColor: checkItemOnHandStatus()
+                    ? "rgba(0, 0, 255, 0.5)"
+                    : "rgba(255, 0, 0, 0.5)",
             }}
         >
             {taskWithTaskItemObject.taskName}:{" "}

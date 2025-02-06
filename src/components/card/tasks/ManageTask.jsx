@@ -5,7 +5,7 @@ import {
     getProjectAndLocationDataByTaskId,
     getTaskByTaskId,
 } from "../../../services/taskService";
-import { TaskItemListCard } from "../tasks/TaskItemList";
+import { TaskItemListCard } from "./TaskItemList";
 import { getUserProjectByProjectAndUserId } from "../../../services/projectService";
 
 export const ManageTask = ({ currentUser }) => {

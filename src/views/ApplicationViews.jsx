@@ -13,7 +13,7 @@ import { NewItem } from "../components/forms/NewItem";
 import { LocationListView } from "./LocationsView";
 import { HomeView } from "./HomeView";
 import { ProfileView } from "./ProfileView";
-import { ManageTask } from "../components/card/manage/ManageTask";
+import { ManageTask } from "../components/card/tasks/ManageTask";
 import { PageNoteFound } from "../components/PageNotFound";
 
 export const ApplicationViews = ({ setDisplayMode }) => {
