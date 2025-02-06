@@ -33,7 +33,6 @@ import { ShareProjectButton } from "./ShareProjectButton";
 export const NewProject = ({ currentUser }) => {
     const { projectId } = useParams();
     const { state } = useLocation();
-    const navigate = useNavigate();
 
     const [userLocationsArray, setUserLocationsArray] = useState([]);
     const [currentProjectLocation, setCurrentProjectLocation] = useState(
@@ -81,17 +80,19 @@ export const NewProject = ({ currentUser }) => {
     };
 
     useEffect(() => {
-        const copyProjectLocationData = { ...projectLocationData };
-        copyProjectLocationData.locationId = parseInt(currentProjectLocation);
-        copyProjectLocationData.projectId = parseInt(projectId);
-        setProjectLocationData(copyProjectLocationData);
+        setProjectLocationData((prev) => ({
+            ...prev,
+            locationId: parseInt(currentProjectLocation),
+            projectId: parseInt(projectId),
+        }));
     }, [projectId, currentProjectLocation]);
 
     useEffect(() => {
-        const copyUserProjectData = { ...userProjectsData };
-        copyUserProjectData.projectId = parseInt(projectId);
-        copyUserProjectData.userId = parseInt(currentUser.id);
-        setUserProjectsData(copyUserProjectData);
+        setUserProjectsData((prev) => ({
+            ...prev,
+            projectId: parseInt(projectId),
+            userId: parseInt(currentUser.id),
+        }));
     }, [currentUser, projectId]);
 
     useEffect(() => {
@@ -100,9 +101,50 @@ export const NewProject = ({ currentUser }) => {
         );
     }, [currentUser]);
 
-    useEffect(() => {}, []);
+    const handleSelectLocation = (event) => {
+        setCurrentProjectLocation(event);
+    };
 
-    const handleSaveProject = () => {
+    return (
+        <Container width="60%" m="5">
+            <Card>
+                <Heading align="center" mt="4">
+                    Edit Project
+                </Heading>
+
+                <Section>
+                    <ProjectForm
+                        handleSelectLocation={handleSelectLocation}
+                        currentProjectLocation={currentProjectLocation}
+                        userLocationsArray={userLocationsArray}
+                        projectData={projectData}
+                        setProjectData={setProjectData}
+                        projectId={projectId}
+                        currentUser={currentUser}
+                        projectLocationData={projectLocationData}
+                        userProjectsData={userProjectsData}
+                    />
+                </Section>
+            </Card>
+        </Container>
+    );
+};
+
+const ProjectForm = ({
+    handleSelectLocation,
+    currentProjectLocation,
+    userLocationsArray,
+    projectData,
+    setProjectData,
+    projectId,
+    currentUser,
+    projectLocationData,
+    userProjectsData,
+}) => {
+    const navigate = useNavigate();
+
+    const handleSaveProject = (event) => {
+        event.preventDefault();
         // update project info
         updateProjectByProjectId(projectId, projectData);
         updateProjectLocationById(projectLocationData.id, projectLocationData);
@@ -126,173 +168,164 @@ export const NewProject = ({ currentUser }) => {
                     navigate(`/location/${currentProjectLocation}`)
                 );
             });
-
-        // needs to also delete all taskItems and Items associated with the Project...
-    };
-
-    const handleSelectLocation = (event) => {
-        setCurrentProjectLocation(event);
     };
 
     return (
-        <Container width="60%" m="5">
-            <Card>
-                <Heading align="center" mt="4">
-                    Edit Project
-                </Heading>
+        <Flex direction="column" m="3" mt="-5">
+            <Text as="label">Project Location:</Text>
+            <Select.Root
+                m="2"
+                size="2"
+                value={currentProjectLocation || ""}
+                onValueChange={(event) => {
+                    handleSelectLocation(event);
+                }}
+            >
+                <Select.Trigger placeholder="Pick a location" />
+                <Select.Content>
+                    {userLocationsArray.map((locationObject) => {
+                        return (
+                            <Select.Item
+                                key={`location-item-${locationObject.id}`}
+                                value={locationObject.id || 0}
+                            >
+                                {locationObject.name}
+                            </Select.Item>
+                        );
+                    })}
+                </Select.Content>
+            </Select.Root>
 
-                <Section>
-                    <Flex direction="column">
-                        <Text as="label">Project Location:</Text>
-                        <Select.Root
-                            m="2"
-                            size="2"
-                            value={currentProjectLocation || ""}
-                            onValueChange={(event) => {
-                                handleSelectLocation(event);
-                            }}
-                        >
-                            <Select.Trigger placeholder="Pick a location" />
-                            <Select.Content>
-                                {userLocationsArray.map((locationObject) => {
-                                    return (
-                                        <Select.Item
-                                            key={`location-item-${locationObject.id}`}
-                                            value={locationObject.id || 0}
-                                        >
-                                            {locationObject.name}
-                                        </Select.Item>
-                                    );
-                                })}
-                            </Select.Content>
-                        </Select.Root>
+            <Text as="label">Project Name:</Text>
 
-                        <Text as="label">Project Name:</Text>
+            <TextField.Root
+                m="2"
+                size="2"
+                placeholder="Enter Project Name..."
+                value={projectData?.name || ""}
+                onChange={(event) => {
+                    const projectDataCopy = {
+                        ...projectData,
+                    };
+                    projectDataCopy.name = event.target.value;
+                    setProjectData(projectDataCopy);
+                }}
+            >
+                <TextField.Slot></TextField.Slot>
+            </TextField.Root>
+            <Text as="label">Start Date:</Text>
 
-                        <TextField.Root
-                            m="2"
-                            size="2"
-                            placeholder="Enter Project Name..."
-                            value={projectData?.name || ""}
-                            onChange={(event) => {
-                                const projectDataCopy = { ...projectData };
-                                projectDataCopy.name = event.target.value;
-                                setProjectData(projectDataCopy);
-                            }}
-                        >
-                            <TextField.Slot></TextField.Slot>
-                        </TextField.Root>
-                        <Text as="label">Start Date:</Text>
+            <TextField.Root
+                m="2"
+                size="2"
+                placeholder="Enter Start Date..."
+                value={projectData?.startdate || ""}
+                onChange={(event) => {
+                    const projectDataCopy = {
+                        ...projectData,
+                    };
+                    projectDataCopy.startdate = event.target.value;
+                    setProjectData(projectDataCopy);
+                }}
+            >
+                <TextField.Slot></TextField.Slot>
+            </TextField.Root>
+            <Text as="label">End Date:</Text>
 
-                        <TextField.Root
-                            m="2"
-                            size="2"
-                            placeholder="Enter Start Date..."
-                            value={projectData?.startdate || ""}
-                            onChange={(event) => {
-                                const projectDataCopy = { ...projectData };
-                                projectDataCopy.startdate = event.target.value;
-                                setProjectData(projectDataCopy);
-                            }}
-                        >
-                            <TextField.Slot></TextField.Slot>
-                        </TextField.Root>
-                        <Text as="label">End Date:</Text>
+            <TextField.Root
+                m="2"
+                size="2"
+                placeholder="Enter End Date..."
+                value={projectData?.enddate || ""}
+                onChange={(event) => {
+                    const projectDataCopy = {
+                        ...projectData,
+                    };
+                    projectDataCopy.enddate = event.target.value;
+                    setProjectData(projectDataCopy);
+                }}
+            >
+                <TextField.Slot></TextField.Slot>
+            </TextField.Root>
+            <Text as="label">Project Description:</Text>
 
-                        <TextField.Root
-                            m="2"
-                            size="2"
-                            placeholder="Enter End Date..."
-                            value={projectData?.enddate || ""}
-                            onChange={(event) => {
-                                const projectDataCopy = { ...projectData };
-                                projectDataCopy.enddate = event.target.value;
-                                setProjectData(projectDataCopy);
-                            }}
-                        >
-                            <TextField.Slot></TextField.Slot>
-                        </TextField.Root>
-                        <Text as="label">Project Description:</Text>
+            <TextArea
+                m="2"
+                placeholder="Project Description..."
+                value={projectData?.description || ""}
+                onChange={(event) => {
+                    const projectDataCopy = {
+                        ...projectData,
+                    };
+                    projectDataCopy.description = event.target.value;
+                    setProjectData(projectDataCopy);
+                }}
+            />
+            <Text as="label">Project Color:</Text>
+            <TextField.Root
+                m="2"
+                type="color"
+                value={projectData?.planetColor || "#ffffff"}
+                onChange={(event) => {
+                    const projectDataCopy = {
+                        ...projectData,
+                    };
+                    projectDataCopy.planetColor = event.target.value;
+                    setProjectData(projectDataCopy);
+                }}
+            >
+                <TextField.Slot></TextField.Slot>
+            </TextField.Root>
+            <Text as="label">Share Project:</Text>
+            <ShareProjectButton
+                projectId={projectId}
+                currentUser={currentUser}
+            />
+            <Text mt="5" as="label">
+                Save Project:
+            </Text>
+            <Button
+                type="submit"
+                m="2"
+                onClick={(event) => {
+                    handleSaveProject(event);
+                }}
+            >
+                Save Project
+            </Button>
+            <AlertDialog.Root>
+                <AlertDialog.Trigger>
+                    <Button m="2" color="red">
+                        Delete Project
+                    </Button>
+                </AlertDialog.Trigger>
+                <AlertDialog.Content size="1" maxWidth="300px">
+                    <AlertDialog.Title>Delete Project</AlertDialog.Title>
+                    <AlertDialog.Description size="2">
+                        Are you sure? This Project, its tasks and items will be
+                        deleted.
+                    </AlertDialog.Description>
 
-                        <TextArea
-                            m="2"
-                            placeholder="Project Description..."
-                            value={projectData?.description || ""}
-                            onChange={(event) => {
-                                const projectDataCopy = { ...projectData };
-                                projectDataCopy.description =
-                                    event.target.value;
-                                setProjectData(projectDataCopy);
-                            }}
-                        />
-                        <Text as="label">Project Color:</Text>
-                        <TextField.Root
-                            m="2"
-                            type="color"
-                            value={projectData?.planetColor || "#ffffff"}
-                            onChange={(event) => {
-                                const projectDataCopy = { ...projectData };
-                                projectDataCopy.planetColor =
-                                    event.target.value;
-                                setProjectData(projectDataCopy);
-                            }}
-                        >
-                            <TextField.Slot></TextField.Slot>
-                        </TextField.Root>
-                        <Text as="label">Share Project:</Text>
-                        <ShareProjectButton
-                            projectId={projectId}
-                            currentUser={currentUser}
-                        />
-                        <Text mt="5" as="label">
-                            Save Project:
-                        </Text>
-                        <Button
-                            m="2"
-                            onClick={() => {
-                                handleSaveProject();
-                            }}
-                        >
-                            Save Project
-                        </Button>
-                        <AlertDialog.Root>
-                            <AlertDialog.Trigger>
-                                <Button m="2" color="red">
-                                    Delete Project
-                                </Button>
-                            </AlertDialog.Trigger>
-                            <AlertDialog.Content size="1" maxWidth="300px">
-                                <AlertDialog.Title>
-                                    Delete Project
-                                </AlertDialog.Title>
-                                <AlertDialog.Description size="2">
-                                    Are you sure? This Project, its tasks and
-                                    items will be deleted.
-                                </AlertDialog.Description>
-
-                                <Flex gap="3" mt="4" justify="end">
-                                    <AlertDialog.Cancel>
-                                        <Button variant="soft" color="gray">
-                                            Cancel
-                                        </Button>
-                                    </AlertDialog.Cancel>
-                                    <AlertDialog.Action>
-                                        <Button
-                                            variant="solid"
-                                            color="red"
-                                            onClick={() => {
-                                                handleDeleteProject();
-                                            }}
-                                        >
-                                            Delete Project
-                                        </Button>
-                                    </AlertDialog.Action>
-                                </Flex>
-                            </AlertDialog.Content>
-                        </AlertDialog.Root>
+                    <Flex gap="3" mt="4" justify="end">
+                        <AlertDialog.Cancel>
+                            <Button variant="soft" color="gray">
+                                Cancel
+                            </Button>
+                        </AlertDialog.Cancel>
+                        <AlertDialog.Action>
+                            <Button
+                                variant="solid"
+                                color="red"
+                                onClick={() => {
+                                    handleDeleteProject();
+                                }}
+                            >
+                                Delete Project
+                            </Button>
+                        </AlertDialog.Action>
                     </Flex>
-                </Section>
-            </Card>
-        </Container>
+                </AlertDialog.Content>
+            </AlertDialog.Root>
+        </Flex>
     );
 };
