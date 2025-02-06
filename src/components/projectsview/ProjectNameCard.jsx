@@ -1,4 +1,5 @@
-import { Card } from "@radix-ui/themes";
+import { ShadowInnerIcon } from "@radix-ui/react-icons";
+import { Box, Card, Flex } from "@radix-ui/themes";
 import { Link } from "react-router-dom";
 
 export const ProjectNameCard = ({ projectObject }) => {
@@ -21,6 +22,19 @@ export const ProjectNameCard = ({ projectObject }) => {
             <Link to={`/project/${projectObject.project?.id}`}>
                 {projectObject.project?.name}
             </Link>
+            {projectObject.project?.planetColor ? (
+                <Box
+                    style={{
+                        backgroundColor: `${projectObject.project?.planetColor}`,
+                    }}
+                >
+                    <Flex justify="center" p="2">
+                        <ShadowInnerIcon />
+                    </Flex>
+                </Box>
+            ) : (
+                ""
+            )}
         </Card>
     );
 };
