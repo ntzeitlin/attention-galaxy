@@ -16,6 +16,10 @@ Attention Galaxy is a React-based task and project management app that visualize
 -   **Backend**: JSON Server (for development)
 -   **Data Visualization**: framer-motion-3d and THREE (for rendering the celestial system). Draggable for draggable hovercards.
 
+## ERD
+![Front-End Capstone-3](https://github.com/user-attachments/assets/8b572231-f2e8-4894-8813-83f8e5849caf)
+
+
 ## Installation
 
 1. Clone the repository:
