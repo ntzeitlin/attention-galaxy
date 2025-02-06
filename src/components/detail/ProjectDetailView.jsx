@@ -42,7 +42,6 @@ export const ProjectDetail = ({ currentUser }) => {
 
     return (
         <Container width="90%" m="5">
-            {/* <Heading align="center">Project Details</Heading> */}
             <Flex gap="4" justify="center">
                 <ProjectDetailCard
                     currentUser={currentUser}
