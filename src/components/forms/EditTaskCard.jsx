@@ -120,15 +120,17 @@ export const EditTaskCard = ({ taskId }) => {
                                 setTaskData(taskDataCopy);
                             }}
                         />
-                        <Button
-                            type="submit"
-                            m="2"
-                            onClick={(event) => {
-                                handleSaveTask(event);
-                            }}
-                        >
-                            Save Task
-                        </Button>
+                        <Flex direction="column">
+                            <Button
+                                type="submit"
+                                m="2"
+                                onClick={(event) => {
+                                    handleSaveTask(event);
+                                }}
+                            >
+                                Save Task
+                            </Button>
+                        </Flex>
                     </form>
                     <AlertDialog.Root>
                         <AlertDialog.Trigger>
