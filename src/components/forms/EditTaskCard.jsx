@@ -45,9 +45,7 @@ export const EditTaskCard = ({ taskId }) => {
             description: taskData.description,
         };
 
-        updateTaskByTaskId(taskId, submissionObject).then(
-            navigate(`/project/${taskData.projectId}`)
-        );
+        updateTaskByTaskId(taskId, submissionObject).then(navigate(-1));
     };
 
     const handleDeleteTask = () => {

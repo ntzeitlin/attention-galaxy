@@ -124,12 +124,11 @@ const ProjectForm = ({ currentUser }) => {
 
     const handleSaveProject = (event) => {
         event.preventDefault();
-        // update project info
         updateProjectByProjectId(projectId, projectData);
         updateProjectLocationById(projectLocationData.id, projectLocationData);
         updateUserProjectsById(userProjectsData.id, userProjectsData);
 
-        navigate(`/project/${projectId}`);
+        navigate(-1);
     };
 
     const handleDeleteProject = () => {
