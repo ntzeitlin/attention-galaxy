@@ -1,0 +1,565 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "userName": "john_doe",
+      "fullName": "John Doe",
+      "email": "john@example.com"
+    },
+    {
+      "id": 2,
+      "userName": "jane_smith",
+      "fullName": "Jane Smith",
+      "email": "jane@example.com"
+    },
+    {
+      "email": "test@test.com",
+      "fullName": "Test User",
+      "id": 3
+    },
+    {
+      "email": "testTwo@testTwo.com",
+      "fullName": "Test User Two",
+      "id": 4
+    }
+  ],
+  "locations": [
+    {
+      "id": 1,
+      "name": "Main  Second Office",
+      "address": "123 Main St, Springfield",
+      "description": "Corporate headquarters",
+      "gpscoords": "37.7749,-122.4194",
+      "userId": 1
+    },
+    {
+      "id": 2,
+      "name": "Warehouse",
+      "address": "456 Industrial Rd, Springfield",
+      "description": "Storage and distribution",
+      "gpscoords": "37.7750,-122.4183",
+      "userId": 1
+    },
+    {
+      "id": 3,
+      "name": "Field Station",
+      "address": "789 Rural Ave, Springfield",
+      "description": "Research facility",
+      "gpscoords": "37.7751,-122.4172",
+      "userId": 2
+    },
+    {
+      "id": 4,
+      "name": "Conference Room A",
+      "address": "123 Main St, Springfield",
+      "description": "Main office conference room for team meetings.",
+      "gpscoords": "37.7748,-122.4195",
+      "userId": 1
+    },
+    {
+      "id": 5,
+      "name": "Backup Storage",
+      "address": "789 Industrial Rd, Springfield",
+      "description": "Secondary storage area for archived inventory.",
+      "gpscoords": "37.7752,-122.4180",
+      "userId": 1
+    },
+    {
+      "id": 6,
+      "name": "Design Lab",
+      "address": "101 Innovation Dr, Springfield",
+      "description": "Creative space for product design and prototyping.",
+      "gpscoords": "37.7753,-122.4178",
+      "userId": 1
+    },
+    {
+      "id": 7,
+      "name": "Customer Service Center",
+      "address": "456 Main St, Springfield",
+      "description": "Facility for customer interactions and support.",
+      "gpscoords": "37.7747,-122.4190",
+      "userId": 1
+    },
+    {
+      "name": "Office",
+      "address": "Address Data",
+      "description": "Location Description Text",
+      "gpscoords": "GPS Data",
+      "userId": 3,
+      "id": 8
+    }
+  ],
+  "projects": [
+    {
+      "id": 1,
+      "name": "Website Redesign",
+      "startdate": "2025-01-01",
+      "enddate": "2025-03-01",
+      "ageSinceTouch": 0,
+      "description": "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?",
+      "planetColor": "#1e00ff"
+    },
+    {
+      "id": 2,
+      "name": "Inventory System Overhaul",
+      "startdate": "2025-01-10",
+      "enddate": "2025-06-10",
+      "ageSinceTouch": 9,
+      "description": "New Project Description\n",
+      "planetColor": "#bbff3d"
+    },
+    {
+      "id": 3,
+      "name": "Field Survey",
+      "startdate": "2025-01-15",
+      "enddate": "2025-04-15",
+      "ageSinceTouch": 10
+    },
+    {
+      "id": 4,
+      "name": "Resource Cataloging",
+      "startdate": "2025-01-20",
+      "enddate": "2025-05-20",
+      "ageSinceTouch": 8
+    },
+    {
+      "id": 5,
+      "name": "Employee Onboarding Program",
+      "startdate": "2025-02-01",
+      "enddate": "2025-04-01",
+      "ageSinceTouch": 7,
+      "description": "here is a description",
+      "planetColor": "#cbc8df"
+    },
+    {
+      "id": 6,
+      "name": "Office Renovation",
+      "startdate": "2025-03-01",
+      "enddate": "2025-06-01",
+      "ageSinceTouch": 20,
+      "description": ""
+    },
+    {
+      "id": 7,
+      "name": "IT Infrastructure Upgrade",
+      "startdate": "2025-04-01",
+      "enddate": "2025-07-01",
+      "ageSinceTouch": 4,
+      "description": "editing another descripton again",
+      "planetColor": "#ffffff"
+    },
+    {
+      "name": "Clean Office",
+      "startdate": "",
+      "enddate": "",
+      "ageSinceTouch": 5,
+      "id": 8,
+      "description": "project description Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+    }
+  ],
+  "tasks": [
+    {
+      "id": 1,
+      "taskName": "Design Homepage",
+      "dateCreated": "2025-01-05",
+      "dateCompleted": "2025-02-06T19:04:54.448Z",
+      "projectId": 1,
+      "locationId": 1
+    },
+    {
+      "id": 2,
+      "taskName": "Audit Inventory",
+      "dateCreated": "2025-01-12",
+      "dateCompleted": null,
+      "projectId": 2,
+      "locationId": 2
+    },
+    {
+      "id": 3,
+      "taskName": "Field Data Collection",
+      "dateCreated": "2025-01-17",
+      "dateCompleted": null,
+      "projectId": 3,
+      "locationId": 3
+    },
+    {
+      "id": 4,
+      "taskName": "Catalog Rare Items",
+      "dateCreated": "2025-01-22",
+      "dateCompleted": null,
+      "projectId": 4,
+      "locationId": 3
+    },
+    {
+      "id": 5,
+      "taskName": "Create Wireframes",
+      "dateCreated": "2025-01-07",
+      "dateCompleted": "2025-02-06T19:04:56.360Z",
+      "projectId": 1,
+      "locationId": 1
+    },
+    {
+      "id": 6,
+      "taskName": "Develop Landing Page",
+      "dateCreated": "2025-01-10",
+      "dateCompleted": null,
+      "projectId": 1,
+      "locationId": 1
+    },
+    {
+      "id": 7,
+      "taskName": "Optimize Site Performance",
+      "dateCreated": "2025-01-12",
+      "dateCompleted": null,
+      "projectId": 1,
+      "locationId": 1
+    },
+    {
+      "id": 8,
+      "taskName": "User Testing and Feedback",
+      "dateCreated": "2025-01-15",
+      "dateCompleted": null,
+      "projectId": 1,
+      "locationId": 1
+    },
+    {
+      "taskName": "Default Task Name",
+      "dateCreated": "2025-01-31T22:03:06.284Z",
+      "dateCompleted": null,
+      "projectId": 6,
+      "locationId": 1,
+      "id": 9
+    },
+    {
+      "taskName": "Default Task Name",
+      "dateCreated": "2025-02-03T21:29:07.450Z",
+      "dateCompleted": null,
+      "projectId": 5,
+      "locationId": 4,
+      "id": 15
+    },
+    {
+      "taskName": "Default Task Name",
+      "dateCreated": "2025-02-03T21:30:36.486Z",
+      "dateCompleted": null,
+      "projectId": 5,
+      "locationId": 4,
+      "id": 17
+    },
+    {
+      "taskName": "Wipe off Counters",
+      "dateCreated": "2025-02-04T17:27:30.261Z",
+      "dateCompleted": null,
+      "projectId": 8,
+      "locationId": 8,
+      "description": "Weekly Office Cleaning",
+      "id": 19
+    },
+    {
+      "id": 20,
+      "taskName": "Task with a long description",
+      "dateCreated": "2025-02-04T21:05:35.993Z",
+      "dateCompleted": null,
+      "projectId": 2,
+      "locationId": 2
+    },
+    {
+      "id": 21,
+      "taskName": "Default Task Name",
+      "dateCreated": "2025-02-06T15:31:57.446Z",
+      "dateCompleted": null,
+      "projectId": 2,
+      "locationId": 2
+    }
+  ],
+  "taskitems": [
+    {
+      "taskId": 1,
+      "itemId": 1,
+      "onHand": true,
+      "id": 1
+    },
+    {
+      "taskId": 2,
+      "itemId": 2,
+      "onHand": false,
+      "id": 2
+    },
+    {
+      "taskId": 2,
+      "itemId": 3,
+      "onHand": false,
+      "id": 3
+    },
+    {
+      "taskId": 2,
+      "itemId": 4,
+      "onHand": false,
+      "id": 4
+    },
+    {
+      "taskId": 2,
+      "itemId": 5,
+      "onHand": false,
+      "id": 5
+    },
+    {
+      "taskId": 2,
+      "itemId": 6,
+      "onHand": false,
+      "id": 6
+    },
+    {
+      "taskId": 1,
+      "itemId": 12,
+      "onHand": true,
+      "id": 12
+    },
+    {
+      "taskId": 5,
+      "itemId": 14,
+      "onHand": false,
+      "id": 14
+    },
+    {
+      "taskId": 5,
+      "itemId": 15,
+      "onHand": false,
+      "id": 15
+    },
+    {
+      "taskId": 5,
+      "itemId": 16,
+      "onHand": false,
+      "id": 16
+    },
+    {
+      "taskId": 19,
+      "itemId": 17,
+      "onHand": false,
+      "id": 17
+    }
+  ],
+  "items": [
+    {
+      "id": 1,
+      "name": "Office Chair",
+      "description": "Ergonomic desk chair",
+      "quantity": 9,
+      "isObject": true,
+      "resourceLink": null,
+      "locationId": 8,
+      "userId": 1
+    },
+    {
+      "id": 2,
+      "name": "Warehouse Safety Manual",
+      "description": "Guidelines for warehouse safety",
+      "quantity": 1,
+      "isObject": "true",
+      "resourceLink": "https://example.com/safety-manual",
+      "locationId": 2,
+      "userId": 1
+    },
+    {
+      "id": 3,
+      "name": "Barcode Scanner",
+      "description": "Handheld scanner for inventory management.",
+      "quantity": 3,
+      "isObject": true,
+      "resourceLink": null,
+      "locationId": 2,
+      "userId": 1
+    },
+    {
+      "id": 4,
+      "name": "Stock Report Template",
+      "description": "Spreadsheet template for inventory auditing.",
+      "quantity": 1,
+      "isObject": false,
+      "resourceLink": "https://example.com/stock-report-template",
+      "locationId": 2,
+      "userId": 1
+    },
+    {
+      "id": 5,
+      "name": "Warehouse Inventory List",
+      "description": "Complete list of stored items with stock levels.",
+      "quantity": 1,
+      "isObject": false,
+      "resourceLink": "https://example.com/warehouse-inventory",
+      "locationId": 2,
+      "userId": 1
+    },
+    {
+      "id": 6,
+      "name": "Pallet Jack",
+      "description": "Equipment for moving large stacks of inventory.",
+      "quantity": 2,
+      "isObject": true,
+      "resourceLink": null,
+      "locationId": 2,
+      "userId": 1
+    },
+    {
+      "name": "Special Stuff",
+      "description": "",
+      "quantity": 0,
+      "isObject": false,
+      "resourceLink": null,
+      "locationId": 1,
+      "userId": 1,
+      "id": 12
+    },
+    {
+      "name": "Default New Item",
+      "description": "",
+      "quantity": 0,
+      "isObject": false,
+      "resourceLink": null,
+      "locationId": 1,
+      "userId": 1,
+      "id": 14
+    },
+    {
+      "name": "Default New Item",
+      "description": "",
+      "quantity": 39,
+      "isObject": false,
+      "resourceLink": null,
+      "locationId": 1,
+      "userId": 1,
+      "id": 15
+    },
+    {
+      "name": "Default New Item",
+      "description": "",
+      "quantity": 0,
+      "isObject": true,
+      "resourceLink": null,
+      "locationId": 1,
+      "userId": 1,
+      "id": 16
+    },
+    {
+      "name": "The Good Windex",
+      "description": "",
+      "quantity": 1,
+      "isObject": false,
+      "resourceLink": null,
+      "locationId": 8,
+      "userId": 3,
+      "id": 17
+    }
+  ],
+  "projectlocations": [
+    {
+      "id": 1,
+      "locationId": 1,
+      "projectId": 1
+    },
+    {
+      "id": 2,
+      "locationId": 2,
+      "projectId": 2
+    },
+    {
+      "id": 3,
+      "locationId": 3,
+      "projectId": 3
+    },
+    {
+      "id": 4,
+      "locationId": 3,
+      "projectId": 4
+    },
+    {
+      "id": 5,
+      "locationId": 4,
+      "projectId": 5
+    },
+    {
+      "id": 6,
+      "locationId": 1,
+      "projectId": 6
+    },
+    {
+      "id": 7,
+      "locationId": 1,
+      "projectId": 7
+    },
+    {
+      "locationId": 8,
+      "projectId": 8,
+      "id": 8
+    }
+  ],
+  "userprojects": [
+    {
+      "id": 1,
+      "projectId": 1,
+      "userId": 1,
+      "isOwner": true
+    },
+    {
+      "id": 2,
+      "projectId": 2,
+      "userId": 1,
+      "isOwner": true
+    },
+    {
+      "id": 3,
+      "projectId": 3,
+      "userId": 2,
+      "isOwner": true
+    },
+    {
+      "id": 4,
+      "projectId": 4,
+      "userId": 2,
+      "isOwner": true
+    },
+    {
+      "id": 5,
+      "projectId": 6,
+      "userId": 1,
+      "isOwner": true
+    },
+    {
+      "id": 6,
+      "projectId": 7,
+      "userId": 1,
+      "isOwner": true
+    },
+    {
+      "userId": 3,
+      "projectId": 8,
+      "isOwner": true,
+      "id": 7
+    },
+    {
+      "userId": 1,
+      "projectId": 5,
+      "isOwner": true,
+      "id": 9
+    },
+    {
+      "projectId": 2,
+      "userId": 3,
+      "isOwner": false,
+      "id": 11
+    },
+    {
+      "projectId": 8,
+      "userId": 2,
+      "isOwner": false,
+      "id": 13
+    },
+    {
+      "projectId": 8,
+      "userId": 1,
+      "isOwner": false,
+      "id": 14
+    }
+  ]
+}
