@@ -172,6 +172,12 @@ export default function SolarSystemView({ currentUser }) {
         );
     }, [currentUser]);
 
+    // for each project in the user's project array,
+    // return an object that matches the sampleProjects format
+
+    // get projects by user id
+    // get tasks by project id, expand project.
+    // add task objects to project objects if task object does not have dateCompleted.
     useEffect(() => {
         if (userProjectArray.length) {
             userProjectArray.map((projectObject) =>
@@ -215,13 +221,6 @@ export default function SolarSystemView({ currentUser }) {
         }
     }, [userProjectsAndTasks]);
 
-    // for each project in the user's project array,
-    // return an object that matches the sampleProjects format
-
-    //get projects by user id
-    //get tasks by project id, expand project.
-    //add task objects to project objects if task object does not have dateCompleted.
-
     const sampleProjects = [
         {
             id: 1,
@@ -231,45 +230,6 @@ export default function SolarSystemView({ currentUser }) {
                 { id: 101, name: "Create UI Design" },
                 { id: 102, name: "Implement Frontend" },
             ],
-        },
-        {
-            id: 2,
-            name: "Inventory System",
-            ageSinceTouch: 10,
-            tasks: [
-                { id: 103, name: "Database Setup" },
-                { id: 104, name: "API Development" },
-            ],
-        },
-        {
-            id: 3,
-            name: "Field Survey",
-            ageSinceTouch: 15,
-            tasks: [{ id: 105, name: "Data Collection" }],
-        },
-        {
-            id: 4,
-            name: "Resource Cataloging",
-            ageSinceTouch: 3,
-            tasks: [{ id: 106, name: "Sort Archives" }],
-        },
-        {
-            id: 5,
-            name: "Employee Onboarding",
-            ageSinceTouch: 8,
-            tasks: [{ id: 107, name: "Prepare Training Materials" }],
-        },
-        {
-            id: 6,
-            name: "Employee Onboarding",
-            ageSinceTouch: 8,
-            tasks: [{ id: 107, name: "Prepare Training Materials" }],
-        },
-        {
-            id: 7,
-            name: "Employee Onboarding",
-            ageSinceTouch: 20,
-            tasks: [{ id: 107, name: "Prepare Training Materials" }],
         },
     ];
 
