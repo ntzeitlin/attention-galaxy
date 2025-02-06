@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useLocation, useNavigate, useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import {
     deleteLocationByLocationId,
     getLocationByLocationId,
@@ -20,6 +20,22 @@ import {
 import { deleteProjectByProjectId } from "../../services/projectService";
 
 export const NewLocation = () => {
+    return (
+        <Container width="60%" m="5">
+            <Card>
+                <Heading align="center" mt="4">
+                    Edit Location
+                </Heading>
+                <Section>
+                    <LocationForm />
+                </Section>
+            </Card>
+        </Container>
+    );
+};
+
+const LocationForm = () => {
+    const navigate = useNavigate();
     const { locationId } = useParams();
     const [locationData, setLocationData] = useState({
         id: "",
@@ -30,13 +46,13 @@ export const NewLocation = () => {
         userId: "",
     });
 
-    const navigate = useNavigate();
-
     useEffect(() => {
-        getLocationByLocationId(locationId).then((data) =>
-            setLocationData(data)
-        );
-    }, []);
+        if (locationId) {
+            getLocationByLocationId(locationId).then((data) =>
+                setLocationData(data)
+            );
+        }
+    }, [locationId]);
 
     const handleSaveLocation = () => {
         updateLocationByLocationId(locationId, locationData).then(navigate(-1));
@@ -55,32 +71,6 @@ export const NewLocation = () => {
                 });
             });
     };
-
-    return (
-        <Container width="60%" m="5">
-            <Card>
-                <Heading align="center" mt="4">
-                    Edit Location
-                </Heading>
-                <Section>
-                    <LocationForm
-                        locationData={locationData}
-                        setLocationData={setLocationData}
-                        handleSaveLocation={handleSaveLocation}
-                        handleDeleteLocation={handleDeleteLocation}
-                    />
-                </Section>
-            </Card>
-        </Container>
-    );
-};
-
-const LocationForm = ({
-    locationData,
-    setLocationData,
-    handleSaveLocation,
-    handleDeleteLocation,
-}) => {
     return (
         <Flex direction="column">
             <TextField.Root
