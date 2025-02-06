@@ -70,7 +70,6 @@ export const TaskItemListCard = ({ taskId, currentUser, locationId }) => {
                 </Button>
             </Flex>
             <Section>
-                {/* <Flex direction="column" gap="3"> */}
                 <Grid columns="4" gap="4">
                     {taskItemsArray.map((itemObject) => {
                         return (
@@ -83,7 +82,6 @@ export const TaskItemListCard = ({ taskId, currentUser, locationId }) => {
                         );
                     })}
                 </Grid>
-                {/* </Flex> */}
             </Section>
         </Card>
     );

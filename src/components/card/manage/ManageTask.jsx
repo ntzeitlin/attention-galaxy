@@ -7,7 +7,6 @@ import {
 } from "../../../services/taskService";
 import { TaskItemListCard } from "../tasks/TaskItemList";
 import { getUserProjectByProjectAndUserId } from "../../../services/projectService";
-import { TaskToDoList } from "../tasks/TaskToDoList";
 
 export const ManageTask = ({ currentUser }) => {
     const { taskId } = useParams();
@@ -53,6 +52,18 @@ export const ManageTask = ({ currentUser }) => {
                         <Heading align="center" mt="4">
                             Task: {taskData?.taskName}
                         </Heading>
+                        {taskData.dateCompleted ? (
+                            <Heading
+                                align="center"
+                                as="h3"
+                                mt="3"
+                                color="green"
+                            >
+                                COMPLETED!
+                            </Heading>
+                        ) : (
+                            ""
+                        )}
                         {userProjectData?.isOwner ? (
                             <Button
                                 my="2"
@@ -96,7 +107,6 @@ export const ManageTask = ({ currentUser }) => {
                     locationId={projectLocationData.locationId}
                     currentUser={currentUser}
                 />
-                <TaskToDoList />
             </Flex>
         </Container>
     );
