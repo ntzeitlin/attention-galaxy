@@ -4,6 +4,10 @@
 
 Attention Galaxy is a React-based task and project management app that visualizes your projects as a cosmic system. Projects and Tasks are represented as celestial bodies, providing an intuitive way to track focus and productivity.
 
+## Purpose and Motivation
+
+As someone who balances multiple projects across different locations over long periods, I needed a tool that could quickly highlight neglected projects. Many of my projects require specific tools that are scattered across locations, making organization even more challenging. Attention Galaxy provides a visual approach to managing tasks, ensuring that no project drifts too far from focus. By integrating an item checklist tied to tasks, the app helps keep track of necessary tools and resources, making project management more seamless and efficient
+
 ## Features
 
 -   **Galactic Project Visualization**: See your projects as planets and uncompleted tasks as moons.
