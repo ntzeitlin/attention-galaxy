@@ -31,6 +31,21 @@ import { deleteItemByItemId } from "../../services/inventoryService";
 import { ShareProjectButton } from "./ShareProjectButton";
 
 export const NewProject = ({ currentUser }) => {
+    return (
+        <Container width="60%" m="5">
+            <Card>
+                <Heading align="center" mt="4">
+                    Edit Project
+                </Heading>
+                <Section>
+                    <ProjectForm currentUser={currentUser} />
+                </Section>
+            </Card>
+        </Container>
+    );
+};
+
+const ProjectForm = ({ currentUser }) => {
     const { projectId } = useParams();
     const { state } = useLocation();
 
@@ -105,42 +120,6 @@ export const NewProject = ({ currentUser }) => {
         setCurrentProjectLocation(event);
     };
 
-    return (
-        <Container width="60%" m="5">
-            <Card>
-                <Heading align="center" mt="4">
-                    Edit Project
-                </Heading>
-
-                <Section>
-                    <ProjectForm
-                        handleSelectLocation={handleSelectLocation}
-                        currentProjectLocation={currentProjectLocation}
-                        userLocationsArray={userLocationsArray}
-                        projectData={projectData}
-                        setProjectData={setProjectData}
-                        projectId={projectId}
-                        currentUser={currentUser}
-                        projectLocationData={projectLocationData}
-                        userProjectsData={userProjectsData}
-                    />
-                </Section>
-            </Card>
-        </Container>
-    );
-};
-
-const ProjectForm = ({
-    handleSelectLocation,
-    currentProjectLocation,
-    userLocationsArray,
-    projectData,
-    setProjectData,
-    projectId,
-    currentUser,
-    projectLocationData,
-    userProjectsData,
-}) => {
     const navigate = useNavigate();
 
     const handleSaveProject = (event) => {
