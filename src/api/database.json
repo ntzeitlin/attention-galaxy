@@ -95,7 +95,7 @@
       "name": "Website Redesign",
       "startdate": "2025-01-01",
       "enddate": "2025-03-01",
-      "ageSinceTouch": 6,
+      "ageSinceTouch": 4,
       "description": "\"Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?\"\n\n",
       "planetColor": "#1e00ff"
     },
@@ -165,6 +165,14 @@
       "dateCompleted": null,
       "projectId": 1,
       "locationId": 1
+    },
+    {
+      "id": 2,
+      "taskName": "Audit Inventory",
+      "dateCreated": "2025-01-12",
+      "dateCompleted": null,
+      "projectId": 2,
+      "locationId": 2
     },
     {
       "id": 3,
@@ -248,6 +256,14 @@
       "id": 19
     },
     {
+      "id": 20,
+      "taskName": "Task with a long description",
+      "dateCreated": "2025-02-04T21:05:35.993Z",
+      "dateCompleted": null,
+      "projectId": 2,
+      "locationId": 2
+    },
+    {
       "id": 21,
       "taskName": "Default Task Name",
       "dateCreated": "2025-02-06T15:31:57.446Z",
@@ -262,6 +278,36 @@
       "itemId": 1,
       "onHand": false,
       "id": 1
+    },
+    {
+      "taskId": 2,
+      "itemId": 2,
+      "onHand": false,
+      "id": 2
+    },
+    {
+      "taskId": 2,
+      "itemId": 3,
+      "onHand": false,
+      "id": 3
+    },
+    {
+      "taskId": 2,
+      "itemId": 4,
+      "onHand": false,
+      "id": 4
+    },
+    {
+      "taskId": 2,
+      "itemId": 5,
+      "onHand": false,
+      "id": 5
+    },
+    {
+      "taskId": 2,
+      "itemId": 6,
+      "onHand": false,
+      "id": 6
     },
     {
       "taskId": 1,
@@ -292,16 +338,6 @@
       "itemId": 17,
       "onHand": false,
       "id": 17
-    },
-    {
-      "taskId": 21,
-      "itemId": 18,
-      "id": 18
-    },
-    {
-      "taskId": 21,
-      "itemId": 19,
-      "id": 19
     }
   ],
   "items": [
@@ -414,26 +450,6 @@
       "locationId": 8,
       "userId": 3,
       "id": 17
-    },
-    {
-      "name": "Default New Item",
-      "description": "",
-      "quantity": 0,
-      "isObject": false,
-      "resourceLink": null,
-      "locationId": 2,
-      "userId": 1,
-      "id": 18
-    },
-    {
-      "name": "Changing item name",
-      "description": "",
-      "quantity": 0,
-      "isObject": false,
-      "resourceLink": null,
-      "locationId": 2,
-      "userId": 1,
-      "id": 19
     }
   ],
   "locationlocations": [
