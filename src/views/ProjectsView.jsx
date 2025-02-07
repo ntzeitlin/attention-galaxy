@@ -1,15 +1,16 @@
 import {
+    Box,
     Card,
     Container,
     Flex,
     Grid,
     Heading,
     Section,
-    Text,
+    Spinner,
 } from "@radix-ui/themes";
 import { useEffect, useState } from "react";
 import { getLocationsByUserId } from "../services/locationService";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import {
     createNewProject,
     createProjectLocation,
@@ -17,20 +18,22 @@ import {
     getSharedUserProjectArrayByUserId,
 } from "../services/projectService";
 import { ProjectLocationList } from "../components/projectsview/ProjectLocationList";
-import { getUserDataByUserId } from "../services/userService";
 import { SharedProjectCard } from "../components/projectsview/SharedProjectCard";
 
 export const ProjectListView = ({ currentUser }) => {
     const navigate = useNavigate();
+
+    const [loading, setLoading] = useState(true);
 
     const [locationArray, setLocationArray] = useState([]);
 
     const [userProjectsArray, setUserProjectsArray] = useState([]);
 
     useEffect(() => {
-        getLocationsByUserId(currentUser.id).then((data) =>
-            setLocationArray(data)
-        );
+        getLocationsByUserId(currentUser.id).then((data) => {
+            setLocationArray(data);
+            setLoading(false);
+        });
 
         getSharedUserProjectArrayByUserId(currentUser.id).then((data) =>
             setUserProjectsArray(data)
@@ -64,10 +67,21 @@ export const ProjectListView = ({ currentUser }) => {
             <Flex direction="column">
                 <Section>
                     <Heading align="center">Location Projects</Heading>
-                    <ProjectLocationList
-                        locationArray={locationArray}
-                        handleNewProject={handleNewProject}
-                    />
+                    {loading ? (
+                        <Section>
+                            <Flex align="center" justify="center">
+                                <Box mr="3">
+                                    <Spinner size="3" />
+                                </Box>
+                                <Heading>Loading...</Heading>
+                            </Flex>
+                        </Section>
+                    ) : (
+                        <ProjectLocationList
+                            locationArray={locationArray}
+                            handleNewProject={handleNewProject}
+                        />
+                    )}
                 </Section>
                 {userProjectsArray.length ? (
                     <Section mt="-5">

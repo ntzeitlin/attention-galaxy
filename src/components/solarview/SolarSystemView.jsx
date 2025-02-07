@@ -36,9 +36,9 @@ const OrbitalPath = ({ distance }) => {
 };
 
 const TaskMoon = ({ task, planetPosition, index }) => {
-    const distance = 2 + index * 0.5;
-    const angleSpeed = 0.005;
-    const [angle, setAngle] = useState(Math.random() * Math.PI * 2);
+    const distance = 2 + index * 0.5; // distance from center of planet
+    const angleSpeed = 0.005; // orbital speed of moon around planet.
+    const [angle, setAngle] = useState(Math.random() * Math.PI * 2); // initialize moon at random angle
 
     useFrame(() => {
         setAngle((prev) => prev + angleSpeed);
@@ -104,7 +104,7 @@ const SolarSystem = ({ projects, setSelectedProject }) => {
             camera={{ position: [0, 50, 0], rotation: [Math.PI / -2, 0, 0] }}
             style={{ background: "none" }}
         >
-            <ambientLight intensity={0.6} />
+            <ambientLight intensity={0.8} />
             <pointLight position={[0, 10, 0]} intensity={80} />
             <OrbitControls enableRotate={true} enableZoom={false} />
 
