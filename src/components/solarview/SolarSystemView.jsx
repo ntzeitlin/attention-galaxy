@@ -41,7 +41,7 @@ const TaskMoon = ({ task, planetPosition, index }) => {
     const [angle, setAngle] = useState(Math.random() * Math.PI * 2); // initialize moon at random angle
 
     useFrame(() => {
-        setAngle((prev) => prev + angleSpeed);
+        setAngle((prev) => prev + angleSpeed); // increments angle to create motion over time
     });
 
     const position = [

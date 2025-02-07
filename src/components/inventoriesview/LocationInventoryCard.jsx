@@ -11,16 +11,6 @@ export const LocationInventoryCard = ({ locationObject, currentUser }) => {
                         {locationObject.name}
                     </Link>
                 </Text>
-                {/* <Button
-                    m="2"
-                    size="1"
-                    color="purple"
-                    onClick={() => {
-                        window.alert("Work on Add Item");
-                    }}
-                >
-                    Add Item
-                </Button> */}
             </Flex>
             <ScrollArea
                 type="always"
