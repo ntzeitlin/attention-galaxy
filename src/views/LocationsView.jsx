@@ -15,12 +15,22 @@ import {
     createNewLocationByUserId,
     getLocationsByUserId,
 } from "../services/locationService";
-import { Box, Button, Container, Heading, Section } from "@radix-ui/themes";
+import {
+    Box,
+    Button,
+    Container,
+    Flex,
+    Heading,
+    Section,
+    Spinner,
+} from "@radix-ui/themes";
 import { useNavigate } from "react-router-dom";
 import { LocationList } from "../components/locationsview/LocationList";
 
 export const LocationListView = ({ currentUser }) => {
     const [locationArray, setLocationArray] = useState([]);
+    const [loading, setLoading] = useState(true);
+
     const navigate = useNavigate();
 
     useEffect(() => {
@@ -28,7 +38,10 @@ export const LocationListView = ({ currentUser }) => {
     }, [currentUser]);
 
     const fetchAndSetLocations = (userId) => {
-        getLocationsByUserId(userId).then((data) => setLocationArray(data));
+        getLocationsByUserId(userId).then((data) => {
+            setLocationArray(data);
+            setLoading(false);
+        });
     };
 
     const handleAddLocation = () => {
@@ -55,7 +68,18 @@ export const LocationListView = ({ currentUser }) => {
                 </Button>
             </Box>
             <Section>
-                <LocationList locationArray={locationArray} />
+                {loading ? (
+                    <Section mt="9">
+                        <Flex align="center" justify="center">
+                            <Box mr="3">
+                                <Spinner size="3" />
+                            </Box>
+                            <Heading size="8">Loading...</Heading>
+                        </Flex>
+                    </Section>
+                ) : (
+                    <LocationList locationArray={locationArray} />
+                )}
             </Section>
         </Container>
     );
