@@ -9,7 +9,15 @@ import {
     getProjectsByUserId,
 } from "../../services/projectService";
 import { Link } from "react-router-dom";
-import { Box, Flex, Heading, Section, Spinner } from "@radix-ui/themes";
+import {
+    Box,
+    Container,
+    Flex,
+    Heading,
+    Progress,
+    Section,
+    Spinner,
+} from "@radix-ui/themes";
 
 const OrbitalPath = ({ distance }) => {
     const points = [];
@@ -214,7 +222,8 @@ export default function SolarSystemView({ currentUser }) {
                         ]);
                     })
             );
-            setLoading(false);
+            setTimeout(stopLoading, 3500);
+            // setLoading(false);
         }
     }, [userProjectArray]);
 
@@ -223,6 +232,10 @@ export default function SolarSystemView({ currentUser }) {
             setFinalPlanets(userProjectsAndTasks);
         }
     }, [userProjectsAndTasks]);
+
+    const stopLoading = () => {
+        setLoading(false);
+    };
 
     const sampleProjects = [
         {
@@ -252,12 +265,15 @@ export default function SolarSystemView({ currentUser }) {
             )}
             {loading ? (
                 <Section mt="9">
-                    <Flex align="center" justify="center">
-                        <Box mr="3">
-                            <Spinner size="3" />
-                        </Box>
-                        <Heading size="8">Loading...</Heading>
-                    </Flex>
+                    <Container mt="9" maxWidth="40%">
+                        <Flex align="center" justify="center">
+                            <Box mr="3">{/* <Spinner size="3" /> */}</Box>
+                            <Heading size="8" mr="2">
+                                Loading...
+                            </Heading>
+                            <Progress duration="4s" />
+                        </Flex>
+                    </Container>
                 </Section>
             ) : (
                 <SolarSystem
