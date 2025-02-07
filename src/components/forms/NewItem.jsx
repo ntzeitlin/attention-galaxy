@@ -22,14 +22,7 @@ import { getLocationsByUserId } from "../../services/locationService";
 
 export const NewItem = ({ currentUser }) => {
     const { itemId } = useParams();
-    const [taskData, setTaskData] = useState({
-        taskName: "",
-        dateCreated: "",
-        dateCompleted: "",
-        projectId: "",
-        locationId: "",
-        id: "",
-    });
+
     const [userLocations, setUserLocations] = useState([]);
     const navigate = useNavigate();
 
@@ -47,7 +40,6 @@ export const NewItem = ({ currentUser }) => {
     useEffect(() => {
         getItemDataByItemId(itemId).then((data) => {
             setItemData(data.item);
-            setTaskData(data.task);
         });
     }, [itemId]);
 

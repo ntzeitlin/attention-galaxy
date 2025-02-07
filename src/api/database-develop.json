@@ -271,14 +271,6 @@
       "dateCompleted": null,
       "projectId": 2,
       "locationId": 2
-    },
-    {
-      "id": 21,
-      "taskName": "Default Task Name",
-      "dateCreated": "2025-02-06T15:31:57.446Z",
-      "dateCompleted": null,
-      "projectId": 2,
-      "locationId": 2
     }
   ],
   "taskitems": [
