@@ -65,8 +65,10 @@ export const ProjectListView = ({ currentUser }) => {
     return (
         <Container>
             <Flex direction="column">
+                <Heading align="center" mt="8" mb="-5">
+                    Location Projects
+                </Heading>
                 <Section>
-                    <Heading align="center">Location Projects</Heading>
                     {loading ? (
                         <Section>
                             <Flex align="center" justify="center">
