@@ -222,8 +222,8 @@ export default function SolarSystemView({ currentUser }) {
                         ]);
                     })
             );
-            setTimeout(stopLoading, 3500);
-            // setLoading(false);
+            // setTimeout(stopLoading, 3500);
+            setLoading(false);
         }
     }, [userProjectArray]);
 
@@ -267,11 +267,13 @@ export default function SolarSystemView({ currentUser }) {
                 <Section mt="9">
                     <Container mt="9" maxWidth="40%">
                         <Flex align="center" justify="center">
-                            {/* <Box mr="3"><Spinner size="3" /></Box> */}
+                            <Box mr="3">
+                                <Spinner size="3" />
+                            </Box>
                             <Heading size="8" mr="2">
                                 Launching 🚀
                             </Heading>
-                            <Progress duration="4s" />
+                            {/* <Progress duration="4s" /> */}
                         </Flex>
                     </Container>
                 </Section>
