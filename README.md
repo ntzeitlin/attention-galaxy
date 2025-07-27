@@ -73,4 +73,4 @@ https://github.com/user-attachments/assets/c13a1c0b-0376-45c0-982e-1be3b750c6d8
 
 ## Future Enhancements
 
--   Subtasks
+-   Currently being rewritten as a full-stack app in Next.js, Typescript and Tailwind, with Supabase as the DB. Stay tuned.
